@@ -229,74 +229,91 @@
             </section>
         </main>
 
-        <footer class="bg-white border-t border-slate-200 py-16" id="contact">
-            <div class="mx-auto max-w-[1280px] px-4 lg:px-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
-                <div class="flex flex-col gap-6">
-                    <div class="flex items-center gap-4 text-primary">
-                        <div class="size-8">
-                            <svg fill="none" viewbox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
-                                <path
-                                    d="M42.4379 44C42.4379 44 36.0744 33.9038 41.1692 24C46.8624 12.9336 42.2078 4 42.2078 4L7.01134 4C7.01134 4 11.6577 12.932 5.96912 23.9969C0.876273 33.9029 7.27094 44 7.27094 44L42.4379 44Z"
-                                    fill="currentColor"></path>
-                            </svg>
-                        </div>
-                        <h2 class="text-slate-heading text-xl font-bold leading-tight">IKNET</h2>
-                    </div>
-                    <p class="text-slate-body text-sm leading-relaxed">
-                        İnsan kaynakları yönetiminde dijital dönüşümün öncüsü. Modern, hızlı ve kullanıcı dostu HR
-                        çözümleri.
-                    </p>
-                </div>
-                <div class="flex flex-col gap-4">
-                    <h4 class="text-slate-heading font-bold">Hızlı Bağlantılar</h4>
-                    <nav class="flex flex-col gap-3">
-                        <a class="text-slate-body hover:text-primary transition-colors text-sm" href="#">Özellikler</a>
-                        <a class="text-slate-body hover:text-primary transition-colors text-sm" href="#">Kullanım
-                            Kılavuzu</a>
-                        <a class="text-slate-body hover:text-primary transition-colors text-sm"
-                            href="#">Fiyatlandırma</a>
-                        <a class="text-slate-body hover:text-primary transition-colors text-sm" href="#">Blog</a>
-                    </nav>
-                </div>
-                <div class="flex flex-col gap-4">
-                    <h4 class="text-slate-heading font-bold">İletişim</h4>
-                    <div class="flex flex-col gap-3">
-                        <a class="text-slate-body hover:text-primary flex items-center gap-2 text-sm"
-                            href="tel:+905325487264">
-                            <span class="material-symbols-outlined text-base">call</span>
-                            +90 532 548 72 64
-                        </a>
-                        <a class="text-slate-body hover:text-primary flex items-center gap-2 text-sm"
-                            href="mailto:info@iknet.com">
-                            <span class="material-symbols-outlined text-base">mail</span>
-                            info@iknet.com
-                        </a>
-                        <div class="text-slate-body flex items-start gap-2 text-sm">
-                            <span class="material-symbols-outlined text-base shrink-0">location_on</span>
-                            <span>İstanbul, Türkiye</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="flex flex-col gap-4">
-                    <h4 class="text-slate-heading font-bold">Godeva Teknoloji</h4>
-                    <p class="text-slate-body text-sm">
-                        Yazılım çözümlerimiz hakkında daha fazla bilgi için web sitemizi ziyaret edin.
-                    </p>
-                    <a class="text-primary font-bold hover:underline" href="https://godeva.com.tr"
-                        target="_blank">godeva.com.tr</a>
-                </div>
-            </div>
-            <div
-                class="mx-auto max-w-[1280px] px-4 lg:px-10 mt-16 pt-8 border-t border-slate-100 flex flex-col md:flex-row justify-between items-center gap-4">
-                <p class="text-slate-body text-xs text-center">© 2024 IKNET İnsan Kaynakları. Tüm hakları saklıdır.</p>
-                <div class="flex gap-6">
-                    <a class="text-slate-body hover:text-primary text-xs" href="#">Kullanım Koşulları</a>
-                    <a class="text-slate-body hover:text-primary text-xs" href="#">KVKK</a>
-                    <a class="text-slate-body hover:text-primary text-xs" href="#">Gizlilik Politikası</a>
-                </div>
-            </div>
+        <!-- Arka Plan Glow Efekti -->
+  <div class="absolute top-0 left-1/3 w-96 h-96 bg-blue-600/20 blur-[120px] rounded-full"></div>
+  <div class="absolute bottom-0 right-1/3 w-96 h-96 bg-purple-600/20 blur-[120px] rounded-full"></div>
 
-        </footer>
+  <div class="relative max-w-[1280px] mx-auto px-6">
+
+    <!-- ÜST KISIM -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12">
+
+      <!-- LOGO & İLETİŞİM -->
+      <div class="lg:col-span-2">
+        <h2 class="text-3xl font-black text-white tracking-wide">IKNET</h2>
+        <p class="mt-4 text-gray-400 max-w-md">
+          İnsan Kaynakları yönetimini dijitalleştiren yeni nesil SaaS platformu.  
+          Modern, hızlı ve güvenli çözümler.
+        </p>
+
+        <div class="mt-6 space-y-2 text-sm">
+          <p>📍 Konya Teknokent, Türkiye</p>
+          <p>📞 <a href="tel:+905325487264" class="hover:text-blue-400">+90 532 548 72 64</a></p>
+          <p>✉️ <a href="mailto:info@iknet.com" class="hover:text-blue-400">info@iknet.com</a></p>
+        </div>
+      </div>
+
+      <!-- ÜRÜNLER -->
+      <div>
+        <h3 class="text-white font-bold mb-4">Ürünler</h3>
+        <ul class="space-y-2 text-sm">
+          <li><a class="hover:text-white" href="#">Personel Takip</a></li>
+          <li><a class="hover:text-white" href="#">Bordro Sistemi</a></li>
+          <li><a class="hover:text-white" href="#">Mobil Uygulama</a></li>
+          <li><a class="hover:text-white" href="#">Raporlama Paneli</a></li>
+        </ul>
+      </div>
+
+      <!-- KURUMSAL -->
+      <div>
+        <h3 class="text-white font-bold mb-4">Kurumsal</h3>
+        <ul class="space-y-2 text-sm">
+          <li><a class="hover:text-white" href="#">Hakkımızda</a></li>
+          <li><a class="hover:text-white" href="#">Referanslar</a></li>
+          <li><a class="hover:text-white" href="#">Kariyer</a></li>
+          <li><a class="hover:text-white" href="#">İletişim</a></li>
+        </ul>
+      </div>
+
+      <!-- DESTEK -->
+      <div>
+        <h3 class="text-white font-bold mb-4">Destek</h3>
+        <ul class="space-y-2 text-sm">
+          <li><a class="hover:text-white" href="#">Dokümantasyon</a></li>
+          <li><a class="hover:text-white" href="#">Sıkça Sorulan Sorular</a></li>
+          <li><a class="hover:text-white" href="#">Blog</a></li>
+          <li><a class="hover:text-white" href="#">Canlı Destek</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- ALT BÖLÜM -->
+    <div class="mt-16 border-t border-gray-800 pt-8 flex flex-col md:flex-row items-center justify-between gap-6">
+
+      <!-- Copyright -->
+      <p class="text-sm text-gray-500">
+        © 2026 IKNET Yazılım. Tüm hakları saklıdır.
+      </p>
+
+      <!-- Sosyal Medya -->
+      <div class="flex gap-4">
+        <a href="#" class="w-10 h-10 flex items-center justify-center rounded-xl bg-gray-800 hover:bg-blue-600 transition">
+          <i class="fa-brands fa-linkedin"></i>
+        </a>
+        <a href="#" class="w-10 h-10 flex items-center justify-center rounded-xl bg-gray-800 hover:bg-pink-600 transition">
+          <i class="fa-brands fa-instagram"></i>
+        </a>
+        <a href="#" class="w-10 h-10 flex items-center justify-center rounded-xl bg-gray-800 hover:bg-red-600 transition">
+          <i class="fa-brands fa-youtube"></i>
+        </a>
+        <a href="#" class="w-10 h-10 flex items-center justify-center rounded-xl bg-gray-800 hover:bg-green-600 transition">
+          <i class="fa-brands fa-whatsapp"></i>
+        </a>
+      </div>
+    </div>
+
+  </div>
+</footer>
     </div>
 </body>
 
