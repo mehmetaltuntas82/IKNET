@@ -12,6 +12,7 @@
   50% { opacity: 0; }
   100% { opacity: 1; }
 }
+
 @keyframes fadeUp {
   from {
     opacity: 0;
@@ -48,6 +49,10 @@
 
 .animate-fade-up {
   animation: fadeUp 1s ease forwards;
+}
+
+.animate-fade-down {
+  animation: fadeDown 1s ease forwards;
 }
 
 .animate-fade-right {
