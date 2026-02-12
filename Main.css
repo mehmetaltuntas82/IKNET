@@ -23,7 +23,7 @@
   }
 }
 
-@keyframes fadeDown {
+@keyframes fadedown {
      from {
     opacity: 1;
     transform: translateY(40px);
@@ -54,7 +54,7 @@
   animation: fadeRight 1.2s ease forwards;
 }
 
-/* Gecikme */
+
 .delay-200 { animation-delay: .2s; }
 .delay-400 { animation-delay: .4s; }
 .delay-600 { animation-delay: .6s; }
