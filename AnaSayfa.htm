@@ -41,32 +41,7 @@
 <body class="bg-background-light dark:bg-background-dark text-slate-heading">
 <div class="relative flex min-h-screen flex-col overflow-x-hidden">
 <!-- Top Navigation -->
-<header class="sticky top-0 z-50 w-full border-b border-solid border-[#e7ecf3] bg-white/80 backdrop-blur-md px-4 lg:px-40 py-3">
-<div class="mx-auto flex max-w-[1280px] items-center justify-between whitespace-nowrap">
-<div class="flex items-center gap-4 text-primary">
-<div class="size-8">
-<svg fill="none" viewbox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
-<path d="M42.4379 44C42.4379 44 36.0744 33.9038 41.1692 24C46.8624 12.9336 42.2078 4 42.2078 4L7.01134 4C7.01134 4 11.6577 12.932 5.96912 23.9969C0.876273 33.9029 7.27094 44 7.27094 44L42.4379 44Z" fill="currentColor"></path>
-</svg>
-</div>
-<h2 class="text-slate-heading text-xl font-bold leading-tight tracking-tight">IKNET</h2>
-</div>
-<div class="hidden lg:flex flex-1 justify-end gap-8 items-center">
-<nav class="flex items-center gap-9">
-<a class="text-slate-heading text-sm font-medium hover:text-primary transition-colors" href="#features">Özellikler</a>
-<a class="text-slate-heading text-sm font-medium hover:text-primary transition-colors" href="#modules">Modüller</a>
-<a class="text-slate-heading text-sm font-medium hover:text-primary transition-colors" href="#pricing">Fiyatlandırma</a>
-<a class="text-slate-heading text-sm font-medium hover:text-primary transition-colors" href="#contact">İletişim</a>
-</nav>
-<button class="flex min-w-[120px] cursor-pointer items-center justify-center rounded-lg h-10 px-4 bg-primary text-white text-sm font-bold shadow-lg shadow-primary/20 hover:bg-primary/90 transition-all">
-<span>Ücretsiz Dene</span>
-</button>
-</div>
-<button class="lg:hidden text-slate-heading">
-<span class="material-symbols-outlined">menu</span>
-</button>
-</div>
-</header>
+<div id="UpMenu"></div>
 <main class="flex-1">
 <!-- Hero Section -->
 <section class="mx-auto max-w-[1280px] px-4 lg:px-10 py-12 lg:py-20">
@@ -93,6 +68,7 @@
 <div class="absolute -inset-4 bg-primary/10 rounded-full blur-3xl opacity-50"></div>
 <img alt="IKNET Mobile Application Hero View" class="relative w-full h-auto rounded-3xl shadow-2xl z-10" data-alt="IKNET mobile app screens showing HR interface on a smartphone" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDwsKbChNIVC0OmrE2gnm5iDvtzNtQO_4S9e3dldBxIDHIpFsK4TL1-fnDbsFcgLhErwNjSiE6AR_hmOHHElgLJ2JYlXEe2ogTj3balt4ZyaI8cTDArtaQvyv7QoJREREWxmqisOy-FtKWve08tJyaAzTlUTPCHjORaiVJ-o2N7ZN3bByq3ouTTIlaTYoE5BxVQC9GCald7ZshtDuSE2bDttfE1fBdk8c3HZn5-Tq1LxdIJ4IGuFMXnaUDL4jN3McJpnD5_OpH9Jg"/>
 </div>
+
 </div>
 </section>
 <!-- Feature Showcase with Mobile Views -->
@@ -196,7 +172,6 @@
 </div>
 </div>
 </section>
-<!-- Ready to start CTA -->
 <section class="py-20 bg-primary">
 <div class="mx-auto max-w-[1280px] px-4 lg:px-10 text-center text-white">
 <h2 class="text-3xl lg:text-5xl font-bold mb-6">İK Süreçlerinizi Bugün Dönüştürün</h2>
@@ -209,7 +184,7 @@
 </div>
 </section>
 </main>
-<!-- Footer -->
+
 <footer class="bg-white border-t border-slate-200 py-16" id="contact">
 <div class="mx-auto max-w-[1280px] px-4 lg:px-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
 <div class="flex flex-col gap-6">
@@ -267,6 +242,8 @@
 <a class="text-slate-body hover:text-primary text-xs" href="#">Gizlilik Politikası</a>
 </div>
 </div>
+
 </footer>
 </div>
 </body></html>
+<script src="MenuLoader.js"></script>
