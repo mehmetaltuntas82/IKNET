@@ -1,163 +1,149 @@
 <!DOCTYPE html>
-
-<html class="scroll-smooth" lang="tr">
-
+<html lang="tr" class="scroll-smooth">
 <head>
     <meta charset="utf-8" />
-    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Hakkımızda | Modern Kurumsal</title>
-    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&amp;display=swap"
-        rel="stylesheet" />
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet" />
-    <link
-        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
-        rel="stylesheet" />
-    <script
-        id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { colors: { primary: "#010101", "background-light": "#f7f7f7", "background-dark": "#191919" }, fontFamily: { display: "Inter" }, borderRadius: { DEFAULT: "0.25rem", lg: "0.5rem", xl: "0.75rem", full: "9999px" } } } };</script>
-    <style>
-        body {
-            font-family: 'Plus Jakarta Sans', sans-serif;
-        }
 
-        .timeline-line::before {
-            content: '';
-            position: absolute;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 1px;
-            height: 100%;
-            background-color: #141414;
-            opacity: 0.1;
-            z-index: 0;
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&amp;display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.1/css/all.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Baloo+Bhaijaan+2&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"rel="stylesheet" />  
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" />
+<link rel="stylesheet" href="Main.css">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+
+    <script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        primary: "#010101",
+                        "background-light": "#f7f7f7",
+                        "background-dark": "#191919"
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
         }
-    </style>
+    </script>
 </head>
 
-<body class="bg-background-light dark:bg-background-dark text-primary dark:text-white transition-colors duration-300">
-    <!-- Navigation -->
-           <div id="Header"></div>
-<div class="container mx-auto px-4">
+<body class="bg-background-light dark:bg-background-dark text-primary dark:text-white transition-colors duration-300 font-sans">
 
+<!-- Header -->
+<div id="Header"></div>
 
+<!-- HERO -->
+<section class="relative min-h-[70vh] flex items-center bg-white dark:bg-background-dark">
+    <div class="max-w-7xl mx-auto px-6 py-24 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
 
-    <!-- Hero Section -->
-    <section class="relative h-[50vh] flex items-center overflow-hidden bg-white dark:bg-background-dark">
-        <div class="relative mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <div class="z-10">
-                <span
-                    class="inline-block px-4 py-1.5 bg-primary/5 rounded-full text-xs font-bold uppercase tracking-widest mt-16 mb-6">Biz Kimiz?</span>
-                <h1 class="text-6xl lg:text-8xl font-extrabold leading-[1.1] mb-8 tracking-tighter">
-                    Geleceği <span class="text-primary/30">Birlikte</span> İnşa Ediyoruz.
-                </h1>
-                <p class="text-lg text-primary/70 dark:text-white/70 max-w-lg mb-1 leading-relaxed">
-                    Yenilikçi yaklaşımlarımız ve tutkulu ekibimizle, iş dünyasının dijital dönüşümüne öncülük ediyoruz.
-                    On yılı aşkın tecrübemizle değer yaratıyoruz.
+        <div>
+            <span class="inline-block text-md lg:text-xl px-4 py-1.5 bg-primary/5 rounded-full text-xs font-bold uppercase tracking-widest mb-6">
+                Biz Kimiz?
+            </span>
+
+            <h1 class="text-5xl lg:text-6xl font-extrabold leading-tight  mb-8">
+                Geleceği <span class="text-[#1C74E9]">Birlikte</span> İnşa Ediyoruz.
+            </h1>
+
+            <p class="text-lg text-primary/70 dark:text-white/70 max-w-xl leading-relaxed">
+                Yenilikçi yaklaşımlarımız ve tutkulu ekibimizle, iş dünyasının dijital dönüşümüne öncülük ediyoruz.
+                On beş yılı aşkın tecrübemizle değer yaratıyoruz.
+            </p>
+        </div>
+
+        <div class="relative  lg:block ">
+            <img src="TemplateImage/devaeskiofisfoto.jpg"
+                 alt="Modern Office Team"
+                 class="w-full h-[500px] object-cover rounded-2xl shadow-2xl">
+
+            <div class="absolute -bottom-10 -left-10 bg-white dark:bg-primary p-8 rounded-xl shadow-xl max-w-xs">
+                <div class="text-4xl font-black mb-2">15+</div>
+                <div class="text-sm font-medium opacity-60 uppercase tracking-widest">
+                    Yıllık Sektörel Deneyim ve Güven
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<!-- Hakkımızda -->
+<section class="py-24 bg-white dark:bg-background-dark">
+    <div class="max-w-7xl mx-auto px-6">
+
+        <div class="text-center mb-20">
+            <h2 class="text-4xl font-extrabold mb-6">Hakkımızda</h2>
+
+            <p class="text-primary/70 dark:text-white/70 max-w-5xl mx-auto text-lg leading-relaxed">
+               Deva Yazılım olarak, 15 yılı aşkın sektör tecrübemiz ve uzman ekibimizle, işletmelerin dijital dönüşüm süreçlerine profesyonel çözümler sunuyoruz. Teknolojinin hızla değişen dinamiklerine ayak uydurarak, firmaların özel ihtiyaçlarına yönelik modern, güvenilir ve sürdürülebilir yazılım sistemleri geliştiriyoruz. Konya merkezli bir firma olmamıza rağmen, yalnızca Türkiye’de değil, dünyanın farklı coğrafyalarında da yazılım çözümleri sunarak global ölçekte faaliyet göstermekteyiz. Ürün yelpazemizde; ön muhasebe yazılımları, sektörel ERP sistemleri, iş takip yazılımları, ERP + TMS çözümleri, B2B e-ticaret platformları, satış odaklı CRM sistemleri, içerik yönetim sistemleri (CMS), görev ve iş süreci yönetimi (HRM), üretim kaynak planlama (MRP), sulama takip otomasyonları, LMS ve saha personel takip sistemleri yer almaktadır. Aynı zamanda BPM tabanlı özel çözümlerle iş akışlarını dijitalleştiriyoruz.
+            </p>
+        </div>
+            <div class="text-4xl font-extrabold mb-16 mt-16">
+                        <h3>Temel İlkelerimiz</h3>
+
+            </div>
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+            <div class="p-10 rounded-xl bg-background-light dark:bg-primary/20 hover:bg-primary/70 hover:text-white transition-all duration-300">
+                <div class="w-16 h-16 bg-primary/10 rounded-lg flex items-center justify-center mb-8">
+                    <span class="material-icons-outlined text-3xl"><i class="fa-regular fa-lightbulb"></i></span>
+                </div>
+                <h3 class="text-2xl font-bold mb-4">İnovasyon</h3>
+                <p class="opacity-70 leading-relaxed">
+                    Her zaman daha iyisini arar, kalıpların dışına çıkarak müşterilerimiz için yaratıcı çözümler üretiriz.
                 </p>
-                
             </div>
             
-        </div>
-    </section>
-   <section class="relative h-[80vh] flex items-center overflow-hidden bg-white dark:bg-background-dark">
-        <div class=" mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-        <div class="relative h-[600px] w-full hidden lg:block">
-                <img alt="Modern Office Team" class="w-full h-full object-cover rounded-2xl shadow-2xl"
-                    data-alt="Professional corporate team working in a bright modern office space"
-                    src="TemplateImage/devaeskiofisfoto.jpg" />
-                <div class="absolute -bottom-10 -left-10 bg-white dark:bg-primary p-8 rounded-xl shadow-xl max-w-xs">
-                    <div class="text-4xl font-black mb-2">15+</div>
-                    <div class="text-sm font-medium opacity-60 uppercase tracking-widest">Yıllık Sektörel Deneyim ve
-                        Güven</div>
+            <div class="p-10 rounded-xl bg-background-light dark:bg-primary/20 hover:bg-primary/70 hover:text-white transition-all duration-300">
+                <div class="w-16 h-16 bg-primary/10 rounded-lg flex items-center justify-center mb-8">
+                    <span class="material-icons-outlined text-3xl"><i class="fa-regular fa-user"></i>
+</span>
                 </div>
-            </div>
-        </div>
-    </section>
-</div>
-    <!-- Our Values -->
-    <section class="py-24 bg-white dark:bg-background-dark">
-        <div class="max-w-7xl mx-auto px-6">
-            <div class="text-center mb-20">
-                <h2 class="text-4xl font-extrabold tracking-tight mb-4">Değerlerimiz</h2>
-                <p class="text-primary/70 mt-5 text-bold dark:text-white/60 max-w-full text-lg mx-auto">
-                    Deva Yazılım olarak, 15 yılı aşkın sektör tecrübemiz ve uzman ekibimizle, işletmelerin dijital dönüşüm süreçlerine profesyonel çözümler sunuyoruz. Teknolojinin hızla değişen dinamiklerine ayak uydurarak, firmaların özel ihtiyaçlarına yönelik modern, güvenilir ve sürdürülebilir yazılım sistemleri geliştiriyoruz. Konya merkezli bir firma olmamıza rağmen, yalnızca Türkiye’de değil, dünyanın farklı coğrafyalarında da yazılım çözümleri sunarak global ölçekte faaliyet göstermekteyiz. Ürün yelpazemizde; ön muhasebe yazılımları, sektörel ERP sistemleri, iş takip yazılımları, ERP + TMS çözümleri, B2B e-ticaret platformları, satış odaklı CRM sistemleri, içerik yönetim sistemleri (CMS), görev ve iş süreci yönetimi (HRM), üretim kaynak planlama (MRP), sulama takip otomasyonları, LMS ve saha personel takip sistemleri yer almaktadır. Aynı zamanda BPM tabanlı özel çözümlerle iş akışlarını dijitalleştiriyoruz.
+                <h3 class="text-2xl font-bold mb-4">Kullanıcı Dostu</h3>
+                <p class="opacity-70 leading-relaxed">
+                    Her zaman daha iyisini arar, kalıpların dışına çıkarak müşterilerimiz için yaratıcı çözümler üretiriz.
                 </p>
             </div>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <!-- Value Card 1 -->
-                <div
-                    class="p-10 rounded-xl bg-background-light dark:bg-primary/20 group hover:bg-primary hover:text-white transition-all duration-300">
-                    <div
-                        class="w-16 h-16 bg-primary/10 rounded-lg flex items-center justify-center mb-8 group-hover:bg-white/20">
-                        <span class="material-icons-outlined text-3xl">lightbulb</span>
-                    </div>
-                    <h3 class="text-2xl font-bold mb-4">İnovasyon</h3>
-                    <p class="opacity-70 leading-relaxed">
-                        Her zaman daha iyisini arar, kalıpların dışına çıkarak müşterilerimiz için yaratıcı çözümler
-                        üretiriz.
-                    </p>
+            <div class="p-10 rounded-xl bg-background-light dark:bg-primary/20 hover:bg-primary/70 hover:text-white transition-all duration-300">
+                <div class="w-16 h-16 bg-primary/10 rounded-lg flex items-center justify-center mb-8">
+                    <span class="material-icons-outlined text-3xl"><i class="fa-regular fa-money-bill-1"></i>
+</span>
                 </div>
-                <!-- Value Card 2 -->
-                <div
-                    class="p-10 rounded-xl bg-background-light dark:bg-primary/20 group hover:bg-primary hover:text-white transition-all duration-300">
-                    <div
-                        class="w-16 h-16 bg-primary/10 rounded-lg flex items-center justify-center mb-8 group-hover:bg-white/20">
-                        <span class="material-icons-outlined text-3xl">verified_user</span>
-                    </div>
-                    <h3 class="text-2xl font-bold mb-4">Güven</h3>
-                    <p class="opacity-70 leading-relaxed">
-                        Şeffaf iletişim ve dürüstlük prensibiyle tüm paydaşlarımızla uzun vadeli, güvene dayalı
-                        ilişkiler kurarız.
-                    </p>
-                </div>
-                <!-- Value Card 3 -->
-                <div
-                    class="p-10 rounded-xl bg-background-light dark:bg-primary/20 group hover:bg-primary hover:text-white transition-all duration-300">
-                    <div
-                        class="w-16 h-16 bg-primary/10 rounded-lg flex items-center justify-center mb-8 group-hover:bg-white/20">
-                        <span class="material-icons-outlined text-3xl">eco</span>
-                    </div>
-                    <h3 class="text-2xl font-bold mb-4">Sürdürülebilirlik</h3>
-                    <p class="opacity-70 leading-relaxed">
-                        Bugünü değil geleceği düşünür, çevresel ve sosyal sorumluluk bilinciyle hareket ederiz.
-                    </p>
-                </div>
-            </div>
-        </div>
-    </section>
-    
-    <!-- Call to Action -->
-    <section class="py-24">
-        <div class="max-w-7xl mx-auto px-6">
-            <div class="bg-primary rounded-3xl p-12 md:p-20 text-center text-white relative overflow-hidden">
-                <!-- Background Pattern -->
-                <div class="absolute inset-0 opacity-10 pointer-events-none">
-                    <div
-                        class="absolute top-0 left-0 w-64 h-64 bg-white rounded-full -translate-x-1/2 -translate-y-1/2">
-                    </div>
-                    <div
-                        class="absolute bottom-0 right-0 w-96 h-96 bg-white rounded-full translate-x-1/2 translate-y-1/2">
-                    </div>
-                </div>
-                <h2 class="text-4xl md:text-6xl font-extrabold tracking-tighter mb-8 relative z-10">Birlikte Yeni Bir
-                    Hikaye Yazalım</h2>
-                <p class="text-xl text-white/70 max-w-2xl mx-auto mb-12 relative z-10">
-                    Projeniz için doğru ortağı arıyorsanız, uzman ekibimiz size rehberlik etmeye hazır.
+                <h3 class="text-2xl font-bold mb-4">Uygun Fiyat</h3>
+                <p class="opacity-70 leading-relaxed">
+                    Şeffaf iletişim ve dürüstlük prensibiyle tüm paydaşlarımızla güvene dayalı ilişkiler kurarız.
                 </p>
-                <div class="flex flex-col sm:flex-row gap-4 justify-center relative z-10">
-                    <button
-                        class="px-10 py-5 bg-white text-primary font-black rounded-xl hover:bg-white/90 transition-all uppercase tracking-widest text-sm">Bizimle
-                        İletişime Geçin</button>
-                    <button
-                        class="px-10 py-5 border border-white/20 text-white font-black rounded-xl hover:bg-white/10 transition-all uppercase tracking-widest text-sm">Kariyer
-                        Fırsatları</button>
-                </div>
             </div>
+
+            <div class="p-10 rounded-xl bg-background-light dark:bg-primary/20 hover:bg-primary/70 hover:text-white transition-all duration-300">
+                <div class="w-16 h-16 bg-primary/10 rounded-lg flex items-center justify-center mb-8">
+                    <span class="material-icons-outlined text-3xl"><i class="fa-regular fa-message"></i></span>
+                </div>
+                <h3 class="text-2xl font-bold mb-4">Sürdürülebilirlik</h3>
+                <p class="opacity-70 leading-relaxed ">
+                    Bugünü değil geleceği düşünür, çevresel ve sosyal sorumluluk bilinciyle hareket ederiz.
+                </p>
+            </div>
+
         </div>
-    </section>
-    <!-- Footer -->
-    <footer id="Footer"></footer>
-</body>
+    </div>
+</section>
+
+<!-- CTA -->
+<section class="py-24">
+<div id="MobileAppPage"></div>
+</section>
+
+<!-- Footer -->
+<footer id="Footer"></footer>
+
 <script src="MenuLoader.js"></script>
 
+</body>
 </html>
