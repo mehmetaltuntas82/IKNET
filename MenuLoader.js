@@ -1,6 +1,7 @@
 document.addEventListener("DOMContentLoaded", () => {
   loadMenu("Footer", "Footer.html");
   loadMenu("Header", "Header.html");
+  loadMenu("MobileAppPage", "MobileAppPage.html");
 });
 
 
