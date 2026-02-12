@@ -36,27 +36,8 @@
 
 <body class="bg-background-light dark:bg-background-dark text-primary dark:text-white transition-colors duration-300">
     <!-- Navigation -->
-    <nav
-        class="sticky top-0 z-50 bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-md border-b border-primary/5">
-        <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
-            <div class="flex items-center gap-2">
-                <div class="w-8 h-8 bg-primary dark:bg-white rounded flex items-center justify-center">
-                    <span class="text-white dark:text-primary font-bold">M</span>
-                </div>
-                <span class="text-xl font-extrabold tracking-tight uppercase">Modern</span>
-            </div>
-            <div class="hidden md:flex items-center gap-10 font-medium text-sm uppercase tracking-widest">
-                <a class="hover:text-primary/60 transition-colors" href="#">Ana Sayfa</a>
-                <a class="text-primary font-bold border-b-2 border-primary" href="#">Hakkımızda</a>
-                <a class="hover:text-primary/60 transition-colors" href="#">Hizmetler</a>
-                <a class="hover:text-primary/60 transition-colors" href="#">İletişim</a>
-            </div>
-            <button
-                class="bg-primary text-white dark:bg-white dark:text-primary px-6 py-2.5 rounded text-sm font-bold uppercase tracking-tighter hover:opacity-90 transition-opacity">
-                Teklif Al
-            </button>
-        </div>
-    </nav>
+           <div id="Header"></div>
+
     <!-- Hero Section -->
     <section class="relative h-[80vh] flex items-center overflow-hidden bg-white dark:bg-background-dark">
         <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
@@ -304,68 +285,8 @@
         </div>
     </section>
     <!-- Footer -->
-    <footer class="bg-primary text-white py-20">
-        <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-4 gap-12 mb-20">
-            <div class="col-span-1 md:col-span-1">
-                <div class="flex items-center gap-2 mb-8">
-                    <div class="w-8 h-8 bg-white rounded flex items-center justify-center">
-                        <span class="text-primary font-bold">M</span>
-                    </div>
-                    <span class="text-xl font-extrabold tracking-tight uppercase">Modern</span>
-                </div>
-                <p class="text-white/50 text-sm leading-relaxed mb-8">
-                    Modern çözümlerle işinizi bir adım öteye taşıyan dijital dönüşüm ortağınız.
-                </p>
-                <div class="flex gap-4">
-                    <a class="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center hover:bg-white hover:text-primary transition-all"
-                        href="#">
-                        <span class="material-icons-outlined text-xl">language</span>
-                    </a>
-                    <a class="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center hover:bg-white hover:text-primary transition-all"
-                        href="#">
-                        <span class="material-icons-outlined text-xl">email</span>
-                    </a>
-                </div>
-            </div>
-            <div>
-                <h4 class="font-bold mb-8 uppercase tracking-widest text-xs opacity-40">Navigasyon</h4>
-                <ul class="space-y-4 font-medium">
-                    <li><a class="hover:text-white/70" href="#">Kurumsal</a></li>
-                    <li><a class="hover:text-white/70" href="#">Hizmetlerimiz</a></li>
-                    <li><a class="hover:text-white/70" href="#">Projeler</a></li>
-                    <li><a class="hover:text-white/70" href="#">Blog</a></li>
-                </ul>
-            </div>
-            <div>
-                <h4 class="font-bold mb-8 uppercase tracking-widest text-xs opacity-40">Uzmanlıklar</h4>
-                <ul class="space-y-4 font-medium">
-                    <li><a class="hover:text-white/70" href="#">Strateji</a></li>
-                    <li><a class="hover:text-white/70" href="#">Tasarım</a></li>
-                    <li><a class="hover:text-white/70" href="#">Teknoloji</a></li>
-                    <li><a class="hover:text-white/70" href="#">Danışmanlık</a></li>
-                </ul>
-            </div>
-            <div>
-                <h4 class="font-bold mb-8 uppercase tracking-widest text-xs opacity-40">Ofis</h4>
-                <p class="text-white/60 mb-4 leading-relaxed">
-                    Levent, Büyükdere Cd. No:123<br />
-                    34394 Şişli/İstanbul
-                </p>
-                <p class="text-white/60">
-                    +90 (212) 555 00 00<br />
-                    info@modernkurumsal.com
-                </p>
-            </div>
-        </div>
-        <div
-            class="max-w-7xl mx-auto px-6 pt-10 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-6">
-            <p class="text-white/30 text-xs uppercase tracking-widest">© 2024 Modern Kurumsal. Tüm hakları saklıdır.</p>
-            <div class="flex gap-8 text-xs uppercase tracking-widest text-white/30 font-bold">
-                <a class="hover:text-white transition-colors" href="#">Gizlilik Politikası</a>
-                <a class="hover:text-white transition-colors" href="#">Kullanım Şartları</a>
-            </div>
-        </div>
-    </footer>
+    <footer id="Footer"></footer>
 </body>
+<script src="MenuLoader.js"></script>
 
 </html>
