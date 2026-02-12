@@ -1,0 +1,146 @@
+
+
+<aside id="Menu" class="w-64 bg-background-light dark:bg-background-dark border-r border-primary/20 dark:border-primary/30 flex flex-col ">
+  <i id="MenuButons"
+   class="fa-solid fa-bars fixed top-6 left-6 text-white text-2xl z-50 cursor-pointer" style="left: 190px;">
+</i>
+<div class="p-6">
+<h1 class="text-xl font-bold text-primary">Yönetici Paneli</h1>
+</div>
+<nav class="flex-1 px-4 space-y-2">
+<a class="flex items-center gap-3 px-4 py-2 rounded-lg text-slate-700 dark:text-slate-300 hover:bg-primary/20 dark:hover:bg-primary/30" href="AdmistorPage.html">
+<i class="fa-solid fa-crown"></i>
+<span class="text-sm font-medium">Admin Sayfası</span>
+</a>
+
+<a class="flex items-center gap-3 px-4 py-2 rounded-lg text-slate-700 dark:text-slate-300 hover:bg-primary/20 dark:hover:bg-primary/30" href="ProductEditorForAdmin.html">
+<i class="fa-solid fa-cube"></i>
+<span class="text-sm font-medium">Ürünler</span>
+</a>
+
+<a class="flex items-center gap-3 px-4 py-2 rounded-lg text-slate-700 dark:text-slate-300 hover:bg-primary/20 dark:hover:bg-primary/30" href="CatogoryManager.Html">
+<i class="fa-solid fa-list"></i>
+<span class="text-sm font-medium">Katogoriler</span>
+</a>
+
+<a class="flex items-center gap-3 px-4 py-2 rounded-lg text-slate-700 dark:text-slate-300 hover:bg-primary/20 dark:hover:bg-primary/30" href="OrderPage.html">
+<i class="fa-solid fa-truck-fast"></i>
+<span class="text-sm font-medium" >Siparişler</span>
+</a>
+
+<a class="flex items-center gap-3 px-4 py-2 rounded-lg text-slate-700 dark:text-slate-300 hover:bg-primary/20 dark:hover:bg-primary/30" href="Notifications.html">
+<i class="fa-solid fa-bell"></i> 
+<span class="text-sm font-medium">Bildirimler</span>
+</a>
+
+<a class="flex items-center gap-3 px-4 py-2 rounded-lg text-slate-700 dark:text-slate-300 hover:bg-primary/20 dark:hover:bg-primary/30" href="UserPage.html">
+<i class="fa-solid fa-users"></i>
+<span class="text-sm font-medium">Müşteriler</span>
+</a>
+
+<a class="flex items-center gap-3 px-4 py-2 rounded-lg text-slate-700 dark:text-slate-300 hover:bg-primary/20 dark:hover:bg-primary/30" href="StaticksRapors.html">
+<i class="fa-solid fa-chart-pie"></i>
+<span class="text-sm font-medium">Analizler Ve Raporlar</span>
+</a>
+
+<a class="flex items-center gap-3 px-4 py-2 rounded-lg text-slate-700 dark:text-slate-300 hover:bg-primary/20 dark:hover:bg-primary/30" href="CuponsManager.Html">
+  <i class="fa-solid fa-ticket"></i>
+  <span class="text-sm font-medium">Kuponlar</span>
+</a>
+
+<a class="flex items-center gap-3 px-4 py-2 rounded-lg text-slate-700 dark:text-slate-300 hover:bg-primary/20 dark:hover:bg-primary/30" href="AdminMaps.html">
+  <i class="fa-solid fa-map"></i>
+  <span class="text-sm font-medium">Harita</span>
+</a>
+
+<a class="flex items-center gap-3 px-4 py-2 rounded-lg text-slate-700 dark:text-slate-300 hover:bg-primary/20 dark:hover:bg-primary/30" href="Logs.html">
+<i class="fa-solid fa-clipboard-list"></i>
+<span class="text-sm font-medium">Loglar</span>
+</a>
+
+
+
+
+<a class="flex items-center gap-3 px-4 py-2 rounded-lg text-slate-700 dark:text-slate-300 hover:bg-primary/20 dark:hover:bg-primary/30" href="HomePage.html">
+<i class="fa-solid fa-eye"></i> 
+<span class="text-sm font-medium">Müşteri Görünümü</span>
+</a>
+
+</nav>
+<div class="p-4 mt-auto">
+<a class="flex items-center gap-3 px-4 py-2 rounded-lg text-slate-700 dark:text-slate-300 hover:bg-primary/20 dark:hover:bg-primary/30" href="Options.Html">
+<i class="fa-solid fa-gear"></i>
+<span class="text-sm font-medium">Ayarlar</span>
+</a>
+</div>
+</aside>
+<style>
+/* Menü ana hali */
+#Menu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 240px;
+  height: 100%;
+  z-index: 1000;
+
+  transform: translateX(0);
+  transition: transform 0.3s ease-in-out;
+}
+
+
+/* Kapalı hali */
+#Menu.menu-closed {
+  transform: translateX(-240px);
+}
+
+
+/* Buton */
+#MenuButons {
+  z-index: 1100 !important;
+}
+
+
+/* Main alan */
+main {
+  margin-left: 240px;
+  transition: margin-left 0.3s ease-in-out;
+}
+
+
+
+#Menu.menu-closed ~ main {
+  margin-left: 0;
+}
+
+#MenuButons {
+  position: absolute;
+  top: 20px;
+  right: -45px;
+
+  color: white;
+
+  padding: 10px;
+  border-radius: 8px;
+
+  cursor: pointer;
+
+  transition: right 0.3s ease-in-out;
+}
+
+
+#Menu.menu-closed #MenuButons {
+  transform: translateX(45px);
+}
+
+
+/* Tablet + Mobil */
+@media (max-width: 1024px) {
+
+  main {
+    margin-left: 0;
+  }
+
+}
+</style>
+
