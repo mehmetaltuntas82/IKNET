@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+
+<html class="scroll-smooth" lang="tr">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>IKNET - İnsan Kaynakları Yönetim Yazılımı</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#1c74e9",
+                        "background-light": "#f6f7f8",
+                        "background-dark": "#111821",
+                        "slate-heading": "#0e141b",
+                        "slate-body": "#4d6e99"
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+</head>
+
+<body class="bg-background-light dark:bg-background-dark text-slate-heading">
+    <div class="relative flex min-h-screen flex-col overflow-x-hidden">
+        <!-- Top Navigation -->
+        <div id="UpMenu"></div>
+        <main class="flex-1">
+            <!-- Hero Section -->
+            <section class="mx-auto max-w-[1280px] px-4 lg:px-10 py-12 lg:py-20">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                    <div class="flex flex-col gap-8">
+                        <div class="flex flex-col gap-4">
+                            <h1 class="text-slate-heading text-4xl lg:text-6xl font-black leading-tight tracking-tight">
+                                Tüm İK Süreçlerinizi <span class="text-primary">Cebinizde</span> Yönetin!
+                            </h1>
+                            <p class="text-slate-body text-lg lg:text-xl font-normal max-w-lg">
+                                İnsan kaynakları işlemlerinizi kolay, hızlı ve hatasız bir şekilde dijital dünyada
+                                yönetmeye bugün başlayın.
+                            </p>
+                        </div>
+                        <div class="flex flex-wrap gap-4">
+                            <button
+                                class="flex min-w-[180px] cursor-pointer items-center justify-center rounded-lg h-14 px-6 bg-primary text-white text-lg font-bold shadow-xl shadow-primary/30 hover:translate-y-[-2px] transition-all">
+                                Hemen Başlayın
+                            </button>
+                            <button
+                                class="flex min-w-[180px] cursor-pointer items-center justify-center rounded-lg h-14 px-6 border-2 border-primary text-primary text-lg font-bold hover:bg-primary/5 transition-all">
+                                Demo İzle
+                            </button>
+                        </div>
+                    </div>
+                    <div class="relative">
+                        <div class="absolute -inset-4 bg-primary/10 rounded-full blur-3xl opacity-50"></div>
+                        <img alt="IKNET Mobile Application Hero View"
+                            class="relative w-full h-auto rounded-3xl shadow-2xl z-10"
+                            data-alt="IKNET mobile app screens showing HR interface on a smartphone"
+                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuDwsKbChNIVC0OmrE2gnm5iDvtzNtQO_4S9e3dldBxIDHIpFsK4TL1-fnDbsFcgLhErwNjSiE6AR_hmOHHElgLJ2JYlXEe2ogTj3balt4ZyaI8cTDArtaQvyv7QoJREREWxmqisOy-FtKWve08tJyaAzTlUTPCHjORaiVJ-o2N7ZN3bByq3ouTTIlaTYoE5BxVQC9GCald7ZshtDuSE2bDttfE1fBdk8c3HZn5-Tq1LxdIJ4IGuFMXnaUDL4jN3McJpnD5_OpH9Jg" />
+                    </div>
+
+                </div>
+            </section>
+            <!-- Feature Showcase with Mobile Views -->
+            <section class="bg-white py-20" id="features">
+                <div class="mx-auto max-w-[1280px] px-4 lg:px-10">
+                    <div class="flex flex-col items-center text-center gap-4 mb-16">
+                        <h2 class="text-slate-heading text-3xl lg:text-4xl font-bold">Güçlü Özellikler, Kolay Yönetim
+                        </h2>
+                        <p class="text-slate-body text-lg max-w-2xl">İK süreçlerinizi dijitalleştirerek operasyonel
+                            verimliliğinizi %40'a kadar artırın.</p>
+                    </div>
+                    <div class="grid grid-cols-1 lg:grid-cols-3 gap-12 items-center">
+                        <div class="flex flex-col gap-10 order-2 lg:order-1">
+                            <div class="flex gap-4 items-start text-right">
+                                <div class="flex-1">
+                                    <h3 class="text-xl font-bold text-slate-heading mb-2">Giriş-Çıkış Takibi</h3>
+                                    <p class="text-slate-body">Personel devam kontrol sistemlerini cebinize taşıyın,
+                                        lokasyon bazlı takip yapın.</p>
+                                </div>
+                                <div class="bg-primary/10 p-3 rounded-lg text-primary shrink-0">
+                                    <span class="material-symbols-outlined">location_on</span>
+                                </div>
+                            </div>
+                            <div class="flex gap-4 items-start text-right">
+                                <div class="flex-1">
+                                    <h3 class="text-xl font-bold text-slate-heading mb-2">Bordro Yönetimi</h3>
+                                    <p class="text-slate-body">Maaş ve bordro süreçlerini tek tıkla hatasız yönetin,
+                                        dijital imza ile onaylatın.</p>
+                                </div>
+                                <div class="bg-primary/10 p-3 rounded-lg text-primary shrink-0">
+                                    <span class="material-symbols-outlined">payments</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="order-1 lg:order-2 flex justify-center">
+                            <img alt="Different views of IKNET mobile screens"
+                                class="w-full max-w-[320px] lg:scale-110 drop-shadow-2xl"
+                                data-alt="Mobile screens displaying employee check-in and task management interfaces"
+                                src="https://lh3.googleusercontent.com/aida-public/AB6AXuAOhu7FUFNmc87JYdIXVgZ_3Z5N9IuL66XYBUrdk9BvmpwJtVgTY1QSv4GfR3Z1jaErpnTwjrO5MSQIccRuCBowLOrRAzd4WFvEHC2SzZLaqJU5xD7l7eO1Vhh0C1TvgpgxYg5CnjHxtFnRLOG2iq59L1b5fLe6TMGTfpDdk5-4CWezALXCp3s2UDTHdxU8I-5j-rXq0TjtZEE-oVrtFrhDZVOI3cTv9DoRPRfwmUzM7v8rpv23Y-ehzQrxamAslPGRyt2eo1mnzA" />
+                        </div>
+                        <div class="flex flex-col gap-10 order-3">
+                            <div class="flex gap-4 items-start">
+                                <div class="bg-primary/10 p-3 rounded-lg text-primary shrink-0">
+                                    <span class="material-symbols-outlined">calendar_today</span>
+                                </div>
+                                <div>
+                                    <h3 class="text-xl font-bold text-slate-heading mb-2">Yıllık İzinler</h3>
+                                    <p class="text-slate-body">İzin taleplerini ve onay süreçlerini saniyeler içinde
+                                        hızlandırın.</p>
+                                </div>
+                            </div>
+                            <div class="flex gap-4 items-start">
+                                <div class="bg-primary/10 p-3 rounded-lg text-primary shrink-0">
+                                    <span class="material-symbols-outlined">insights</span>
+                                </div>
+                                <div>
+                                    <h3 class="text-xl font-bold text-slate-heading mb-2">Şirket Veri Analizi</h3>
+                                    <p class="text-slate-body">Veriye dayalı kararlar için gelişmiş raporlama ve analiz
+                                        panelleri.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- Dashboard Preview -->
+            <section class="bg-background-light py-20 overflow-hidden">
+                <div class="mx-auto max-w-[1280px] px-4 lg:px-10">
+                    <div class="flex flex-col items-center text-center gap-4 mb-12">
+                        <span
+                            class="bg-primary/10 text-primary px-4 py-1 rounded-full text-sm font-bold uppercase tracking-widest">Yönetim
+                            Paneli</span>
+                        <h2 class="text-slate-heading text-3xl lg:text-4xl font-bold">Her Şey Tek Bir Panelde</h2>
+                        <p class="text-slate-body text-lg max-w-2xl">Karmaşık raporlar yerine görsel ve anlaşılır bir
+                            yönetim paneliyle tüm ekibinize hakim olun.</p>
+                    </div>
+                    <div class="relative mx-auto max-w-5xl">
+                        <div
+                            class="absolute -inset-10 bg-gradient-to-r from-primary/20 to-blue-400/20 blur-3xl opacity-30">
+                        </div>
+                        <img alt="IKNET Desktop Dashboard Preview"
+                            class="relative w-full rounded-2xl shadow-2xl border border-white/50"
+                            data-alt="Desktop dashboard showing employee stats, charts, and activity logs"
+                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuDOZRZ-s8ugsZx16I5lJp64JnLCZH0jbrgklP4vmhFG266DdyW7g6rsSxBc22Ni8J29gSLbN6Kcy2ayGvGPJL5q12bI7ve50PhVuatsGCW6U4Id7ojyTCn9riVH9F1g9t-8Ap9Yfn_w-pk_57zIi-jxzpPJ_SpHTzNp-gQwCMAC_HPMo0JFe8aZgsI8EWeKjNVB2X0Haed31LhRHMyG1igzjzu2RKEkVyNkSAUCF-1ruDDPqVH6NyJIV59wi97PRS9A362ZBOKkmg" />
+                    </div>
+                </div>
+            </section>
+            <!-- Dark Mode Showcase -->
+            <section class="bg-background-dark py-24 relative overflow-hidden">
+                <div class="absolute top-0 left-0 w-full h-full opacity-5 pointer-events-none">
+                    <div class="absolute top-0 left-1/4 w-96 h-96 bg-primary rounded-full blur-[100px]"></div>
+                    <div class="absolute bottom-0 right-1/4 w-96 h-96 bg-blue-600 rounded-full blur-[100px]"></div>
+                </div>
+                <div class="mx-auto max-w-[1280px] px-4 lg:px-10 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+                    <div class="order-2 lg:order-1">
+                        <img alt="IKNET Dark Mode Interface"
+                            class="w-full rounded-2xl shadow-2xl shadow-primary/10 border border-slate-700"
+                            data-alt="Screenshot of the mobile application in dark mode theme"
+                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuASsN91Ex4c2ZuDuQfQZ22hIV6Ctlh6n-kO-Z8GhRr-jiJ8uhsRYPx3sLCDwsLSoXHd-isE4ecgvpNsAewPo2nofDimcLFxXUw7mFJz49YBS0XNxJ_-CjTYwOSG4BuOGxSIIDaH6wVv7zK6TRasxx89WaUqLGx9ASBE14P2gvvirPXiHhe1IvEor_M9tiq4t3uXtV3xh8KJ6f9-SN79LSXGeRVAEKmMYN3RB7RHago9o5Uc97biT400mS7QTatfVSUbqo-jLVf_Bg" />
+                    </div>
+                    <div class="order-1 lg:order-2 text-white flex flex-col gap-6">
+                        <h2 class="text-4xl lg:text-5xl font-black">İstediğiniz Modda Kullanın</h2>
+                        <p class="text-slate-400 text-lg leading-relaxed">
+                            Göz yormayan koyu mod veya ferah açık mod seçenekleriyle çalışma stilinize uyum sağlar.
+                            IKNET, hem gündüz hem gece en iyi deneyimi sunmak için tasarlandı.
+                        </p>
+                        <div class="flex items-center gap-6 mt-4">
+                            <div class="flex flex-col items-center gap-2">
+                                <div
+                                    class="size-12 rounded-full bg-white flex items-center justify-center text-primary">
+                                    <span class="material-symbols-outlined">light_mode</span>
+                                </div>
+                                <span class="text-sm font-medium">Açık Mod</span>
+                            </div>
+                            <div class="w-12 h-px bg-slate-700"></div>
+                            <div class="flex flex-col items-center gap-2">
+                                <div
+                                    class="size-12 rounded-full bg-primary flex items-center justify-center text-white">
+                                    <span class="material-symbols-outlined">dark_mode</span>
+                                </div>
+                                <span class="text-sm font-medium">Koyu Mod</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="py-20 bg-primary">
+                <div class="mx-auto max-w-[1280px] px-4 lg:px-10 text-center text-white">
+                    <h2 class="text-3xl lg:text-5xl font-bold mb-6">İK Süreçlerinizi Bugün Dönüştürün</h2>
+                    <p class="text-white/80 text-lg lg:text-xl mb-10 max-w-2xl mx-auto">
+                     Bizimle iletişime geçin!
+                     hhh
+                    </p>
+                    <button
+                        class="bg-white text-primary px-10 py-5 rounded-xl font-bold text-xl shadow-2xl shadow-black/20 hover:bg-slate-50 transition-all">
+                        14 Gün Ücretsiz Deneyin
+                    </button>
+                </div>
+            </section>
+        </main>
+
+        <!-- Arka Plan Glow Efekti -->
+  <div class="absolute top-0 left-1/3 w-96 h-96 bg-blue-600/20 blur-[120px] rounded-full"></div>
+  <div class="absolute bottom-0 right-1/3 w-96 h-96 bg-purple-600/20 blur-[120px] rounded-full"></div>
+
+  <div class="relative max-w-[1280px] mx-auto px-6">
+
+    <!-- ÜST KISIM -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12">
+
+      <!-- LOGO & İLETİŞİM -->
+      <div class="lg:col-span-2">
+        <h2 class="text-3xl font-black text-white tracking-wide">IKNET</h2>
+        <p class="mt-4 text-gray-400 max-w-md">
+          İnsan Kaynakları yönetimini dijitalleştiren yeni nesil SaaS platformu.  
+          Modern, hızlı ve güvenli çözümler.
+        </p>
+
+        <div class="mt-6 space-y-2 text-sm">
+          <p>📍 Konya Teknokent, Türkiye</p>
+          <p>📞 <a href="tel:+905325487264" class="hover:text-blue-400">+90 532 548 72 64</a></p>
+          <p>✉️ <a href="mailto:info@iknet.com" class="hover:text-blue-400">info@iknet.com</a></p>
+        </div>
+      </div>
+
+      <!-- ÜRÜNLER -->
+      <div>
+        <h3 class="text-white font-bold mb-4">Ürünler</h3>
+        <ul class="space-y-2 text-sm">
+          <li><a class="hover:text-white" href="#">Personel Takip</a></li>
+          <li><a class="hover:text-white" href="#">Bordro Sistemi</a></li>
+          <li><a class="hover:text-white" href="#">Mobil Uygulama</a></li>
+          <li><a class="hover:text-white" href="#">Raporlama Paneli</a></li>
+        </ul>
+      </div>
+
+      <!-- KURUMSAL -->
+      <div>
+        <h3 class="text-white font-bold mb-4">Kurumsal</h3>
+        <ul class="space-y-2 text-sm">
+          <li><a class="hover:text-white" href="#">Hakkımızda</a></li>
+          <li><a class="hover:text-white" href="#">Referanslar</a></li>
+          <li><a class="hover:text-white" href="#">Kariyer</a></li>
+          <li><a class="hover:text-white" href="#">İletişim</a></li>
+        </ul>
+      </div>
+
+      <!-- DESTEK -->
+      <div>
+        <h3 class="text-white font-bold mb-4">Destek</h3>
+        <ul class="space-y-2 text-sm">
+          <li><a class="hover:text-white" href="#">Dokümantasyon</a></li>
+          <li><a class="hover:text-white" href="#">Sıkça Sorulan Sorular</a></li>
+          <li><a class="hover:text-white" href="#">Blog</a></li>
+          <li><a class="hover:text-white" href="#">Canlı Destek</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- ALT BÖLÜM -->
+    <div class="mt-16 border-t border-gray-800 pt-8 flex flex-col md:flex-row items-center justify-between gap-6">
+
+      <!-- Copyright -->
+      <p class="text-sm text-gray-500">
+        © 2026 IKNET Yazılım. Tüm hakları saklıdır.
+      </p>
+
+      <!-- Sosyal Medya -->
+      <div class="flex gap-4">
+        <a href="#" class="w-10 h-10 flex items-center justify-center rounded-xl bg-gray-800 hover:bg-blue-600 transition">
+          <i class="fa-brands fa-linkedin"></i>
+        </a>
+        <a href="#" class="w-10 h-10 flex items-center justify-center rounded-xl bg-gray-800 hover:bg-pink-600 transition">
+          <i class="fa-brands fa-instagram"></i>
+        </a>
+        <a href="#" class="w-10 h-10 flex items-center justify-center rounded-xl bg-gray-800 hover:bg-red-600 transition">
+          <i class="fa-brands fa-youtube"></i>
+        </a>
+        <a href="#" class="w-10 h-10 flex items-center justify-center rounded-xl bg-gray-800 hover:bg-green-600 transition">
+          <i class="fa-brands fa-whatsapp"></i>
+        </a>
+      </div>
+    </div>
+
+  </div>
+</footer>
+    </div>
+</body>
+
+</html>
+<script src="MenuLoader.js"></script>

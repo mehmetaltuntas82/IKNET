@@ -1,101 +1,57 @@
-<!DOCTYPE html>
-<html class="dark" lang="tr">
-  <head>
-    <meta charset="utf-8" />
-    <link crossorigin="" href="https://fonts.gstatic.com/" rel="preconnect" />
-    <link
-      as="style"
-      href="https://fonts.googleapis.com/css2?display=swap&amp;family=Noto+Sans%3Awght%40400%3B500%3B700%3B900&amp;family=Space+Grotesk%3Awght%40400%3B500%3B700"
-      onload="this.rel='stylesheet'"
-      rel="stylesheet"
-    />
-    <title>MiniVerse</title>
-    <link href="data:image/x-icon;base64," rel="icon" type="image/x-icon" />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&amp;display=swap" rel="stylesheet"/>
-      <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
-    />
-    <script src="Popup/Popup.js"></script>
-    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-    <script>
-      tailwind.config = {
-        darkMode: "class",
-        theme: {
-          extend: {
-            colors: {
-              primary: "#160cff",
-              "background-light": "#f5f5f8",
-              "background-dark": "#100f23",
-              "card-dark": "#1E1E1E",
-            },
-            fontFamily: { display: "Space Grotesk" },
-            borderRadius: {
-              DEFAULT: "0.25rem",
-              lg: "0.5rem",
-              xl: "0.75rem",
-              full: "9999px",
-            },
-          },
-        },
-      };
-    </script>
- 
-    <style>
-      @keyframes spin {
-        from {
-          transform: rotate(0deg);
-        }
-        to {
-          transform: rotate(360deg);
-        }
-      }
-      .animate-spin-slow {
-        animation: spin 20s linear infinite;
-      }
-    </style>
-  </head>
-  <body class="bg-background-light dark:bg-background-dark font-display">
-    <div
-      class="relative flex h-auto min-h-screen w-full flex-col overflow-x-hidden"
-    >
-      <div class="layout-container flex h-full grow flex-col">
-        <header
-          class="flex items-center justify-between whitespace-nowrap border-b border-white/10 px-10 py-4 bg-background-dark"
-        >
-          <div class="flex items-center gap-3 text-white">
+<header class="bg-background-dark border-b border-white/10">
+  <div class="max-w-7xl mx-auto flex items-center justify-between px-6 py-4">
 
-             <img src="TemplateImage/Text.png" class="bg-dark" style="width: 20%;">
+    <!-- Logo -->
+    <div class="flex items-center gap-3 text-white">
+      <img src="TemplateImage/Text.png" class="w-32 md:w-40" />
+    </div>
 
+    <!-- Menu -->
+    <nav class="flex items-center gap-6 text-sm font-medium text-white/80">
 
-            <h2 class="MarkaText"></h2>
-          </div>
-          <nav
-            class="hidden items-center gap-8 text-sm font-medium text-white/80 md:flex"
-          >
-            <a class="hover:text-white text-white" href="HomePage.html">Ana Sayfa</a>
-            <a class="hover:text-white" href="ProductList.html">Ürünler</a>
-            <a class="hover:text-white" id="loginBt" href="RegisterPage.html">Üretici Ol</a>
-            <a class="hover:text-white" href="#">Hakkımızda</a>
-            <a class="hover:text-white" href="ContendPage.html">İletişim</a>      
-            <a class="hover:text-white" href="MyOrders.Html">Teslimatlarım</a>
-            <a id="AdminPower" class="hover:text-white" href="AdmistorPage.html">Admin sayfası</a>
-      
-    <div class="relative w-12 h-12">
-        <div id="profileRgb"  style="z-index: 101;" class="absolute -inset-1 rounded-full animate-spin [animation-duration:1.2s] bg-gradient-to-r from-pink-500 via-yellow-500 to-purple-500 p-2 hidden"></div>
-            <img id="userProfile" style="z-index: 101;"  class="relative w-full h-full rounded-full object-cover hover:scale-110 transition-transform duration-200 z-10"/>
-           </div>
-           <div id="profileMenu" style="top: 0px; right: 30px; border: solid 1px #7c7373; z-index: 100;"
-           class="hidden absolute right-0 mt-2 w-48 bg-white shadow-lg rounded-lg z-50 overflow-hidden">
-           <a href="MyProfile.html" style="background-color: #090319;" class="block px-4 py-6 text-gray-100"><i class="fa-solid fa-address-card" style="color: #ffffff; font-size: 15px;"></i> Profilim</a>
-           <a href="MyOrders.html" style="background-color: #090319;;" class="block px-4 py-6 text-gray-100"><i class="fa-solid fa-box" style="color: #ffffff; font-size: 15px;"></i> Siparişlerim</a>
-                 <a href="MyOrders.html" style="background-color: #090319;;" class="block px-4 py-6 text-gray-100"><i class="fa-solid fa-tags" style="color: #ffffff; font-size: 15px;"></i> Sepetim</a>
-           <button id="logoutBtn" onclick="UserLogAuth()"  style="background-color: #090319;"class="w-full text-left px-4 py-4 text-red-600">Çıkış Yap</button>
-           </div>
-          </div>
+      <a href="HomePage.html" class="hover:text-white">Ana Sayfa</a>
+      <a href="ProductList.html" class="hover:text-white">Ürünler</a>
+      <a href="RegisterPage.html" class="hover:text-white">Üretici Ol</a>
+      <a href="#" class="hover:text-white">Hakkımızda</a>
+      <a href="ContendPage.html" class="hover:text-white">İletişim</a>
+      <a href="MyOrders.Html" class="hover:text-white">Teslimatlarım</a>
+      <a href="AdmistorPage.html" id="AdminPower" class="hover:text-white">Admin</a>
 
-        </nav>
+      <!-- Profile -->
+      <div class="relative">
 
+        <div id="profileRgb"
+          class="absolute -inset-1 rounded-full animate-spin bg-gradient-to-r from-pink-500 via-yellow-500 to-purple-500 p-1 hidden">
+        </div>
 
-    </body>
-</html>
+        <img id="userProfile"
+          class="w-10 h-10 rounded-full object-cover cursor-pointer hover:scale-110 transition"/>
+
+        <!-- Dropdown -->
+        <div id="profileMenu"
+          class="hidden absolute right-0 mt-3 w-48 bg-[#090319] border border-gray-600 rounded-lg shadow-lg overflow-hidden">
+
+          <a href="MyProfile.html" class="block px-4 py-3 text-white hover:bg-gray-700">
+            <i class="fa-solid fa-address-card mr-2"></i> Profilim
+          </a>
+
+          <a href="MyOrders.html" class="block px-4 py-3 text-white hover:bg-gray-700">
+            <i class="fa-solid fa-box mr-2"></i> Siparişlerim
+          </a>
+
+          <a href="#" class="block px-4 py-3 text-white hover:bg-gray-700">
+            <i class="fa-solid fa-tags mr-2"></i> Sepetim
+          </a>
+
+          <button onclick="UserLogAuth()"
+            class="w-full text-left px-4 py-3 text-red-500 hover:bg-gray-700">
+            Çıkış Yap
+          </button>
+
+        </div>
+      </div>
+
+    </nav>
+
+  </div>
+</header>
