@@ -64,7 +64,7 @@
                  class="w-full h-[500px] object-cover rounded-2xl shadow-2xl">
 
             <div class="absolute -bottom-10 -left-10 bg-white dark:bg-primary p-8 rounded-xl shadow-xl max-w-xs">
-                <div class="text-4xl font-black mb-2">15+</div>
+                <div class="text-4xl font-black mb-2"><span id="TecrubeSayac"></span>+</div>
                 <div class="text-sm font-medium opacity-60 uppercase tracking-widest">
                     Yıllık Sektörel Deneyim ve Güven
                 </div>
@@ -144,6 +144,27 @@
 <footer id="Footer"></footer>
 
 <script src="MenuLoader.js"></script>
+<script>function countUp(element, target, duration = 1000) {
+  let start = 0;
+  const increment = target / (duration / 16);
+  const step = () => {
+    start += increment;
+    if (start < target) {
+      element.textContent = Math.floor(start);
+      requestAnimationFrame(step);
+    } else {
+      element.textContent = target;
+    }
+  };
+  step();
+}
 
+const sayac = document.querySelector("#TecrubeSayac");
+const hedef = 15;
+setTimeout(() => {
+    countUp(sayac, hedef, 1000);
+}, 500);
+
+    </script>
 </body>
 </html>
