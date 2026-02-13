@@ -62,7 +62,7 @@
 
 
 <body class="bg-background-light dark:bg-background-dark text-slate-heading">
-    <div class="relative flex min-h-screen flex-col overflow-x-hidden">
+    <div class="relative flex min-h-screen flex-col overflow-visible">
         <div id="Header"></div>
         <main class="flex-1">
             <section class="mx-auto max-w-[1280px] px-4 lg:px-10 py-12 lg:py-20">
@@ -168,11 +168,10 @@
             </section>
 
 
-      
-                <div id="MobileAppPage"></div>
+            
+               <div id="MobileAppPage"></div>
                 
-      
- 
+            
             <section class="py-20 bg-primary">
                 <div class="mx-auto max-w-[1280px] px-4 lg:px-10 text-center text-white">
                     <h2 class="text-3xl lg:text-5xl font-bold mb-6">İK Süreçlerinizi Bugün Dönüştürün</h2>
@@ -191,10 +190,9 @@
         </main>
         <div id="Footer"></div>
 </body>
-</head>
+
 </html>
 <script src="MenuLoader.js"></script>
-
 <script>
     const texts = [
         "Vardiya, izin ve bordro tek tıkla hazır..",
@@ -256,10 +254,46 @@ const observer = new IntersectionObserver(
     });
   },
   {
-    threshold: 0.50
+threshold: 0.50
   }
 );
 
 reveals.forEach(el => observer.observe(el));
-</script>
 
+</script>
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+
+  const phones = document.querySelectorAll(".reveal-phone");
+
+  if (!phones.length) {
+    console.log("Telefonlar bulunamadı!");
+    return;
+  }
+
+  function revealPhones() {
+
+    const trigger = window.innerHeight * 0.85;
+
+    phones.forEach(phone => {
+
+      const top = phone.getBoundingClientRect().top;
+
+      if (top < trigger) {
+        phone.classList.add("active");
+      }
+
+    });
+
+  }
+
+  window.addEventListener("scroll", revealPhones);
+
+  revealPhones();
+
+});
+</script>
+</body>
+
+
+</html>

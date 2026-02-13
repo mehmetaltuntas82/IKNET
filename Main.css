@@ -123,3 +123,26 @@
 .delay-3 { transition-delay: .3s; }
 .delay-4 { transition-delay: .4s; }
 .delay-5 { transition-delay: .5s; }
+
+/* Ortak */
+.phones-section {
+  position: relative;
+  height: 450px;
+}
+
+/* Ortak */
+.phone {
+  position: absolute;
+  width: 260px;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  transition: transform 0.1s linear;
+  transform-origin: center center;
+  filter: drop-shadow(0 20px 35px rgba(0,0,0,.35));
+}
+
+/* Üst üste */
+.phone-1 { z-index: 3; }
+.phone-2 { z-index: 2; }
+.phone-3 { z-index: 1; }
