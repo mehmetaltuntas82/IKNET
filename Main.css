@@ -47,12 +47,27 @@
 }
 
 
+@keyframes fadeLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
 .animate-fade-up {
   animation: fadeUp 1s ease forwards;
 }
 
 .animate-fade-down {
   animation: fadeDown 1s ease forwards;
+}
+
+.animate-fade-left {
+  animation: fadeLeft 1s ease forwards;
 }
 
 .animate-fade-right {
