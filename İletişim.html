@@ -61,24 +61,30 @@
           IKNET hakkında bilgi almak, demo talep etmek veya destek almak için bizimle iletişime geçebilirsiniz.
         </p>
       </section>
-   <section class="max-w-[1400px] mx-auto p-10 grid grid-cols-1 lg:grid-cols-2 gap-20 items-start">
+      <section
+        class="max-w-[1400px] mx-auto px-6 py-20 grid grid-cols-1 lg:grid-cols-2 gap-16">
 
-  <!-- SOL TARAF: İLETİŞİM BİLGİLERİ -->
-  <div class="space-y-1">
+        <!-- SOL TARAF -->
+        <div
+          class="p-10 rounded-[18px] bg-white/70 backdrop-blur-xl border border-gray-200 shadow-xl">
 
-    <div class="p-10 rounded-3xl border border-white-300 shadow-xl">
-      <h2 class="text-3xl font-bold mb-8">İletişim Bilgileri</h2>
+          <h2 class="text-3xl font-bold mb-10">İletişim Bilgileri</h2>
 
-      <div class="grid sm:grid-cols-2 gap-8">
+          <div class="grid sm:grid-cols-2 gap-6">
 
-        <div class="bg-gray-100 p-6 rounded-xl border-l-8 border-red-600 shadow-md">
-          <h3 class="text-lg font-semibold mb-2">
-            <i class="fa-solid fa-location-dot mr-2"></i> Konum
-          </h3>
-          <p class="text-gray-600">Konya Teknokent, Selçuklu / Türkiye</p>
-        </div>
+            <!-- KONUM -->
+                         <div class="bg-white p-6 rounded-xl border-l-8 border-red-600 shadow-md">
 
-        <div class="bg-gray-100 p-6 rounded-xl border-l-8 border-black shadow-md">
+              <h3 class="font-semibold mb-2">
+                <i class="fa-solid fa-location-dot mr-2 text-red-600"></i>
+                Konum
+              </h3>
+              <p class="text-gray-600 text-sm">
+              Fevziçakmak Mah. Medcezir Cd. No:39/B, 42050 Karatay/Konya
+              </p>
+            </div>
+
+             <div class="bg-white p-6 rounded-xl border-l-8 border-black shadow-md">
           <h3 class="text-lg font-semibold mb-2">
             <i class="fa-solid fa-phone mr-2"></i> Telefon
           </h3>
@@ -87,95 +93,124 @@
 
           </a>
         </div>
+            <!-- EMAIL -->
+             <div class="bg-white p-6 rounded-xl border-l-8 border-blue-700 shadow-md">
 
-        <div class="bg-gray-100 p-6 rounded-xl border-l-8 border-blue-600 shadow-md">
+            <h3 class="font-semibold mb-2">
+                <i
+                  class="fa-regular fa-envelope mr-2 text-blue-600"></i>
+                E-Posta
+              </h3>
+              <a href="mailto:iletisim@devayazilim.com.tr"
+                class="text-blue-600 text-sm hover:underline">
+                iletisim@devayazilim.com.tr
+              </a>
+            </div>
+<div class="bg-white p-6 rounded-xl border-l-8 border-green-600 shadow-md">
           <h3 class="text-lg font-semibold mb-2">
-            <i class="fa-regular fa-envelope mr-2"></i> E-Posta
+            <i
+                  class="fa-brands fa-whatsapp mr-2 text-green-600"></i>
+                WhatsApp
           </h3>
-          <a href="mailto:info@iknet.com" class="text-blue-700 hover:underline">
-            info@iknet.com
-          </a>
+          <a href="https://wa.me/905325487264"
+                class="text-green-600 text-sm hover:underline"
+                target="_blank">
+                Hemen Yaz
+              </a>
+        </div>
+           
+          </div>
+
+          <!-- MESAI -->
+          <div
+            class="mt-8 bg-gray-50 p-6 rounded-2xl border-l-8 border-gray-200">
+            <h3 class="font-semibold mb-2">
+              <i class="fa-regular fa-clock mr-2"></i>
+              Mesai Saatleri
+            </h3>
+            <p class="text-gray-600 text-sm">
+              Pazartesi - Cuma: 08:00 - 18:00
+            </p>
+            <p class="text-gray-600 text-sm">
+              Cumartesi - Pazar: Kapalı
+            </p>
+          </div>
+
         </div>
 
-        <div class="bg-gray-100 p-6 rounded-xl border-l-8 border-green-600 shadow-md">
-          <h3 class="text-lg font-semibold mb-2">
-            <i class="fa-brands fa-whatsapp mr-2"></i> WhatsApp
-          </h3>
-          <a href="https://wa.me/905325487264" target="_blank" class="text-green-700 hover:underline">
-            Hemen Yaz
-          </a>
+        <!-- FORM TARAF -->
+        <div
+          class="p-10 rounded-[18px] bg-white/70 backdrop-blur-xl border border-gray-200 shadow-xl">
+
+          <h2 class="text-3xl font-bold mb-10">
+            Bize Mesaj Gönder
+          </h2>
+
+          <form class="space-y-6">
+
+            <div>
+              <label
+                class="block text-sm font-semibold mb-2">Ad
+                Soyad</label>
+              <input type="text"
+                placeholder="Adınızı giriniz"
+                class="w-full px-4 py-3 rounded-xl border border-gray-200 bg-gray-50 focus:bg-white focus:outline-none focus:ring-2 focus:ring-black focus:border-black transition-all duration-300">
+            </div>
+
+            <div>
+              <label
+                class="block text-sm font-semibold mb-2">E-posta</label>
+              <input type="email"
+                placeholder="ornek@mail.com"
+                class="w-full px-4 py-3 rounded-xl border border-gray-200 bg-gray-50 focus:bg-white focus:outline-none focus:ring-2 focus:ring-black focus:border-black transition-all duration-300">
+            </div>
+
+            <div>
+              <label
+                class="block text-sm font-semibold mb-2">Konu</label>
+              <input type="text"
+                placeholder="Konunuzu giriniz"
+                class="w-full px-4 py-3 rounded-xl border border-gray-200 bg-gray-50 focus:bg-white focus:outline-none focus:ring-2 focus:ring-black focus:border-black transition-all duration-300">
+            </div>
+
+            <div>
+              <label
+                class="block text-sm font-semibold mb-2">Mesajınız</label>
+              <textarea rows="5"
+                placeholder="Mesajınızı yazınız..."
+                class="w-full px-4 py-3 rounded-xl border border-gray-200 bg-gray-50 resize-none focus:bg-white focus:outline-none focus:ring-2 focus:ring-black focus:border-black transition-all duration-300"></textarea>
+            </div>
+
+            <button type="submit"
+              class="w-full bg-black text-white font-semibold py-4 rounded-xl shadow-lg hover:shadow-2xl hover:-translate-y-1 hover:bg-gray-900 transition-all duration-300 tracking-wide">
+              Mesajı Gönder
+            </button>
+
+          </form>
+
         </div>
 
+      </section>
+
+      <!-- HARITA -->
+      <div class="pb-20 px-6">
+        <div
+          class="lg:max-w-7xl max-w-sm mx-auto p-10 rounded-[18px] bg-white shadow-xl border border-gray-200">
+
+          <h3 class="text-2xl font-bold mb-6">
+            Ofis Konumumuz
+          </h3>
+          <iframe
+            class="w-full h-[400px] rounded-2xl border border-gray-200 shadow-md"
+           src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3146.8390518697224!2d32.54305287535777!3d37.93419030296186!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14d091004f70ca47%3A0xebe498c1f01b71ce!2zRGV2YSBZYXrEsWzEsW0gw4fDtnrDvG1sZXJp!5e0!3m2!1str!2str!4v1771078871792!5m2!1str!2str"
+            allowfullscreen
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade">
+          </iframe>
+
+        </div>
       </div>
 
-      <div class="bg-gray-100 p-6 rounded-xl mt-8 border-l-8 border-gray-500 shadow-md">
-        <h3 class="text-lg font-semibold mb-2">
-          <i class="fa-regular fa-clock mr-2"></i> Mesai Saatleri
-        </h3>
-        <p class="text-gray-600">Pazartesi - Cuma: 09:00 - 18:00</p>
-        <p class="text-gray-600">Cumartesi - Pazar: Kapalı</p>
-      </div>
-
-    </div>
-  </div>
-
-  <div class=" p-10 rounded-3xl border border-white-300 shadow-xl">
-
-    <h2 class="text-3xl font-bold mb-8">Bize Mesaj Gönder</h2>
-
-    <form class="">
-
-      <div>
-        <label class="block text-sm font-semibold mb-2">Ad Soyad</label>
-        <input type="text" placeholder="Adınızı giriniz"
-          class="w-full px-4 py-3 rounded-xl border border-gray-300 bg-white focus:outline-none focus:ring-2 focus:ring-primary focus:border-primary transition-all duration-300">
-      </div>
-
-      <div>
-        <label class="block text-sm font-semibold mb-2">E-posta</label>
-        <input type="email" placeholder="ornek@mail.com"
-          class="w-full px-4 py-3 rounded-xl border border-gray-300 bg-white focus:outline-none focus:ring-2 focus:ring-primary focus:border-primary transition-all duration-300">
-      </div>
-
-      <div>
-        <label class="block text-sm font-semibold mb-2">Konu</label>
-        <input type="text" placeholder="Konunuzu giriniz"
-          class="w-full px-4 py-3 rounded-xl border border-gray-300 bg-white focus:outline-none focus:ring-2 focus:ring-primary focus:border-primary transition-all duration-300">
-      </div>
-
-      <div>
-        <label class="block text-sm font-semibold mb-2">Mesajınız</label>
-        <textarea rows="5" placeholder="Mesajınızı yazınız..."
-          class="w-full px-4 py-3 rounded-xl border border-gray-300 bg-white resize-none focus:outline-none focus:ring-2 focus:ring-primary focus:border-primary transition-all duration-300"></textarea>
-      </div>
-
-      <button type="submit"
-        class="w-full bg-primary text-white font-bold py-3 rounded-xl shadow-lg hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
-        Mesajı Gönder
-      </button>
-
-    </form>
-
-  </div>
-
-</section>
-
-  </div>
-<div class="pb-10 px-6">
-  <div class="lg:max-w-7xl max-w-sm mx-auto p-8 rounded-3xl border border-gray-300 shadow-xl">
-
-    <h3 class="text-2xl font-bold mb-6">Ofis Konumumuz</h3>
-
-    <iframe 
-      class="w-full h-[400px] rounded-2xl border border-gray-300 shadow-md"
-      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1573.4143874965237!2d32.54378411918878!3d37.934430366796796!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14d085601995a317%3A0x6801b80478aeb2e0!2sLogithink%20Yaz%C4%B1l%C4%B1m%20ve%20Teknoloji%20Hizmetleri!5e0!3m2!1str!2str!4v1770964899415!5m2!1str!2str"
-      allowfullscreen
-      loading="lazy"
-      referrerpolicy="no-referrer-when-downgrade">
-    </iframe>
-
-  </div>
-</div>
 
   
   </div>
