@@ -2,9 +2,10 @@
 .phone-frame {
     width: 320px;
     height: 640px;
+    top: -40px;
     background: black;
     border-radius: 40px;
-    padding: 10px;
+    padding: 9px;
     box-shadow: 0 20px 40px rgba(0,0,0,.4);
     position: relative;
 }
@@ -69,7 +70,7 @@
      justify-self: center;
      border-radius: 10px;
      margin:0 auto;   
-     background: #4A9AEB;
+     background: #02D5FF;
      color: white;
 }
 
@@ -266,4 +267,45 @@
 .stat-item span{
     font-size:11px;
     color:#6b7280;
+}
+
+.phone-frame{
+    animation: phoneEnter 1s ease forwards;
+}
+
+@keyframes phoneEnter{
+    from{
+        transform:translateX(-100px);
+        opacity:0;
+    }
+    to{
+        transform:translateY(0);
+        opacity:1;
+    }
+}
+
+.app-content,
+.app-shift,
+.app-shiftStartBt,
+.app-shiftDiv,
+.quick-actions,
+.app-bordo,
+.stats-box{
+    opacity:0;
+    transform:translateY(20px);
+    animation: fadeUp .6s ease forwards;
+}
+
+.app-content{ animation-delay:.2s }
+.app-shift{ animation-delay:.4s }
+.app-shiftDiv{ animation-delay:.4s }
+.quick-actions{ animation-delay:.6s }
+.app-bordo{ animation-delay:.8s }
+.stats-box{ animation-delay:1s }
+
+@keyframes fadeUp{
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
 }
