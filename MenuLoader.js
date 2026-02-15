@@ -81,8 +81,8 @@ function initPhonesScroll() {
 }
 
 
-let lastScroll = 0;
 
+let lastScroll = 0;
 function initHeaderShrink() {
 
   const header = document.querySelector("header");
