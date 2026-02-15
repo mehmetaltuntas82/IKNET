@@ -2,7 +2,7 @@
 .phone-frame {
     width: 320px;
     height: 640px;
-    top: -40px;
+    top: 40px;
     background: black;
     border-radius: 40px;
     padding: 9px;
