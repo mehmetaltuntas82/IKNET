@@ -164,3 +164,47 @@ html, body {
 .phone-2 { z-index: 2; }
 .phone-3 { z-index: 1; }
 
+/* Normal hali */
+header .h-20 {
+  transition: all 0.3s ease;
+}
+
+header nav a,
+header button,
+header svg {
+  transition: all 0.3s ease;
+}
+
+/* SHRINK MODE */
+header.shrink .h-20 {
+  height: 60px !important;
+}
+
+header.shrink nav a {
+  font-size: 13px;
+}
+
+header.shrink a.px-5 {
+  padding: 6px 14px;
+  font-size: 13px;
+}
+
+header.shrink button svg {
+  width: 22px;
+  height: 22px;
+}
+
+header.shrink svg {
+  height: 38px !important;
+}
+
+/* Header iç boşluk azalt */
+header.shrink .max-w-7xl {
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+header.shrink {
+  background: rgba(10, 10, 20, 0.85);
+  backdrop-filter: saturate(180%) blur(12px);
+}

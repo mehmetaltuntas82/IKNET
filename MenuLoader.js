@@ -1,7 +1,9 @@
 document.addEventListener("DOMContentLoaded", () => {
 
   loadMenu("Footer", "Footer.html");
-  loadMenu("Header", "Header.html");
+    loadMenu("Header", "Header.html", () => {
+    initHeaderShrink();
+  });
 
   // MobileApp yüklenince animasyonu başlat
   loadMenu("MobileAppPage", "MobileAppPage.html", () => {
@@ -76,4 +78,31 @@ function initPhonesScroll() {
 
   });
 
+}
+
+
+
+let lastScroll = 0;
+function initHeaderShrink() {
+
+  const header = document.querySelector("header");
+  if (!header) return;
+
+  window.addEventListener("scroll", () => {
+
+    const current = window.scrollY;
+
+    if (current > 80) {
+      header.classList.add("shrink");
+    } else {
+      header.classList.remove("shrink");
+    }
+
+    // Yukarı çıkınca biraz aç
+    if (current < lastScroll) {
+      header.classList.remove("shrink");
+    }
+
+    lastScroll = current;
+  });
 }

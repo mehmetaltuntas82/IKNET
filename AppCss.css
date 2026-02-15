@@ -2,12 +2,13 @@
 .phone-frame {
     width: 320px;
     height: 640px;
-    top: -40px;
+    top: 40px;
     background: black;
     border-radius: 40px;
     padding: 9px;
     box-shadow: 0 20px 40px rgba(0,0,0,.4);
     position: relative;
+    user-select: none;
 }
 
 .app-notch {
