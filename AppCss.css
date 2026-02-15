@@ -31,6 +31,9 @@
     overflow: hidden;
     gap: 7px;
     display: flex;
+    overflow-y:auto;
+    scroll-behavior:smooth;
+
     flex-direction: column;
 }
 
@@ -306,4 +309,75 @@
         opacity:1;
         transform:translateY(0);
     }
+}
+
+
+/* Arka Plan Karartma */
+#tour-overlay{
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,.6);
+    z-index:999;
+    display:none;
+}
+
+/* Bilgi Kutusu */
+#tour-box{
+    position:fixed;
+    background:#fff;
+    padding:15px;
+    border-radius:12px;
+    width:220px;
+    font-size:13px;
+    z-index:1000;
+    display:none;
+    box-shadow:0 5px 20px rgba(0,0,0,.3);
+}
+
+#tour-box button{
+    margin-top:10px;
+    width:100%;
+    background:#2563eb;
+    color:#fff;
+    border:none;
+    padding:6px;
+    border-radius:6px;
+    cursor:pointer;
+}
+
+/* Focus Efekti */
+.tour-active{
+    position:relative;
+    z-index:1001;
+    box-shadow:0 0 0 4px #2563eb, 
+               0 0 20px rgba(37,99,235,.8);
+    border-radius:10px;
+}
+
+/* Scroll Guide */
+
+#scroll-guide{
+    position:fixed;
+    bottom:20px;
+    left:50%;
+    transform:translateX(-50%);
+    background:#2563eb;
+    color:#fff;
+    padding:10px 18px;
+    border-radius:30px;
+    font-size:12px;
+    z-index:9999;
+    box-shadow:0 5px 20px rgba(0,0,0,.3);
+    opacity:0;
+    transition:.3s;
+}
+
+#scroll-guide.show{
+    opacity:1;
+}
+
+.tour-active{
+    box-shadow:0 0 0 3px #2563eb,
+               0 0 15px rgba(37,99,235,.6);
+    border-radius:10px;
 }

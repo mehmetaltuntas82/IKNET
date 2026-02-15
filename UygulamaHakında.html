@@ -222,9 +222,109 @@
 
 
         <div id="Footer"></div>
+        <div id="scroll-guide">
+  <span id="guide-text"></span>
 </body>
 
 </html>
 
 <script src="MenuLoader.js"></script>
 
+<script>
+
+document.addEventListener("DOMContentLoaded",()=>{
+
+const steps = [
+  {
+    element: ".menu-icon",
+    text: "Menü buradan açılır"
+  },
+  {
+    element: ".bell-icon",
+    text: "Bildirimleri buradan görürsün"
+  },
+  {
+    element: ".app-shiftDiv",
+    text: "Mesai durumun burada"
+  },
+  {
+    element: ".action-card.green",
+    text: "Buradan giriş yaparsın"
+  },
+  {
+    element: ".notice-btn",
+    text: "Bordro burada"
+  },
+  {
+    element: ".stats-box",
+    text: "İstatistikler burada"
+  },
+  {
+    element: ".nav-item.active",
+    text: "Ana sayfan burası"
+  }
+];
+
+const guide = document.getElementById("scroll-guide");
+const text = document.getElementById("guide-text");
+
+let current = -1;
+
+
+function onScroll(){
+
+  let found = -1;
+
+  steps.forEach((step,i)=>{
+
+    const el = document.querySelector(step.element);
+
+    if(!el) return;
+
+    const r = el.getBoundingClientRect();
+
+    if(r.top < window.innerHeight*0.6 &&
+       r.bottom > window.innerHeight*0.3){
+        found = i;
+    }
+
+  });
+
+  if(found !== current){
+
+    current = found;
+
+    document
+      .querySelectorAll(".tour-active")
+      .forEach(e=>e.classList.remove("tour-active"));
+
+    if(found !== -1){
+
+      const el = document.querySelector(steps[found].element);
+
+      el.classList.add("tour-active");
+
+      text.innerText = steps[found].text;
+
+      guide.classList.add("show");
+
+    }else{
+
+      guide.classList.remove("show");
+
+    }
+  }
+
+}
+
+
+/* app-screen içinde scroll var */
+const screen = document.querySelector(".app-screen");
+
+screen.addEventListener("scroll",onScroll);
+
+onScroll();
+
+});
+
+</script>
