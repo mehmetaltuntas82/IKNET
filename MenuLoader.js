@@ -33,7 +33,6 @@ async function loadMenu(containerId, file, callback) {
 
 
 
-/* Scroll animasyonu */
 function initPhonesScroll() {
 
   const section = document.querySelector(".phones-section");
@@ -52,23 +51,28 @@ function initPhonesScroll() {
     const win = window.innerHeight;
 
     let progress = 1 - (rect.bottom / (win + rect.height));
-
     progress = Math.min(Math.max(progress, 0), 1);
 
+    const base = progress; // artık 0 → 1 arası
 
-    const base = progress * 1.2; // genel hız
+    // Daha yumuşak değerler
+    const x1 = base * 0;
+    const r1 = base * 0;
 
-const x2 = base * 80;
-const r2 = base * 20;
+    const x2 = base * 50;
+    const r2 = base * 20;
 
-const x3 = base * 140;
-const r3 = base * 35;
+    const x3 = base * 80;
+    const r3 = base * 28;
 
-    phone2.style.transform =
-      `translate(-50%, -50%) translateX(${x2}px) rotate(${r2}deg)`;
+    phone1.style.setProperty("--x", `${x1}px`);
+    phone1.style.setProperty("--r", `${r1}deg`);
 
-    phone3.style.transform =
-      `translate(-50%, -50%) translateX(${x3}px) rotate(${r3}deg)`;
+    phone2.style.setProperty("--x", `${x2}px`);
+    phone2.style.setProperty("--r", `${r2}deg`);
+
+    phone3.style.setProperty("--x", `${x3}px`);
+    phone3.style.setProperty("--r", `${r3}deg`);
 
   });
 
