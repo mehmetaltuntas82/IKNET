@@ -3,7 +3,13 @@
 <head>
     <meta charset="utf-8" />
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <meta name="description" content="IKNET ile izin, vardiya, bordro ve saha takibini tek panelden yönetin. Hızlı kurulum, kolay kullanım, ölçülebilir verimlilik." />
     <title>IKNET - İnsan Kaynakları Yönetim Yazılımı</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preload" as="image" href="TemplateImage/test.png" />
+
     <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&amp;display=swap" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet" />
@@ -47,22 +53,243 @@
             font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
         }
 
-        body {
-            font-family: 'Inter', sans-serif;
+        /* Ana sayfa ekstra animasyon & UI yardımcıları */
+        @media (prefers-reduced-motion: reduce) {
+            html:focus-within { scroll-behavior: auto; }
+            *, *::before, *::after {
+                animation-duration: 0.001ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.001ms !important;
+                scroll-behavior: auto !important;
+            }
         }
 
-        .material-symbols-outlined {
-            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        .bg-grid {
+            background-image:
+                linear-gradient(to right, rgba(28,116,233,.12) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(28,116,233,.12) 1px, transparent 1px);
+            background-size: 28px 28px;
+            mask-image: radial-gradient(circle at 30% 20%, rgba(0,0,0,1) 0%, rgba(0,0,0,.25) 45%, rgba(0,0,0,0) 75%);
+        }
+
+        .floaty {
+            animation: floaty 7s ease-in-out infinite;
+            will-change: transform;
+        }
+
+        @keyframes floaty {
+            0%, 100% { transform: translate3d(0, 0, 0); }
+            50% { transform: translate3d(0, -10px, 0); }
+        }
+
+        .shimmer {
+            position: relative;
+            
+        }
+
+        .shimmer::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            transform: translateX(-120%);
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,.35), transparent);
+            animation: shimmer 3.2s ease-in-out infinite;
+        }
+
+        @keyframes shimmer {
+            0% { transform: translateX(-120%); }
+            55% { transform: translateX(120%); }
+            100% { transform: translateX(120%); }
+        }
+
+        #scroll-progress {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 5px;
+            width: 100%;
+            z-index: 9999;
+            background: transparent;
+        }
+
+        #scroll-progress > div {
+            height: 100%;
+            width: 0%;
+            background: linear-gradient(90deg, #1c74e9, #00c2ff, #1c74e9);
+            background-size: 200% 200%;
+            animation: gradientShift 2.5s linear infinite;
+            box-shadow: 0 8px 24px rgba(28,116,233,.25);
+            border-radius: 999px;
+        }
+
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            100% { background-position: 100% 50%; }
+        }
+
+        #backToTop {
+            position: fixed;
+            right: 18px;
+            bottom: 18px;
+            z-index: 9999;
+            opacity: 0;
+            transform: translateY(10px);
+            pointer-events: none;
+            transition: opacity .25s ease, transform .25s ease;
+        }
+
+        #backToTop.show {
+            opacity: 1;
+            transform: translateY(0);
+            pointer-events: auto;
+        }
+
+        /* reveal varyantları (observer ile active alıyor) */
+        .reveal-zoom { opacity: 0; transform: scale(.96); filter: blur(4px); transition: all .8s ease; }
+        .reveal-zoom.active { opacity: 1; transform: scale(1); filter: blur(0); }
+
+        .marquee {
+            display: flex;
+            gap: 14px;
+            overflow: hidden;
+            user-select: none;
+            mask-image: linear-gradient(90deg, transparent, rgba(0,0,0,1) 12%, rgba(0,0,0,1) 88%, transparent);
+        }
+
+        .marquee__track {
+            display: flex;
+            gap: 14px;
+            animation: marquee 22s linear infinite;
+            will-change: transform;
+        }
+
+        @keyframes marquee {
+            from { transform: translateX(0); }
+            to { transform: translateX(-50%); }
+        }
+
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+
+        /* Testimonials slider (edge fade + card polish) */
+        .t-marquee {
+            overflow: hidden;
+            user-select: none;
+        }
+
+        .t-marquee__track {
+            display: flex;
+            width: max-content;
+            will-change: transform;
+            animation: tMarquee 28s linear infinite;
+        }
+
+        .t-marquee__group {
+            display: flex;
+            gap: 24px;
+            padding-right: 24px; /* dikişte de aynı boşluk olsun */
+            align-items: stretch;
+        }
+
+        /* Okumak için üstüne gelince/focus olunca durdur */
+        .t-marquee:hover .t-marquee__track,
+        .t-marquee:focus-within .t-marquee__track {
+            animation-play-state: paused;
+        }
+
+        @keyframes tMarquee {
+            from { transform: translateX(0); }
+            to { transform: translateX(-50%); }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .t-marquee__track { animation: none !important; transform: none !important; }
+        }
+
+        .t-edge::before,
+        .t-edge::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            width: 72px;
+            z-index: 5;
+            pointer-events: none;
+        }
+
+        .t-edge::before {
+            left: 0;
+            background: linear-gradient(90deg, rgba(246,247,248,1), rgba(246,247,248,0));
+        }
+
+        .t-edge::after {
+            right: 0;
+            background: linear-gradient(270deg, rgba(246,247,248,1), rgba(246,247,248,0));
+        }
+
+        .dark .t-edge::before {
+            background: linear-gradient(90deg, rgba(17,24,33,1), rgba(17,24,33,0));
+        }
+
+        .dark .t-edge::after {
+            background: linear-gradient(270deg, rgba(17,24,33,1), rgba(17,24,33,0));
+        }
+
+        #testimonials [data-t-track] > article {
+            position: relative;
+            background: rgba(255, 255, 255, 0.92);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-color: rgba(15, 23, 42, 0.08);
+            transition: transform 240ms ease, box-shadow 240ms ease, border-color 240ms ease;
+            will-change: transform;
+        }
+
+        .dark #testimonials [data-t-track] > article {
+            background: rgba(255, 255, 255, 0.05);
+            border-color: rgba(255, 255, 255, 0.10);
+        }
+
+        #testimonials [data-t-track] > article::before {
+            content: "“";
+            position: absolute;
+            top: 10px;
+            right: 14px;
+            font-size: 58px;
+            line-height: 1;
+            color: rgba(28, 116, 233, 0.18);
+            pointer-events: none;
+        }
+
+        .dark #testimonials [data-t-track] > article::before {
+            color: rgba(28, 116, 233, 0.28);
+        }
+
+        #testimonials [data-t-track] > article:hover {
+            transform: translateY(-4px);
+            border-color: rgba(28, 116, 233, 0.28);
+            box-shadow: 0 18px 40px rgba(28, 116, 233, 0.10);
         }
     </style>
 
 </head>
 <body class="bg-background-light dark:bg-background-dark text-slate-heading">
     <div class="relative flex min-h-screen flex-col overflow-visible">
+        <div id="scroll-progress" aria-hidden="true"><div></div></div>
         <div id="Header"></div>
         <main class="flex-1">
-            <section class="mx-auto max-w-[1280px] px-4 lg:px-10 py-12 lg:py-20">
-                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <section class="relative mx-auto max-w-[1920px] px-4 lg:px-10 py-12 lg:py-20 overflow-hidden">
+                <div class="absolute inset-0 -z-10 bg-grid opacity-70 "></div>
+                <div class="absolute -z-10 -top-24 -right-24 w-[420px] h-[420px] rounded-full bg-primary/15 blur-3xl floaty"></div>
+                <div class="absolute -z-10 -bottom-24 -left-24 w-[420px] h-[420px] rounded-full bg-cyan-400/10 blur-3xl floaty" style="animation-delay: -2s;"></div>
+
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center px-20 mt-16">
                     <div class="flex flex-col gap-8 opacity-0 animate-fade-up delay-200">
                         <div class="flex flex-col gap-4">
                             <h1 class="text-slate-heading text-4xl lg:text-6xl font-black leading-tight tracking-tight">
@@ -79,6 +306,10 @@
                             <button
                                 class="flex min-w-[180px] cursor-pointer items-center justify-center rounded-lg h-14 px-6 bg-primary text-white text-lg font-bold shadow-xl shadow-primary/30 hover:translate-y-[-2px] transition-all">Uygulamayı
                                 keşfedin</button>
+                            <a href="#pricing"
+                               class="flex min-w-[180px] cursor-pointer items-center justify-center rounded-lg h-14 px-6 bg-white/80 text-slate-heading text-lg font-bold border border-slate-200 shadow-sm hover:bg-white hover:translate-y-[-2px] transition-all">
+                                Planları görün
+                            </a>
 
                         </div>
 
@@ -86,9 +317,13 @@
                     </div>
 
             
-   <div class="opacity-0 animate-fade-right delay-600">
+   <div class="opacity-0 animate-fade-right delay-600 shimmer rounded-3xl">
 <img
   src="TemplateImage/test.png"
+  alt="IKNET uygulama ekranı önizleme"
+  loading="eager"
+  decoding="async"
+  fetchpriority="high"
   class="relative w-full h-auto rounded-3xl"
   style="scale: 1.1;"
 />
@@ -96,6 +331,40 @@
                     <div class="relative">
                         <div class="absolute -inset-4 bg-primary/10 rounded-full blur-3xl opacity-50"></div>
 
+                    </div>
+                </div>
+            </section>
+
+            <!-- Güven / Logo bandı -->
+            <section class="bg-white dark:bg-background-dark py-10 border-y border-slate-100 dark:border-white/5">
+                <div class="mx-auto max-w-[1280px] px-4 lg:px-10">
+                    <div class="flex flex-col lg:flex-row gap-6 items-center justify-between">
+                        <div class="reveal-left delay-1">
+                            <div class="text-sm font-bold tracking-widest text-slate-body uppercase">Güvenle büyüyen ekiplerin tercihi</div>
+                            <div class="text-slate-heading text-2xl font-extrabold mt-1">Kurulum hızlı, kullanım kolay, sonuç ölçülebilir.</div>
+                        </div>
+                        <div class="w-full lg:w-[58%] reveal-right delay-2">
+                            <div class="marquee">
+                                <div class="marquee__track">
+                                    <div class="flex gap-3">
+                                        <span class="px-4 py-2 rounded-full bg-slate-50 border border-slate-200 text-slate-body font-semibold">Bordro</span>
+                                        <span class="px-4 py-2 rounded-full bg-slate-50 border border-slate-200 text-slate-body font-semibold">İzin</span>
+                                        <span class="px-4 py-2 rounded-full bg-slate-50 border border-slate-200 text-slate-body font-semibold">Vardiya</span>
+                                        <span class="px-4 py-2 rounded-full bg-slate-50 border border-slate-200 text-slate-body font-semibold">Rapor</span>
+                                        <span class="px-4 py-2 rounded-full bg-slate-50 border border-slate-200 text-slate-body font-semibold">Saha</span>
+                                        <span class="px-4 py-2 rounded-full bg-slate-50 border border-slate-200 text-slate-body font-semibold">Onay</span>
+                                    </div>
+                                    <div class="flex gap-3" aria-hidden="true">
+                                        <span class="px-4 py-2 rounded-full bg-slate-50 border border-slate-200 text-slate-body font-semibold">Bordro</span>
+                                        <span class="px-4 py-2 rounded-full bg-slate-50 border border-slate-200 text-slate-body font-semibold">İzin</span>
+                                        <span class="px-4 py-2 rounded-full bg-slate-50 border border-slate-200 text-slate-body font-semibold">Vardiya</span>
+                                        <span class="px-4 py-2 rounded-full bg-slate-50 border border-slate-200 text-slate-body font-semibold">Rapor</span>
+                                        <span class="px-4 py-2 rounded-full bg-slate-50 border border-slate-200 text-slate-body font-semibold">Saha</span>
+                                        <span class="px-4 py-2 rounded-full bg-slate-50 border border-slate-200 text-slate-body font-semibold">Onay</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </section>
@@ -133,6 +402,8 @@
                         </div>
                         <div class="order-1 lg:order-2 flex justify-center reveal delay-3">
                             <img alt="Different views of IKNET mobile screens"
+                                loading="lazy"
+                                decoding="async"
                                 class="w-[900px] h-[500px] max-w-[1400px] lg:scale-110 drop-shadow-2xl transition"
                                 data-alt="Mobile screens displaying employee check-in and task management interfaces"
                                 src="TemplateImage/anaekran.png" />
@@ -164,7 +435,435 @@
             </section>
 
 
-            
+            <!-- İstatistikler -->
+            <section class="py-20 bg-background-light dark:bg-background-dark" id="stats">
+                <div class="mx-auto max-w-[1280px] px-4 lg:px-10">
+                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
+                        <div class="reveal-left delay-1">
+                            <h2 class="text-slate-heading text-3xl lg:text-4xl font-extrabold leading-tight">
+                                İK operasyonlarınızı ölçülebilir şekilde hızlandırın.
+                            </h2>
+                            <p class="text-slate-body text-lg mt-4 max-w-xl">
+                                IKNET, tekrar eden işleri otomatikleştirir; onay akışlarını sadeleştirir ve yönetim panelleriyle görünürlük kazandırır.
+                            </p>
+                            <div class="mt-8 flex flex-wrap gap-3">
+                                <a href="#modules" class="px-5 py-3 rounded-xl bg-primary text-white font-bold shadow-lg shadow-primary/20 hover:translate-y-[-2px] transition">Modülleri incele</a>
+                                <a href="#faq" class="px-5 py-3 rounded-xl bg-white border border-slate-200 text-slate-heading font-bold hover:bg-slate-50 transition">Sık sorulanlar</a>
+                            </div>
+                        </div>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 reveal-right delay-2" id="countup-wrap">
+                            <div class="rounded-2xl bg-white border border-slate-100 p-6 shadow-sm">
+                                <div class="text-slate-body font-semibold">Ortalama onay hızı</div>
+                                <div class="text-4xl font-black text-slate-heading mt-2"><span class="countup" data-count="60">0</span>%</div>
+                                <div class="text-slate-body mt-2">Daha hızlı izin/mesai akışı</div>
+                            </div>
+                            <div class="rounded-2xl bg-white border border-slate-100 p-6 shadow-sm">
+                                <div class="text-slate-body font-semibold">Operasyonel yük</div>
+                                <div class="text-4xl font-black text-slate-heading mt-2">-<span class="countup" data-count="40">0</span>%</div>
+                                <div class="text-slate-body mt-2">Daha az manuel iş</div>
+                            </div>
+                            <div class="rounded-2xl bg-white border border-slate-100 p-6 shadow-sm">
+                                <div class="text-slate-body font-semibold">Raporlama süresi</div>
+                                <div class="text-4xl font-black text-slate-heading mt-2"><span class="countup" data-count="5">0</span> dk</div>
+                                <div class="text-slate-body mt-2">Anlık panolar &amp; export</div>
+                            </div>
+                            <div class="rounded-2xl bg-white border border-slate-100 p-6 shadow-sm">
+                                <div class="text-slate-body font-semibold">Saha doğrulama</div>
+                                <div class="text-4xl font-black text-slate-heading mt-2"><span class="countup" data-count="99">0</span>%</div>
+                                <div class="text-slate-body mt-2">Konum bazlı kontrol</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Modüller -->
+            <section class="py-20 bg-white dark:bg-background-dark" id="modules">
+                <div class="mx-auto max-w-[1280px] px-4 lg:px-10">
+                    <div class="flex flex-col items-center text-center gap-4 mb-14 reveal delay-1">
+                        <h2 class="text-slate-heading text-3xl lg:text-4xl font-bold">Modüler Yapı: İhtiyacın Kadar, Tam Entegre</h2>
+                        <p class="text-slate-body text-lg max-w-3xl">Her modül aynı panelde çalışır. Yetkilendirme, loglama ve raporlar tek merkezden yönetilir.</p>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                        <div class="reveal-zoom delay-1 rounded-2xl border border-slate-100 bg-white p-7 shadow-sm hover:shadow-lg hover:shadow-primary/10 hover:-translate-y-1 transition">
+                            <div class="flex items-start gap-4">
+                                <div class="bg-primary/10 text-primary rounded-xl p-3">
+                                    <span class="material-symbols-outlined">badge</span>
+                                </div>
+                                <div>
+                                    <div class="text-xl font-extrabold">Personel Yönetimi</div>
+                                    <div class="text-slate-body mt-2">Özlük, rol/yetki, evrak ve sözleşme süreçleri.</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="reveal-zoom delay-2 rounded-2xl border border-slate-100 bg-white p-7 shadow-sm hover:shadow-lg hover:shadow-primary/10 hover:-translate-y-1 transition">
+                            <div class="flex items-start gap-4">
+                                <div class="bg-primary/10 text-primary rounded-xl p-3">
+                                    <span class="material-symbols-outlined">schedule</span>
+                                </div>
+                                <div>
+                                    <div class="text-xl font-extrabold">Vardiya &amp; Mesai</div>
+                                    <div class="text-slate-body mt-2">Şablonlar, çakışma kontrolü, toplu atama.</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="reveal-zoom delay-3 rounded-2xl border border-slate-100 bg-white p-7 shadow-sm hover:shadow-lg hover:shadow-primary/10 hover:-translate-y-1 transition">
+                            <div class="flex items-start gap-4">
+                                <div class="bg-primary/10 text-primary rounded-xl p-3">
+                                    <span class="material-symbols-outlined">event_available</span>
+                                </div>
+                                <div>
+                                    <div class="text-xl font-extrabold">İzin &amp; Onay Akışları</div>
+                                    <div class="text-slate-body mt-2">Kural tabanlı iş akışları, bildirimler.</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="reveal-zoom delay-1 rounded-2xl border border-slate-100 bg-white p-7 shadow-sm hover:shadow-lg hover:shadow-primary/10 hover:-translate-y-1 transition">
+                            <div class="flex items-start gap-4">
+                                <div class="bg-primary/10 text-primary rounded-xl p-3">
+                                    <span class="material-symbols-outlined">pin_drop</span>
+                                </div>
+                                <div>
+                                    <div class="text-xl font-extrabold">Saha Takip</div>
+                                    <div class="text-slate-body mt-2">Konum doğrulama, check-in/out, rota.</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="reveal-zoom delay-2 rounded-2xl border border-slate-100 bg-white p-7 shadow-sm hover:shadow-lg hover:shadow-primary/10 hover:-translate-y-1 transition">
+                            <div class="flex items-start gap-4">
+                                <div class="bg-primary/10 text-primary rounded-xl p-3">
+                                    <span class="material-symbols-outlined">description</span>
+                                </div>
+                                <div>
+                                    <div class="text-xl font-extrabold">Bordro &amp; Puantaj</div>
+                                    <div class="text-slate-body mt-2">Hata azaltan hesaplama, onay, arşiv.</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="reveal-zoom delay-3 rounded-2xl border border-slate-100 bg-white p-7 shadow-sm hover:shadow-lg hover:shadow-primary/10 hover:-translate-y-1 transition">
+                            <div class="flex items-start gap-4">
+                                <div class="bg-primary/10 text-primary rounded-xl p-3">
+                                    <span class="material-symbols-outlined">monitoring</span>
+                                </div>
+                                <div>
+                                    <div class="text-xl font-extrabold">Rapor &amp; Analitik</div>
+                                    <div class="text-slate-body mt-2">KPI panoları, filtreler, Excel/PDF çıktıları.</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Nasıl çalışır -->
+            <section class="py-20 bg-background-light dark:bg-background-dark" id="how">
+                <div class="mx-auto max-w-[1280px] px-4 lg:px-10">
+                    <div class="flex flex-col items-center text-center gap-4 mb-14 reveal delay-1">
+                        <h2 class="text-slate-heading text-3xl lg:text-4xl font-bold">3 Adımda Canlıya Geçin</h2>
+                        <p class="text-slate-body text-lg max-w-3xl">Kurulumdan eğitime kadar net bir süreç. Ekibiniz günler içinde adapte olur.</p>
+                    </div>
+
+                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
+                        <div class="grid grid-cols-1 gap-6">
+                            <div class="reveal-left delay-1 rounded-2xl bg-white border border-slate-100 p-7 shadow-sm">
+                                <div class="flex items-center gap-3">
+                                    <div class="w-10 h-10 rounded-full bg-primary text-white flex items-center justify-center font-black">1</div>
+                                    <div class="text-xl font-extrabold">Analiz &amp; Yetkilendirme</div>
+                                </div>
+                                <p class="text-slate-body mt-4">Rol/yetki matrisi, akışlar ve modül kapsamı netleştirilir.</p>
+                            </div>
+                            <div class="reveal delay-2 rounded-2xl bg-white border border-slate-100 p-7 shadow-sm">
+                                <div class="flex items-center gap-3">
+                                    <div class="w-10 h-10 rounded-full bg-primary text-white flex items-center justify-center font-black">2</div>
+                                    <div class="text-xl font-extrabold">Kurulum &amp; Veri Taşıma</div>
+                                </div>
+                                <p class="text-slate-body mt-4">Mevcut personel/veri setleri güvenle aktarılır, panolar hazırlanır.</p>
+                            </div>
+                            <div class="reveal-right delay-3 rounded-2xl bg-white border border-slate-100 p-7 shadow-sm">
+                                <div class="flex items-center gap-3">
+                                    <div class="w-10 h-10 rounded-full bg-primary text-white flex items-center justify-center font-black">3</div>
+                                    <div class="text-xl font-extrabold">Eğitim &amp; Go-Live</div>
+                                </div>
+                                <p class="text-slate-body mt-4">Kısa eğitimle ekip hazır olur, ardından canlı kullanım başlar.</p>
+                            </div>
+                        </div>
+
+                        <div class="reveal-right delay-2 group relative flex justify-center">
+
+                            <!-- Glow -->
+                            <div class="absolute -inset-6 bg-gradient-to-tr 
+                                        from-primary/20 via-indigo-500/10 to-transparent 
+                                        blur-2xl opacity-70 transition duration-500">
+                            </div>
+                          
+                            <!-- DESKTOP -->
+                            <div class="relative z-10  md:w-[100%]
+                                        rounded-3xl border border-white/40 
+                                        h-[320px] 
+                                        bg-white/70 backdrop-blur-xl
+                                        p-4 shadow-2xl shadow-primary/10 
+                                        overflow-hidden">
+                          
+                                <img
+                                  src="TemplateImage/dashboard.png"
+                                  alt="IKNET panel ekran görüntüsü"
+                                  class="w-full  rounded-2xl h-[330px]"
+                                />
+                            </div>
+                          
+                            <!-- TELEFON -->
+                            <div class="absolute z-20 
+                                        bottom-[-30px] right-[-270px] 
+                                        
+                                        w-[95%] md:w-[85%]">
+                          
+                                <div class=" overflow-hidden">
+                          
+                                    <img
+                                      src="TemplateImage/anaekran.png"
+                                      alt="IKNET mobil ekran"
+                                      class="w-[500px] h-[300px]"
+                                    />
+                          
+                                </div>
+                          
+                            </div>
+                          
+                          </div>
+                          
+                          <!-- Caption -->
+                          <div class="mt-12 text-center text-sm text-slate-500">
+                            <span class="font-medium text-slate-700">
+                              Canlı panolar
+                            </span> ile operasyonu tek ekrandan izleyin.
+                          </div>
+                          
+                          
+                    </div>
+                </div>
+            </section>
+
+            <!-- Güvenlik / Uyum -->
+            <section class="py-20 bg-white dark:bg-background-dark" id="security">
+                <div class="mx-auto max-w-[1280px] px-4 lg:px-10">
+                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                        <div class="reveal-left delay-1">
+                            <h2 class="text-slate-heading text-3xl lg:text-4xl font-extrabold">Güvenlik &amp; Uyum Odaklı Tasarım</h2>
+                            <p class="text-slate-body text-lg mt-4 max-w-xl">
+                                Log kayıtları, rol bazlı yetkilendirme ve merkezi yönetim ile süreçleriniz denetlenebilir hale gelir.
+                            </p>
+                            <div class="mt-8 grid grid-cols-1 sm:grid-cols-2 gap-4">
+                                <div class="p-5 rounded-2xl bg-background-light border border-slate-100">
+                                    <div class="font-extrabold text-slate-heading">Rol Bazlı Erişim</div>
+                                    <div class="text-slate-body mt-1">Departman/şube bazında yetki kurgusu.</div>
+                                </div>
+                                <div class="p-5 rounded-2xl bg-background-light border border-slate-100">
+                                    <div class="font-extrabold text-slate-heading">Denetim İzleri</div>
+                                    <div class="text-slate-body mt-1">Kritik aksiyonlar için izlenebilir kayıt.</div>
+                                </div>
+                                <div class="p-5 rounded-2xl bg-background-light border border-slate-100">
+                                    <div class="font-extrabold text-slate-heading">Yedekleme</div>
+                                    <div class="text-slate-body mt-1">İş sürekliliği için planlı yedekleme.</div>
+                                </div>
+                                <div class="p-5 rounded-2xl bg-background-light border border-slate-100">
+                                    <div class="font-extrabold text-slate-heading">Veri Gizliliği</div>
+                                    <div class="text-slate-body mt-1">Kişisel veriler için kontrollü erişim.</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="reveal-right delay-2">
+                            <div class="rounded-3xl border border-slate-100 bg-gradient-to-br from-primary/10 via-white to-cyan-400/10 p-8 shadow-sm">
+                                <div class="text-sm font-bold tracking-widest uppercase text-slate-body">Örnek Akış</div>
+                                <div class="text-2xl font-extrabold text-slate-heading mt-2">İzin Talebi → Onay → Bordroya Yansıma</div>
+                                <div class="mt-6 grid grid-cols-1 gap-4">
+                                    <div class="rounded-2xl bg-white border border-slate-100 p-5 flex items-start gap-3">
+                                        <div class="bg-primary/10 text-primary rounded-xl p-2"><span class="material-symbols-outlined">edit_note</span></div>
+                                        <div>
+                                            <div class="font-extrabold">Talep</div>
+                                            <div class="text-slate-body">Çalışan mobil/web üzerinden talep oluşturur.</div>
+                                        </div>
+                                    </div>
+                                    <div class="rounded-2xl bg-white border border-slate-100 p-5 flex items-start gap-3">
+                                        <div class="bg-primary/10 text-primary rounded-xl p-2"><span class="material-symbols-outlined">fact_check</span></div>
+                                        <div>
+                                            <div class="font-extrabold">Onay</div>
+                                            <div class="text-slate-body">Kural tabanlı onay akışı devreye girer.</div>
+                                        </div>
+                                    </div>
+                                    <div class="rounded-2xl bg-white border border-slate-100 p-5 flex items-start gap-3">
+                                        <div class="bg-primary/10 text-primary rounded-xl p-2"><span class="material-symbols-outlined">published_with_changes</span></div>
+                                        <div>
+                                            <div class="font-extrabold">Yansıma</div>
+                                            <div class="text-slate-body">Puantaj ve bordro hesaplarına otomatik aktarılır.</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Yorumlar -->
+            <section class="py-20 bg-background-light dark:bg-background-dark" id="testimonials">
+                <div class="mx-auto max-w-[1280px] px-4 lg:px-10">
+                    <div class="flex flex-col items-center text-center gap-4 mb-14 reveal delay-1">
+                        
+                        <h2 class="text-slate-heading text-3xl lg:text-4xl font-bold">Öne Çıkan Mağaza Yorumları</h2>
+                        <p class="text-slate-body text-lg max-w-3xl">Kurulum sonrası en çok duyduğumuz şey: “Keşke daha önce başlasaydık.”</p>
+                    </div>
+
+                    <div class="relative reveal delay-2 t-edge overflow-hidden rounded-3xl ">
+
+
+                        <div data-t-track
+                            class="flex gap-6 overflow-x-auto no-scrollbar scroll-smooth py-10 px-3 md:px-16 overscroll-x-contain">
+
+                        <article class="snap-start shrink-0 w-[86%] sm:w-[62%] lg:w-[32%]  reveal-left delay-1 rounded-2xl bg-white border border-slate-100 p-7 shadow-sm" style="margin-left: -40px;">
+                            <div class="flex items-center gap-3">
+                                <div class="w-10 h-10 rounded-full bg-primary/10 text-primary flex items-center justify-center font-black">M</div>
+                                <div>
+                                    <div class="font-extrabold">Mehmet A.</div>
+                                    <div class="text-slate-body text-sm">Rtm Genel Müdürü</div>
+                                </div>
+                            </div>
+                            <p class="text-slate-body mt-5">İzin onayları, vardiya değişimleri ve bordro süreçleri tek panelde toparlandı. Hata oranımız ciddi düştü.</p>
+                        </article>
+
+                        <article class="snap-start shrink-0 w-[86%] sm:w-[62%] lg:w-[32%] reveal delay-2 rounded-2xl bg-white border border-slate-100 p-7 shadow-sm">
+                            <div class="flex items-center gap-3">
+                                <div class="w-10 h-10 rounded-full bg-primary/10 text-primary flex items-center justify-center font-black">B</div>
+                                <div>
+                                    <div class="font-extrabold">Eymen Kağan G.</div>
+                                    <div class="text-slate-body text-sm">Akşeker Genel Müdürü</div>
+                                </div>
+                            </div>
+                            <p class="text-slate-body mt-5">Konum doğrulama ile giriş/çıkış takibi çok netleşti. Raporlar dakikalar içinde hazır oluyor.</p>
+                        </article>
+
+                        <article class="snap-start shrink-0 w-[86%] sm:w-[62%] lg:w-[32%] reveal-right delay-3 rounded-2xl bg-white border border-slate-100 p-7 shadow-sm">
+                            <div class="flex items-center gap-3">
+                                <div class="w-10 h-10 rounded-full bg-primary/10 text-primary flex items-center justify-center font-black">C</div>
+                                <div>
+                                    <div class="font-extrabold">Atakan A.</div>
+                                    <div class="text-slate-body text-sm">Bulaşık Makine Tamir</div>
+                                </div>
+                            </div>
+                            <p class="text-slate-body mt-5">Aynı veriyi farklı Excel’lerde kovalamayı bıraktık. İletişim koptuğu noktalar tamamen bitti.</p>
+                        </article>
+
+                        <article class="snap-start shrink-0 w-[86%] sm:w-[62%] lg:w-[32%] reveal delay-1 rounded-2xl bg-white border border-slate-100 p-7 shadow-sm">
+                            <div class="flex items-center gap-3">
+                                <div class="w-10 h-10 rounded-full bg-primary/10 text-primary flex items-center justify-center font-black">S</div>
+                                <div>
+                                    <div class="font-extrabold">Sena K.</div>
+                                    <div class="text-slate-body text-sm">Perakende Operasyon</div>
+                                </div>
+                            </div>
+                            <p class="text-slate-body mt-5">Şube bazlı raporları tek ekrandan görmeye başladık. Onay akışları çok pratik.</p>
+                        </article>
+
+                        <article class="snap-start shrink-0 w-[86%] sm:w-[62%] lg:w-[32%] reveal delay-2 rounded-2xl bg-white border border-slate-100 p-7 shadow-sm">
+                            <div class="flex items-center gap-3">
+                                <div class="w-10 h-10 rounded-full bg-primary/10 text-primary flex items-center justify-center font-black">E</div>
+                                <div>
+                                    <div class="font-extrabold">Emre T.</div>
+                                    <div class="text-slate-body text-sm">İK Uzmanı</div>
+                                </div>
+                            </div>
+                            <p class="text-slate-body mt-5">İzin bakiyeleri ve geçmiş hareketler artık net. Çalışanlar da çok hızlı alıştı.</p>
+                        </article>
+
+                        <article class="snap-start shrink-0 w-[86%] sm:w-[62%] lg:w-[32%] reveal delay-3 rounded-2xl bg-white border border-slate-100 p-7 shadow-sm">
+                            <div class="flex items-center gap-3">
+                                <div class="w-10 h-10 rounded-full bg-primary/10 text-primary flex items-center justify-center font-black">H</div>
+                                <div>
+                                    <div class="font-extrabold">Hakan Y.</div>
+                                    <div class="text-slate-body text-sm">Saha Ekip Lideri</div>
+                                </div>
+                            </div>
+                            <p class="text-slate-body mt-5">Konum bazlı giriş-çıkış sayesinde sahada takip kolaylaştı. Raporlar anlık geliyor.</p>
+                        </article>
+
+                        <article class="snap-start shrink-0 w-[86%] sm:w-[62%] lg:w-[32%] reveal delay-1 rounded-2xl bg-white border border-slate-100 p-7 shadow-sm">
+                            <div class="flex items-center gap-3">
+                                <div class="w-10 h-10 rounded-full bg-primary/10 text-primary flex items-center justify-center font-black">N</div>
+                                <div>
+                                    <div class="font-extrabold">Nazlı D.</div>
+                                    <div class="text-slate-body text-sm">Bordro &amp; Finans</div>
+                                </div>
+                            </div>
+                            <p class="text-slate-body mt-5">Puantaj-bordro eşleşmesi otomatikleşti. Kontrol listeleri işimizi çok rahatlattı.</p>
+                        </article>
+
+                        <article class="snap-start shrink-0 w-[86%] sm:w-[62%] lg:w-[32%] reveal delay-2 rounded-2xl bg-white border border-slate-100 p-7 shadow-sm">
+                            <div class="flex items-center gap-3">
+                                <div class="w-10 h-10 rounded-full bg-primary/10 text-primary flex items-center justify-center font-black">İ</div>
+                                <div>
+                                    <div class="font-extrabold">İpek U.</div>
+                                    <div class="text-slate-body text-sm">İşletme Sahibi</div>
+                                </div>
+                            </div>
+                            <p class="text-slate-body mt-5">Evrak takibi ve personel dosyaları düzenli hale geldi. Aradığımızı saniyede buluyoruz.</p>
+                        </article>
+
+                        <article class="snap-start shrink-0 w-[86%] sm:w-[62%] lg:w-[32%] reveal delay-3 rounded-2xl bg-white border border-slate-100 p-7 shadow-sm">
+                            <div class="flex items-center gap-3">
+                                <div class="w-10 h-10 rounded-full bg-primary/10 text-primary flex items-center justify-center font-black">O</div>
+                                <div>
+                                    <div class="font-extrabold">Oğuzhan P.</div>
+                                    <div class="text-slate-body text-sm">BT Yöneticisi</div>
+                                </div>
+                            </div>
+                            <p class="text-slate-body mt-5">Yetkilendirme ve log kayıtları çok iyi düşünülmüş. Denetim süreçlerinde rahatladık.</p>
+                        </article>
+
+                        <article class="snap-start shrink-0 w-[86%] sm:w-[62%] lg:w-[32%] reveal delay-1 rounded-2xl bg-white border border-slate-100 p-7 shadow-sm">
+                            <div class="flex items-center gap-3">
+                                <div class="w-10 h-10 rounded-full bg-primary/10 text-primary flex items-center justify-center font-black">Z</div>
+                                <div>
+                                    <div class="font-extrabold">Zeynep Ş.</div>
+                                    <div class="text-slate-body text-sm">Şube Müdürü</div>
+                                </div>
+                            </div>
+                            <p class="text-slate-body mt-5">Vardiya değişiklikleri artık herkesin ekranında. Bildirimler sayesinde kaçırma yok.</p>
+                        </article>
+
+                        <article class="snap-start shrink-0 w-[86%] sm:w-[62%] lg:w-[32%] reveal delay-2 rounded-2xl bg-white border border-slate-100 p-7 shadow-sm">
+                            <div class="flex items-center gap-3">
+                                <div class="w-10 h-10 rounded-full bg-primary/10 text-primary flex items-center justify-center font-black">K</div>
+                                <div>
+                                    <div class="font-extrabold">Kadir M.</div>
+                                    <div class="text-slate-body text-sm">İK Direktörü</div>
+                                </div>
+                            </div>
+                            <p class="text-slate-body mt-5">Raporlama paneli çok güçlü. Yönetim toplantılarına veri hazırlamak dakikalar sürüyor.</p>
+                        </article>
+
+                        <article class="snap-start shrink-0 w-[86%] sm:w-[62%] lg:w-[32%] reveal delay-3 rounded-2xl bg-white border border-slate-100 p-7 shadow-sm">
+                            <div class="flex items-center gap-3">
+                                <div class="w-10 h-10 rounded-full bg-primary/10 text-primary flex items-center justify-center font-black">A</div>
+                                <div>
+                                    <div class="font-extrabold">Ayşe N.</div>
+                                    <div class="text-slate-body text-sm">İK Asistanı</div>
+                                </div>
+                            </div>
+                            <p class="text-slate-body mt-5">Tekrar eden işleri sistem yapıyor. Biz daha çok çalışan deneyimine odaklanıyoruz.</p>
+                        </article>
+
+                        </div>
+
+    
+                    </div>
+                </div>
+            </section>
+
+
+
+
+            <!-- İletişim / Demo -->
+  
                <div id="MobileAppPage"></div>
                 
             
@@ -177,118 +876,219 @@
                        
                     </p>
 
-                   <button
+                   <a href="#contact"
                             class="bg-white text-primary px-10 py-5 rounded-xl font-bold text-xl shadow-2xl shadow-black/20 
                                     hover:bg-slate-50 transition-all duration-300
                                     hover:scale-105 hover:shadow-primary/40 hover:shadow-2xl">
                             İletişime geçin
-                    </button>          
+                    </a>          
                 </div>
             </section>
 
 
         </main>
         <div id="Footer"></div>
+
+        <button id="backToTop" class="rounded-full bg-slate-900 text-white w-12 h-12 flex items-center justify-center shadow-2xl shadow-black/20 hover:bg-slate-800 transition" aria-label="Yukarı çık">
+            <span class="material-symbols-outlined">arrow_upward</span>
+        </button>
+
+        <script src="MenuLoader.js"></script>
+        <script>
+            // Typing efekti (hero)
+            const texts = [
+                "Vardiya, izin ve bordro tek tıkla hazır..",
+                "Hızlıca",
+                "Güvenle",
+                "Dijital Olarak",
+                "Tek Panelden"
+            ];
+
+            const speed = 23;
+            const deleteSpeed = 15;
+            const waitTime = 1000;
+
+            let textIndex = 0;
+            let charIndex = 0;
+            let isDeleting = false;
+
+            const typingEl = document.getElementById("typing-text");
+            if (typingEl) {
+                typingEl.classList.add("typing-cursor");
+                const typeEffect = () => {
+                    const current = texts[textIndex];
+                    if (!isDeleting) {
+                        typingEl.textContent = current.substring(0, charIndex + 1);
+                        charIndex++;
+                        if (charIndex === current.length) {
+                            setTimeout(() => (isDeleting = true), waitTime);
+                        }
+                    } else {
+                        typingEl.textContent = current.substring(0, charIndex - 1);
+                        charIndex--;
+                        if (charIndex === 0) {
+                            isDeleting = false;
+                            textIndex = (textIndex + 1) % texts.length;
+                        }
+                    }
+                    setTimeout(typeEffect, isDeleting ? deleteSpeed : speed);
+                };
+                typeEffect();
+            }
+
+            // Scroll reveal (dinamik içerik için tekrar çağrılabilir)
+            const setupRevealObserver = () => {
+                const nodes = document.querySelectorAll(".reveal, .reveal-left, .reveal-right, .reveal-zoom");
+                if (!nodes.length) return;
+
+                const observer = new IntersectionObserver(
+                    (entries) => {
+                        entries.forEach((entry) => {
+                            if (entry.isIntersecting) {
+                                entry.target.classList.add("active");
+                                observer.unobserve(entry.target);
+                            }
+                        });
+                    },
+                    { threshold: 0.15, rootMargin: "0px 0px -10% 0px" }
+                );
+
+                nodes.forEach((el) => {
+                    if (!el.classList.contains("active")) observer.observe(el);
+                });
+            };
+
+            // Sayı sayaçları (görünür olunca)
+            const setupCountups = () => {
+                const items = document.querySelectorAll(".countup[data-count]");
+                if (!items.length) return;
+
+                const animate = (el, target, duration = 900) => {
+                    const startTime = performance.now();
+                    const step = (now) => {
+                        const t = Math.min((now - startTime) / duration, 1);
+                        const eased = 1 - Math.pow(1 - t, 3);
+                        const val = Math.floor(target * eased);
+                        el.textContent = String(val);
+                        if (t < 1) requestAnimationFrame(step);
+                    };
+                    requestAnimationFrame(step);
+                };
+
+                const obs = new IntersectionObserver(
+                    (entries) => {
+                        entries.forEach((e) => {
+                            if (!e.isIntersecting) return;
+                            const el = e.target;
+                            if (el.dataset.done === "1") return;
+                            el.dataset.done = "1";
+                            const target = Number(el.getAttribute("data-count") || "0");
+                            animate(el, target);
+                            obs.unobserve(el);
+                        });
+                    },
+                    { threshold: 0.35 }
+                );
+
+                items.forEach((el) => obs.observe(el));
+            };
+
+            // FAQ akordeon
+            const setupFaq = () => {
+                document.querySelectorAll(".faq-btn").forEach((btn) => {
+                    btn.addEventListener("click", () => {
+                        const item = btn.closest("div");
+                        const panel = item ? item.querySelector(".faq-panel") : null;
+                        if (!panel) return;
+
+                        const expanded = btn.getAttribute("aria-expanded") === "true";
+                        btn.setAttribute("aria-expanded", expanded ? "false" : "true");
+                        panel.style.maxHeight = expanded ? "0px" : panel.scrollHeight + "px";
+                    });
+                });
+            };
+
+            // Scroll progress + back to top
+            const setupScrollUI = () => {
+                const bar = document.querySelector("#scroll-progress > div");
+                const topBtn = document.getElementById("backToTop");
+
+                const onScroll = () => {
+                    const scrollTop = window.scrollY || document.documentElement.scrollTop;
+                    const docHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+                    const p = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+                    if (bar) bar.style.width = `${Math.min(100, Math.max(0, p))}%`;
+                    if (topBtn) topBtn.classList.toggle("show", scrollTop > 600);
+                };
+
+                window.addEventListener("scroll", onScroll, { passive: true });
+                onScroll();
+
+                if (topBtn) {
+                    topBtn.addEventListener("click", () => {
+                        window.scrollTo({ top: 0, behavior: "smooth" });
+                    });
+                }
+            };
+
+            // MobileAppPage içindeki reveal-phone gibi geç gelen içerikler için güvenli init
+            const setupRevealPhones = () => {
+                const revealPhones = () => {
+                    const phones = document.querySelectorAll(".reveal-phone");
+                    if (!phones.length) return;
+                    const trigger = window.innerHeight * 0.85;
+                    phones.forEach((phone) => {
+                        const top = phone.getBoundingClientRect().top;
+                        if (top < trigger) phone.classList.add("active");
+                    });
+                };
+                window.addEventListener("scroll", revealPhones, { passive: true });
+                revealPhones();
+            };
+
+            // Yorumlar: Güven bandındaki gibi marquee (CSS animasyonu)
+            const setupTestimonials = () => {
+                const section = document.getElementById("testimonials");
+                if (!section) return;
+
+                const track = section.querySelector("[data-t-track]");
+                if (!track) return;
+
+                const group = track.querySelector("[data-t-group]");
+                if (!group) return;
+
+                // Track içine grubun aynısını bir kez ekle → CSS animation translateX(-50%) ile kusursuz döngü
+                if (!track.dataset.marqueeBuilt) {
+                    const clone = group.cloneNode(true);
+                    clone.setAttribute("data-clone", "1");
+                    clone.setAttribute("aria-hidden", "true");
+                    // Klonlar sonradan eklendiği için reveal observer'a yakalanmaz; görünür olsunlar.
+                    clone.querySelectorAll(".reveal, .reveal-left, .reveal-right, .reveal-zoom").forEach((n) => n.classList.add("active"));
+                    track.appendChild(clone);
+                    track.dataset.marqueeBuilt = "1";
+                }
+            };
+
+            document.addEventListener("DOMContentLoaded", () => {
+                setupRevealObserver();
+                setupCountups();
+                setupFaq();
+                setupScrollUI();
+                setupRevealPhones();
+                setupTestimonials();
+
+                // MenuLoader gibi dinamik eklemeler için kısa süre sonra tekrar dene
+                setTimeout(() => {
+                    setupRevealObserver();
+                    setupCountups();
+                }, 1000);
+            });
+
+            window.addEventListener("load", () => {
+                setupRevealObserver();
+                setupCountups();
+            });
+        </script>
+    </div>
 </body>
 </html>
-<script src="MenuLoader.js"></script>
-
-<script>
-    const texts = [
-        "Vardiya, izin ve bordro tek tıkla hazır..",
-        "Hızlıca",
-        "Güvenle",
-        "Dijital Olarak",
-        "Tek Panelden"
-    ];
-
-    const speed = 23;
-    const deleteSpeed = 15;
-    const waitTime = 1000;
-
-    let textIndex = 0;
-    let charIndex = 0;
-    let isDeleting = false;
-
-    const element = document.getElementById("typing-text");
-    element.classList.add("typing-cursor");
-
-    function typeEffect() {
-        const current = texts[textIndex];
-
-        if (!isDeleting) {
-            element.textContent = current.substring(0, charIndex + 1);
-            charIndex++;
-
-            if (charIndex === current.length) {
-                setTimeout(() => isDeleting = true, waitTime);
-            }
-
-        } else {
-            element.textContent = current.substring(0, charIndex - 1);
-            charIndex--;
-
-            if (charIndex === 0) {
-                isDeleting = false;
-                textIndex = (textIndex + 1) % texts.length;
-            }
-        }
-
-        setTimeout(
-            typeEffect,
-            isDeleting ? deleteSpeed : speed
-        );
-    }
-
-    typeEffect();
-
-
-    const reveals = document.querySelectorAll('.reveal, .reveal-left, .reveal-right');
-
-const observer = new IntersectionObserver(
-  (entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('active');
-      }
-    });
-  },
-  {
-threshold: 0.50
-  }
-);
-
-reveals.forEach(el => observer.observe(el));
-
-</script>
-<script>
-document.addEventListener("DOMContentLoaded", () => {
-
-  const phones = document.querySelectorAll(".reveal-phone");
-
-  if (!phones.length) {
-    console.log("Telefonlar bulunamadı!");
-    return;
-  }
-
-  function revealPhones() {
-
-    const trigger = window.innerHeight * 0.85;
-
-    phones.forEach(phone => {
-
-      const top = phone.getBoundingClientRect().top;
-
-      if (top < trigger) {
-        phone.classList.add("active");
-      }
-
-    });
-
-  }
-
-  window.addEventListener("scroll", revealPhones);
-
-  revealPhones();
-});
-</script>
