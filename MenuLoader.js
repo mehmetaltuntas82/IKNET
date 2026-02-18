@@ -42,10 +42,6 @@ function initPhonesScroll() {
   const phone2 = document.querySelector(".phone-2");
   const phone3 = document.querySelector(".phone-3");
 
-  if (!section || !phone1 || !phone2 || !phone3) {
-    console.log("Telefonlar bulunamadı");
-    return;
-  }
 
   window.addEventListener("scroll", () => {
 
@@ -82,7 +78,6 @@ function initPhonesScroll() {
 
 
 
-let lastScroll = 0;
 function initHeaderShrink() {
 
   const header = document.querySelector("header");
@@ -92,17 +87,12 @@ function initHeaderShrink() {
 
     const current = window.scrollY;
 
-    if (current > 80) {
-      header.classList.add("shrink");
+    // Sadece en üstteyken açık olsun
+    if (current <= 10) {
+      header.classList.remove("shrink");
     } else {
-      header.classList.remove("shrink");
+      header.classList.add("shrink");
     }
 
-    // Yukarı çıkınca biraz aç
-    if (current < lastScroll) {
-      header.classList.remove("shrink");
-    }
-
-    lastScroll = current;
   });
 }
