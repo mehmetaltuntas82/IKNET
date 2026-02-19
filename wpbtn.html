@@ -1,0 +1,41 @@
+<a href="javascript:void(0);" class="btn-whatsapp-pulse" onclick="toggleWPChat()">
+    <i class="fab fa-whatsapp"></i>
+</a>
+
+<div class="wp-chat-container" id="wp-chat-box">
+    <div class="wp-header">
+        <div class="wp-info" style="display:flex; align-items:center; gap:10px;">
+            <div class="wp-avatar">
+                <img src="TemplateImage/stajyer_2.jpg" alt="Logo">
+                <span class="online-dot"></span>
+            </div>
+            <div>
+                <strong style="display:block; font-size: 15px;">İKNET Yardım</strong>
+                <small style="font-size: 12px; opacity: 0.8;">Hafta içi 08:00 - 18:00</small>
+            </div>
+        </div>
+        <button class="wp-close" onclick="toggleWPChat()">&times;</button>
+    </div>
+
+    <div class="wp-body" id="wp-body">
+        <div id="typing-indicator" class="wp-bubble" style="width: fit-content;">
+            <div class="typing-dots">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+
+        <div id="real-message" class="wp-bubble" style="display: none;">
+            <p><strong>İKNET Yardım</strong></p>
+            <p>Merhaba 👋 Size nasıl yardımcı olabilirim?</p>
+            <div style="display: flex; justify-content: flex-end; align-items: center; gap: 4px; margin-top: 5px;">
+                <span id="wp-current-time" style="font-size: 11px; color: #999;">00:00</span>
+                <small style="color: #4fc3f7; font-size: 12px;">✓✓</small>
+            </div>
+        </div>
+    </div>
+
+    <div class="wp-footer">
+        <input type="text" id="wp-msg-input" placeholder="Mesajınızı yazın..." onkeypress="handleEnter(event)">
+        <button onclick="sendToWP()"><i class="fas fa-paper-plane"></i></button>
+    </div>
+</div>

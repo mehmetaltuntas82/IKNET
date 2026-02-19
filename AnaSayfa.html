@@ -116,7 +116,7 @@
         #scroll-progress > div {
             height: 100%;
             width: 0%;
-            background: linear-gradient(90deg, #1c74e9, #00c2ff, #1c74e9);
+            background: linear-gradient(90deg, #1c74e9, #a147d9, #d81ce9);
             background-size: 200% 200%;
             animation: gradientShift 2.5s linear infinite;
             box-shadow: 0 8px 24px rgba(28,116,233,.25);
@@ -290,7 +290,7 @@
                 <div class="absolute -z-10 -top-24 -right-24 w-[420px] h-[420px] rounded-full bg-primary/15 blur-3xl floaty"></div>
                 <div class="absolute -z-10 -bottom-24 -left-24 w-[420px] h-[420px] rounded-full bg-cyan-400/10 blur-3xl floaty" style="animation-delay: -2s;"></div>
 
-                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center px-20 mt-16">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center px-44 mt-20">
                     <div class="flex flex-col gap-8 opacity-0 animate-fade-up delay-200">
                         <div class="flex flex-col gap-4">
                             <h1 class="text-slate-heading text-4xl lg:text-6xl font-black leading-tight tracking-tight">
@@ -325,7 +325,7 @@
   loading="eager"
   decoding="async"
   fetchpriority="high"
-  class="relative w-full h-auto rounded-3xl"
+  class="relative w-full h-auto rounded-3xl p-5"
   style="scale: 1.1;"
 />
 </div>
@@ -372,8 +372,14 @@
             <section class="bg-white py-20" id="features">
                 <div class="mx-auto max-w-[1280px] px-4 lg:px-10">
                    <div class="flex flex-col items-center text-center gap-4 mb-16 reveal delay-1">
-                        <h2 class="text-slate-heading text-3xl lg:text-4xl font-bold">Güçlü Özellikler, Kolay Yönetim
-                        </h2>
+                        <h2 class="text-4xl lg:text-5xl p-5 font-bold leading-tight bg-gradient-to-r from-primary via-indigo-500 to-purple-500 bg-clip-text text-transparent">
+                Güçlü Özellikler, Kolay Yönetim
+            </h2>
+            <div class="flex mx-auto items-center justify-center gap-2 mt-5 mb-5 üçüz">
+  <div class="h-1 w-6 rounded-full bg-gradient-to-r from-blue-600 to-purple-600 shadow-lg shadow-purple-500/40"></div>
+  <div class="h-1 w-3.5 rounded-full bg-gradient-to-r from-blue-600 to-purple-600"></div>
+  <div class=" h-1 w-32 rounded-full bg-gradient-to-r from-primary to-purple-600 text-white shadow-lg  transition"></div>
+</div>
                         <p class="text-slate-body text-lg max-w-2xl">İK süreçlerinizi dijitalleştirerek operasyonel
                             verimliliğinizi %40'a kadar artırın.</p>
 
@@ -442,7 +448,7 @@
                     <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
                         <div class="reveal-left delay-1">
                             <h2 class="text-slate-heading text-3xl lg:text-4xl font-extrabold leading-tight">
-                                İK operasyonlarınızı ölçülebilir şekilde hızlandırın.
+                                <span class="text-primary">İK</span> operasyonlarınızı ölçülebilir şekilde hızlandırın.
                             </h2>
                             <p class="text-slate-body text-lg mt-4 max-w-xl">
                                 IKNET, tekrar eden işleri otomatikleştirir; onay akışlarını sadeleştirir ve yönetim panelleriyle görünürlük kazandırır.
@@ -482,7 +488,12 @@
             <section class="py-20 bg-white dark:bg-background-dark" id="modules">
                 <div class="mx-auto max-w-[1280px] px-4 lg:px-10">
                     <div class="flex flex-col items-center text-center gap-4 mb-14 reveal delay-1">
-                        <h2 class="text-slate-heading text-3xl lg:text-4xl font-bold">Modüler Yapı: İhtiyacın Kadar, Tam Entegre</h2>
+                                    <h2 class="text-4xl p-5  lg:text-5xl font-bold leading-tight bg-gradient-to-r from-primary via-indigo-500 to-purple-500 bg-clip-text text-transparent">Modüler Yapı: İhtiyacın Kadar, Tam Entegre</h2>
+                                    <div class="flex mx-auto items-center justify-center gap-2 mt-5 üçüz">
+                                        <div class="h-1 w-6 rounded-full bg-gradient-to-r from-blue-600 to-purple-600 shadow-lg shadow-purple-500/40"></div>
+                                        <div class="h-1 w-3.5 rounded-full bg-gradient-to-r from-blue-600 to-purple-600"></div>
+                                        <div class=" h-1 w-32 rounded-full bg-gradient-to-r from-primary to-purple-600 text-white shadow-lg  transition"></div>
+                                   </div>
                         <p class="text-slate-body text-lg max-w-3xl">Her modül aynı panelde çalışır. Yetkilendirme, loglama ve raporlar tek merkezden yönetilir.</p>
                     </div>
 
@@ -557,100 +568,134 @@
                 </div>
             </section>
 
-            <!-- Nasıl çalışır -->
-            <section class="py-20 bg-background-light dark:bg-background-dark" id="how">
-                <div class="mx-auto max-w-[1280px] px-4 lg:px-10">
-                    <div class="flex flex-col items-center text-center gap-4 mb-14 reveal delay-1">
-                        <h2 class="text-slate-heading text-3xl lg:text-4xl font-bold">3 Adımda Canlıya Geçin</h2>
-                        <p class="text-slate-body text-lg max-w-3xl">Kurulumdan eğitime kadar net bir süreç. Ekibiniz günler içinde adapte olur.</p>
-                    </div>
+<section id="how" class="relative py-28 bg-gradient-to-b from-white via-slate-50 to-white dark:from-slate-950 dark:via-slate-900 dark:to-slate-950 overflow-hidden">
 
-                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
-                        <div class="grid grid-cols-1 gap-6">
-                            <div class="reveal-left delay-1 rounded-2xl bg-white border border-slate-100 p-7 shadow-sm">
-                                <div class="flex items-center gap-3">
-                                    <div class="w-10 h-10 rounded-full bg-primary text-white flex items-center justify-center font-black">1</div>
-                                    <div class="text-xl font-extrabold">Analiz &amp; Yetkilendirme</div>
-                                </div>
-                                <p class="text-slate-body mt-4">Rol/yetki matrisi, akışlar ve modül kapsamı netleştirilir.</p>
-                            </div>
-                            <div class="reveal delay-2 rounded-2xl bg-white border border-slate-100 p-7 shadow-sm">
-                                <div class="flex items-center gap-3">
-                                    <div class="w-10 h-10 rounded-full bg-primary text-white flex items-center justify-center font-black">2</div>
-                                    <div class="text-xl font-extrabold">Kurulum &amp; Veri Taşıma</div>
-                                </div>
-                                <p class="text-slate-body mt-4">Mevcut personel/veri setleri güvenle aktarılır, panolar hazırlanır.</p>
-                            </div>
-                            <div class="reveal-right delay-3 rounded-2xl bg-white border border-slate-100 p-7 shadow-sm">
-                                <div class="flex items-center gap-3">
-                                    <div class="w-10 h-10 rounded-full bg-primary text-white flex items-center justify-center font-black">3</div>
-                                    <div class="text-xl font-extrabold">Eğitim &amp; Go-Live</div>
-                                </div>
-                                <p class="text-slate-body mt-4">Kısa eğitimle ekip hazır olur, ardından canlı kullanım başlar.</p>
-                            </div>
+    <!-- Blur Background Shape -->
+    <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[700px] h-[700px] bg-primary/20 blur-[140px] opacity-30 pointer-events-none"></div>
+
+    <div class="relative z-10 mx-auto max-w-[1280px] px-4 lg:px-10">
+
+        
+        <div class="text-center max-w-3xl mx-auto mb-24">
+            <h2 class="text-4xl lg:text-5xl font-bold leading-tight bg-gradient-to-r from-primary via-indigo-500 to-purple-500 bg-clip-text text-transparent">
+                Güvenlik. Kontrol. Hız.
+            </h2>
+<div class="flex mx-auto items-center justify-center gap-2 mt-10 üçüz">
+  <div class="h-1 w-6 rounded-full bg-gradient-to-r from-blue-600 to-purple-600 shadow-lg shadow-purple-500/40"></div>
+  <div class="h-1 w-3.5 rounded-full bg-gradient-to-r from-blue-600 to-purple-600"></div>
+  <div class=" h-1 w-32 rounded-full bg-gradient-to-r from-primary to-purple-600 text-white shadow-lg  transition"></div>
+</div>
+
+
+
+
+            <p class="mt-6 text-lg text-slate-600 dark:text-slate-400 leading-relaxed">
+                İşletmenizin güvenliğini en üst seviyeye çıkarırken,
+                operasyonel süreçlerinizi sadeleştiren modern altyapı.
+            </p>
+        </div>
+
+        <div class="grid lg:grid-cols-2 gap-20 items-center">
+
+            <!-- SOL TARAF - Timeline -->
+            <div class="relative">
+
+                <!-- Vertical Line -->
+                <div class="absolute left-5 top-0 bottom-0 w-[2px] bg-gradient-to-b from-primary via-indigo-400 to-transparent"></div>
+
+<div class=" space-y-16">
+
+
+
+                    <!-- Step 1 -->
+                    <div class="relative pl-16 group relative group reveal delay-1">
+                        <div class="absolute left-0 top-2 w-10 h-10 rounded-full bg-primary text-white flex items-center justify-center font-bold shadow-lg group-hover:scale-110 transition">
+                            1
                         </div>
 
-                        <div class="reveal-right delay-2 group relative flex justify-center">
-
-                            <!-- Glow -->
-                            <div class="absolute -inset-6 bg-gradient-to-tr 
-                                        from-primary/20 via-indigo-500/10 to-transparent 
-                                        blur-2xl opacity-70 transition duration-500">
-                            </div>
-                          
-                            <!-- DESKTOP -->
-                            <div class="relative z-10  md:w-[100%]
-                                        rounded-3xl border border-white/40 
-                                        h-[320px] 
-                                        bg-white/70 backdrop-blur-xl
-                                        p-4 shadow-2xl shadow-primary/10 
-                                        overflow-hidden">
-                          
-                                <img
-                                  src="TemplateImage/dashboard.png"
-                                  alt="IKNET panel ekran görüntüsü"
-                                  class="w-full  rounded-2xl h-[330px]"
-                                />
-                            </div>
-                          
-                            <!-- TELEFON -->
-                            <div class="absolute z-20 
-                                        bottom-[-30px] right-[-270px] 
-                                        
-                                        w-[95%] md:w-[85%]">
-                          
-                                <div class=" overflow-hidden">
-                          
-                                    <img
-                                      src="TemplateImage/anaekran.png"
-                                      alt="IKNET mobil ekran"
-                                      class="w-[500px] h-[300px]"
-                                    />
-                          
-                                </div>
-                          
-                            </div>
-                          
-                          </div>
-                          
-                          <!-- Caption -->
-                          <div class="mt-12 text-center text-sm text-slate-500">
-                            <span class="font-medium text-slate-700">
-                              Canlı panolar
-                            </span> ile operasyonu tek ekrandan izleyin.
-                          </div>
-                          
-                          
+                        <div class="p-8 rounded-3xl bg-white/80 dark:bg-slate-800/70 backdrop-blur-xl border border-white/40 shadow-lg hover:shadow-2xl transition duration-500 hover:-translate-y-2">
+                            <h3 class="text-xl font-bold mb-3">Güvenli & Esnek Altyapı</h3>
+                            <p class="text-slate-600 dark:text-slate-400 leading-relaxed">
+                                Rol bazlı yetkilendirme, modül kontrolü ve süreç akışlarıyla
+                                tam kontrol ve maksimum veri güvenliği.
+                            </p>
+                        </div>
                     </div>
+
+                    <!-- Step 2 -->
+                    <div class="relative pl-16 group relative group reveal delay-2">
+                        <div class="absolute left-0 top-2 w-10 h-10 rounded-full bg-indigo-500 text-white flex items-center justify-center font-bold shadow-lg group-hover:scale-110 transition">
+                            2
+                        </div>
+
+                        <div class="p-8 rounded-3xl bg-white/80 dark:bg-slate-800/70 backdrop-blur-xl border border-white/40 shadow-lg hover:shadow-2xl transition duration-500 hover:-translate-y-2">
+                            <h3 class="text-xl font-bold mb-3">Kurulum & Veri Entegrasyonu</h3>
+                            <p class="text-slate-600 dark:text-slate-400 leading-relaxed">
+                                Mevcut personel ve verileriniz güvenli şekilde aktarılır.
+                                Panelleriniz hızlıca yapılandırılır.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Step 3 -->
+                    <div class="relative pl-16 group relative group reveal delay-3">
+                        <div class="absolute left-0 top-2 w-10 h-10 rounded-full bg-purple-500 text-white flex items-center justify-center font-bold shadow-lg group-hover:scale-110 transition">
+                            3
+                        </div>
+
+                        <div class="p-8 rounded-3xl bg-white/80 dark:bg-slate-800/70 backdrop-blur-xl border border-white/40 shadow-lg hover:shadow-2xl transition duration-500 hover:-translate-y-2">
+                            <h3 class="text-xl font-bold mb-3">Eğitim & Canlı Kullanım</h3>
+                            <p class="text-slate-600 dark:text-slate-400 leading-relaxed">
+                                Ekibiniz kısa sürede adapte olur ve sistem
+                                aktif şekilde kullanılmaya başlanır.
+                            </p>
+                        </div>
+                    </div>
+
                 </div>
-            </section>
+            </div>
+
+            <!-- SAĞ TARAF - Premium Görsel Alan -->
+            <div class="relative flex justify-center group">
+
+                
+                <!-- Desktop Card -->
+                <div class="relative z-10 w-full max-w-[650px] rounded-[32px] bg-white/80 dark:bg-slate-800/70 backdrop-blur-2xl border border-white/40 p-6 shadow-2xl transition duration-700 group-hover:scale-[1.02]">
+
+                    <img
+                        src="TemplateImage/dashboard.png"
+                        alt="Dashboard ekran"
+                        class="rounded-2xl w-full"
+                    />
+
+                </div>
+
+                <!-- Floating Mobile -->
+                <div class="absolute z-20 -bottom-12 -right-80 w-[550px] transition duration-700 group-hover:-translate-y-3 group-hover:scale-105">
+
+                    <img
+                        src="TemplateImage/anaekran.png"
+                        alt="Mobil ekran"
+                        class="rounded-2xl  "
+                    />
+
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+</section>
+
 
             <!-- Güvenlik / Uyum -->
             <section class="py-20 bg-white dark:bg-background-dark" id="security">
                 <div class="mx-auto max-w-[1280px] px-4 lg:px-10">
                     <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
                         <div class="reveal-left delay-1">
-                            <h2 class="text-slate-heading text-3xl lg:text-4xl font-extrabold">Güvenlik &amp; Uyum Odaklı Tasarım</h2>
+                            <h2 class="text-slate-heading text-3xl lg:text-3xl font-extrabold">Güvenlik &amp; Uyum Odaklı Tasarım</h2>
+                        <div class="h-1 w-28 mt-5 rounded-full bg-gradient-to-r from-blue-600"></div>
+
                             <p class="text-slate-body text-lg mt-4 max-w-xl">
                                 Log kayıtları, rol bazlı yetkilendirme ve merkezi yönetim ile süreçleriniz denetlenebilir hale gelir.
                             </p>
@@ -794,7 +839,7 @@
 
                 <div>
                     <a href="#contact"
-                       class="inline-flex items-center gap-2 text-primary font-bold text-lg hover:gap-4 transition-all">
+                       class="inline-flex items-center gap-2 text-primary font-bold text-lg hover:gap-4 transition-all border border-primary rounded-3xl mt-10 px-4 py-2">
                         Vardiya Yönetimi Dokümanları
                         <span class="material-symbols-outlined">arrow_forward</span>
                     </a>
@@ -818,7 +863,7 @@
     </div>
 </section>
 <!-- belge -->
-           <section class="py-20 bg-white dark:bg-background-dark  " id="shift-management">
+           <section class="py-10 bg-white dark:bg-background-dark  " id="shift-management">
     <div class="mx-auto max-w-[1280px] px-4 py-5 lg:px-10 border border-grey-500 rounded-3xl">
         
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-1 items-center">
@@ -904,7 +949,7 @@
 
                 <div>
                     <a href="#contact"
-                       class="inline-flex items-center gap-2 text-green-900 font-bold text-lg hover:gap-4 transition-all">
+                       class="inline-flex items-center gap-2 text-green-900 font-bold text-lg hover:gap-4 transition-all border border-green-900 rounded-3xl mt-10 px-4 py-2">
                         Belge ve Arşiv Yönetimi Dokümanları
                         <span class="material-symbols-outlined">arrow_forward</span>
                     </a>
@@ -927,7 +972,116 @@
         </div>
     </div>
 </section>
+<!-- Giriş-Çıkış ve Mola Takibi -->
+           <section class="py-10 bg-white dark:bg-background-dark  " id="shift-management">
+    <div class="mx-auto max-w-[1280px] px-4 py-5 lg:px-10 border border-grey-500 rounded-3xl">
+        
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-1 items-center">
+            
+            <!-- SOL METİN ALANI -->
+            <div class="flex flex-col gap-8 reveal-left delay-1 max-w-5xl">
+                
+                <div class="flex flex-col gap-4">
+                    <div class="text-yellow-600 font-bold tracking-widest uppercase text-sm bg-yellow-100 w-max px-3 py-1 rounded-full">
+                        <i class="fa-solid fa-clock"></i>
+                      Giriş-Çıkış ve Mola Takibi
+                    </div>
 
+                    <h2 class="text-slate-heading text-3xl lg:text-5xl font-extrabold leading-tight">
+                        Vardiya yönetimini kolay, eksiksiz ve profesyonelce yapın!
+                    </h2>
+
+                    <p class="text-yellow-900 text-lg ">
+                        Vardiya planlamasını merkezi olarak yönetin, çakışmaları önleyin 
+                        ve operasyonel karmaşayı tamamen ortadan kaldırın.
+                    </p>
+                </div>
+
+                <ul class="grid grid-cols-1 sm:grid-cols-2 gap-y-4 gap-x-8 ">
+                    
+                    <li class="flex items-start gap-3">
+                        <div class="bg-yellow-100 text-yellow-900 rounded-lg p-2">
+                            <span class="material-symbols-outlined text-base">check</span>
+                        </div>
+                        <span class="text-slate-heading font-medium">Toplu Personel Vardiya Planlama</span>
+                    </li>
+
+                    <li class="flex items-start gap-3">
+                        <div class="bg-yellow-100 text-yellow-900 rounded-lg p-2">
+                            <span class="material-symbols-outlined text-base">check</span>
+                        </div>
+                        <span class="text-slate-heading font-medium">Akıllı Vardiya Planı</span>
+                    </li>
+
+                    <li class="flex items-start gap-3">
+                        <div class="bg-yellow-100 text-yellow-900 rounded-lg p-2">
+                            <span class="material-symbols-outlined text-base">check</span>
+                        </div>
+                        <span class="text-slate-heading font-medium">Vardiya Çakışma Kontrolü</span>
+                    </li>
+
+                    <li class="flex items-start gap-3">
+                        <div class="bg-yellow-100 text-yellow-900 rounded-lg p-2">
+                            <span class="material-symbols-outlined text-base">check</span>
+                        </div>
+                        <span class="text-slate-heading font-medium">Personel Vardiya Yönetimi</span>
+                    </li>
+
+                    <li class="flex items-start gap-3">
+                        <div class="bg-yellow-100 text-yellow-900 rounded-lg p-2">
+                            <span class="material-symbols-outlined text-base">check</span>
+                        </div>
+                        <span class="text-slate-heading font-medium">Geçerli Vardiya Görüntüleme</span>
+                    </li>
+
+                    <li class="flex items-start gap-3">
+                        <div class="bg-yellow-100 text-yellow-900 rounded-lg p-2">
+                            <span class="material-symbols-outlined text-base">check</span>
+                        </div>
+                        <span class="text-slate-heading font-medium">Vardiya Arası & Mola Süreleri</span>
+                    </li>
+
+                    <li class="flex items-start gap-3">
+                        <div class="bg-yellow-100 text-yellow-900 rounded-lg p-2">
+                            <span class="material-symbols-outlined text-base">check</span>
+                        </div>
+                        <span class="text-slate-heading font-medium">Raporlama</span>
+                    </li>
+
+                    <li class="flex items-start gap-3">
+                        <div class="bg-yellow-100 text-yellow-900 rounded-lg p-2">
+                            <span class="material-symbols-outlined text-base">check</span>
+                        </div>
+                        <span class="text-slate-heading font-medium">Toplu Hafta Tatili Yönetimi</span>
+                    </li>
+
+                </ul>
+
+                <div>
+                    <a href="#contact"
+                       class="inline-flex items-center gap-2 text-yellow-600 font-bold text-lg hover:gap-4 transition-all border border-yellow-600 rounded-3xl mt-10 px-4 py-2">
+                        Belge ve Arşiv Yönetimi Dokümanları
+                        <span class="material-symbols-outlined">arrow_forward</span>
+                    </a>
+                </div>
+
+            </div>
+
+
+            <!-- SAĞ GÖRSEL -->
+            <div class="reveal-right delay-2 relative w-full ">
+                <div class=""></div>
+
+                <img 
+                    src="TemplateImage/buney1.png" 
+                    alt="Vardiya Yönetimi Ekranı"
+                    class="h-[900px] object-cover "
+                />
+            </div>
+
+        </div>
+    </div>
+</section>
 
             <!-- Yorumlar -->
             <section class="py-20 bg-background-light dark:bg-background-dark" id="testimonials">
@@ -1085,7 +1239,7 @@
             <!-- İletişim / Demo -->
   
                <div id="MobileAppPage"></div>
-                
+               <div id="whatsapp"></div> 
             
             <section class="py-20 bg-primary">
                 <div class="mx-auto max-w-[1280px] px-4 lg:px-10 text-center text-white">
@@ -1096,7 +1250,7 @@
                        
                     </p>
 
-                   <a href="#contact"
+                   <a href="İletişim.html"
                             class="bg-white text-primary px-10 py-5 rounded-xl font-bold text-xl shadow-2xl shadow-black/20 
                                     hover:bg-slate-50 transition-all duration-300
                                     hover:scale-105 hover:shadow-primary/40 hover:shadow-2xl">

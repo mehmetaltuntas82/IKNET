@@ -1,6 +1,7 @@
 document.addEventListener("DOMContentLoaded", () => {
 
   loadMenu("Footer", "Footer.html");
+  loadMenu("whatsapp", "wpbtn.html");
     loadMenu("Header", "Header.html", () => {
     initHeaderShrink();
   });
@@ -95,4 +96,69 @@ function initHeaderShrink() {
     }
 
   });
+}
+
+
+
+// WhatsApp Chat Butonu İşlevselliği
+
+function getChatTime() {
+    const now = new Date();
+    const hours = String(now.getHours()).padStart(2, '0');
+    const minutes = String(now.getMinutes()).padStart(2, '0');
+    return hours + ":" + minutes;
+}
+
+// 2. Pencereyi Aç/Kapat ve Animasyonu Başlat
+function toggleWPChat() {
+    var box = document.getElementById('wp-chat-box');
+    var typing = document.getElementById('typing-indicator'); // Animasyon balonu
+    var message = document.getElementById('real-message');   // Gerçek mesaj balonu
+    var timeElement = document.getElementById('wp-current-time'); 
+
+    // Eğer kutu kapalıysa aç
+    if (box.style.display === 'none' || box.style.display === '') {
+        box.style.display = 'block';
+        
+        // Saati anlık güncelle
+        if (timeElement) {
+            timeElement.innerText = getChatTime();
+        }
+
+        // ÖNCE animasyonu göster, mesajı gizle
+        typing.style.display = 'block';
+        message.style.display = 'none';
+
+        // 1.5 saniye sonra yer değiştir
+        setTimeout(function() {
+            typing.style.display = 'none';
+            message.style.display = 'block';
+            // Mesaja odaklanmak için input'u bul
+            const inputField = document.getElementById('wp-msg-input');
+            if(inputField) inputField.focus();
+        }, 1500);
+
+    } else {
+        // Eğer kutu açıksa kapat
+        box.style.display = 'none';
+    }
+}
+
+// 3. WhatsApp'a Mesaj Gönder
+function sendToWP() {
+    var input = document.getElementById('wp-msg-input');
+    var phone = "5464874290";
+    
+    if (input && input.value.trim() !== "") {
+        var url = "https://api.whatsapp.com/send?phone=" + phone + "&text=" + encodeURIComponent(input.value);
+        window.open(url, '_blank');
+        input.value = ""; // Gönderdikten sonra temizle
+    }
+}
+
+// 4. Enter Tuşu Kontrolü
+function handleEnter(e) {
+    if (e.key === 'Enter') {
+        sendToWP();
+    }
 }
