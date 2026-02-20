@@ -3,19 +3,21 @@
 <head>
     <meta charset="utf-8" />
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <meta name="description" content="IKNET ile izin, vardiya, bordro ve saha takibini tek panelden yönetin. Hızlı kurulum, kolay kullanım, ölçülebilir verimlilik." />
     <title>IKNET - İnsan Kaynakları Yönetim Yazılımı</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preload" as="image" href="TemplateImage/test.png" />
+
     <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&amp;display=swap"
-        rel="stylesheet" />
-    <link
-        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
-        rel="stylesheet" />
-    <link
-        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
-        rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&amp;display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" />
+    
     <link rel="stylesheet" href="Main.css">
     <link rel="stylesheet" href="AppCss.css">
+    
     <script id="tailwind-config">
         tailwind.config = {
             darkMode: "class",
@@ -42,257 +44,917 @@
         }
     </script>
 </head>
-    <style>
-        body {
-            font-family: 'Inter', sans-serif;
-        }
+<body>
+<style>
 
-        .material-symbols-outlined {
-            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
-        }
+    /* TAB BAR */
 
-        body {
-            font-family: 'Inter', sans-serif;
-        }
+.custom-tabs {
+  display: flex;
+  gap: 40px;
+  justify-content: center;
+  border-bottom: 1px solid #eee;
+  margin-bottom: 60px;
+}
 
-        .material-symbols-outlined {
-            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
-        }
-    </style>
+.tab-btn {
+  background: none;
+  border: none;
+  font-size: 16px;
+  font-weight: 600;
+  padding: 20px 0;
+  cursor: pointer;
+  position: relative;
+  color: #666;
+  transition: 0.3s ease;
+}
 
+.tab-btn:hover {
+  color: #000;
+}
 
-<body class="bg-background-light dark:bg-background-dark text-slate-heading">
-    <div class="relative flex min-h-screen flex-col overflow-visible">
-        <div id="Header"></div>
+.tab-btn::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -1px;
+  height: 3px;
+  width: 0%;
+  background: orange;
+  transition: 0.3s ease;
+}
 
+.tab-btn.is-active {
+  color: #000;
+}
 
-      <main class="flex justify-center items-center min-h-screen bg-gray-100">
+.tab-btn.is-active::after {
+  width: 100%;
+}
 
-    <div class="phone-frame">
-        <div class="app-notch"></div>
-        <div class="app-screen">
+/* CONTENT */
 
-            <div class="app-header">
-                <i class="fa-solid fa-navicon menu-icon" style="color: black; font-size: larger;"></i>
-                <svg
-          class="h-12 sm:h-14 md:h-16 w-auto "
-          viewBox="0 0 78.75 31.11"
-          style="scale: 0.7;"
-          xmlns="http://www.w3.org/2000/svg">
+.tab-content-wrapper {
+  position: relative;
+  max-width: 1100px;
+  margin: 0 auto;
+  min-height: 400px;
+  border: 2px solid da  ;
+}
 
-          <g>
-            <polygon fill="#156FB1" points="40.64,10.95 38.89,17.45 35.8,10.95 31.53,10.95 27.87,24.58 32.39,24.58 34.22,17.8 37.45,24.58 41.5,24.58 45.16,10.95"></polygon>
-            <polygon fill="#156FB1" points="56.43,14.68 57.44,10.95 45.81,10.95 42.15,24.58 53.88,24.58 54.87,20.84 47.62,20.84 48.03,19.36 54.69,19.36 55.57,16.07 48.91,16.07 49.28,14.68"></polygon>
-            <polygon fill="#156FB1" points="58.02,10.95 56.99,14.68 61.01,14.68 58.37,24.58 62.93,24.58 65.56,14.68 69.57,14.68 70.6,10.95"></polygon>
+.tab-content {
+  position: absolute;
+  width: 100%;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: 0.4s ease;
+  pointer-events: none;
+}
 
-            <path fill="#641F7E" d="M14.04,10.95h4.55v5.1l3.87-5.1h5.29l-4.74,5.91l4.84,7.7h-5.43l-2.66-4.32l-1.17,1.42v2.9h-4.55V10.95z"></path>
+.software-panel {
+  border: 2px solid var(--border-color, #e0dacb);
+  background: var(--bg-color, #f8f6f1);
+}
 
-            <path fill="#641F7E" d="M12.4,6.63v1.96c0,0.85-0.69,1.54-1.54,1.54l-2.98,0V6.7c0-0.58,0.47-1.06,1.06-1.06h2.48C11.96,5.64,12.4,6.08,12.4,6.63z"></path>
+.software-panel::after {
+  background: var(--accent-color, #eae4d8);
+    transition: background 0.4s ease;
+}
+.tab-content.is-active {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+  position: relative;
+}
 
-            <path fill="#641F7E" d="M8.74,10.94h0.54c1.74,0,3.15,1.41,3.15,3.15v9.62c0,0.48-0.39,0.87-0.87,0.87H8.74c-0.48,0-0.87-0.39-0.87-0.87v-11.9C7.88,11.33,8.26,10.94,8.74,10.94z"></path>
-          </g>
-
-        </svg>
-             <i class="fa-solid fa-bell bell-icon"></i>
-            </div>
-
-           
-            <div class="app-content" style="color: #03112D;">
-             İyi akşamlar Mehmet Bey
-              <p style="color: #03112D; font-size: 11px; padding-top: 10px;">
-            Bugün nasıl hissediyosunuz <span style="font-size: 20px; text-align: center; padding-left: 10px;"><i class="fa-solid fa-face-grin" style="color: #92F400;"></i> <i class="fa-solid fa-face-frown" style="color: red;"></i></span> 
-          </p>
-            </div>
-
-<div style="
-    width:93%;
-    margin:10px auto;
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-    background:#f1f5f9;
-    border-radius:12px;
-    padding:10px 20px;
-    border:1px solid #e5e7eb;
-" class="app-shiftDiv">
-
-    <div >
-        <b>Mesai</b>
-        <p style="color:#22c55e;font-size:11px;margin:2px 0 0;">
-            Mesai Alanındasınız
-        </p>
-    </div>
-
-    <div class="app-shiftStartBt">
-        <i class="fa-solid fa-door-closed"></i>
-    </div>
-
-</div>
-            
-
-<div class="quick-actions">
-
-    <div class="action-card green">
-        <i class="fa-solid fa-right-to-bracket"></i>
-        <span>Giriş</span>
-    </div>
-
-    <div class="action-card red">
-        <i class="fa-solid fa-right-from-bracket"></i>
-        <span>Çıkış</span>
-    </div>
-
-    <div class="action-card blue">
-        <i class="fa-solid fa-clock"></i>
-        <span>Vardiya</span>
-    </div>
-
-</div>
+    :root {
+      --navy:   #03112D;
+      --blue:   #156FB1;
+      --blue2:  #1a8fd1;
+      --cyan:   #02D5FF;
+      --purple: #641F7E;
+      --green:  #22c55e;
+      --light:  #F4F6F8;
+      --white:  #ffffff;
+      --gray:   #6b7280;
+      --gray2:  #9ca3af;
+      --border: #e5e7eb;
+      --text:   #111827;
+      --text2:  #374151;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Plus Jakarta Sans', sans-serif; background: var(--white); color: var(--text); overflow-x: hidden; }
 
 
-<div class="app-bordo">
+ 
+    /* ── HERO ── */
+    .hero { padding-top: 120px; padding-bottom: 80px; background: var(--white); position: relative; overflow: hidden; }
+    .hero::before { content: ''; position: absolute; top: -120px; right: -120px; width: 600px; height: 600px; background: radial-gradient(circle, rgba(2,213,255,0.08) 0%, transparent 65%); pointer-events: none; }
+    .hero::after { content: ''; position: absolute; bottom: -80px; left: -80px; width: 500px; height: 500px; background: radial-gradient(circle, rgba(100,31,126,0.06) 0%, transparent 65%); pointer-events: none; }
+    .hero-inner { max-width: 1180px; margin: 0 auto; padding: 0 48px; display: grid; grid-template-columns: 1fr 1fr; align-items: center; gap: 64px; }
+    .hero-copy { position: relative; z-index: 2; }
+    .hero-badge { display: inline-flex; align-items: center; gap: 8px; background: rgba(21,111,177,0.07); border: 1px solid rgba(21,111,177,0.18); color: var(--blue); font-size: 12px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; padding: 6px 14px; border-radius: 100px; margin-bottom: 24px; animation: fadeUp 0.7s ease both; }
+    h1 { font-family: 'Bricolage Grotesque', sans-serif; font-size: clamp(2.4rem, 4.5vw, 3.6rem); font-weight: 800; line-height: 1.1; color: var(--navy); margin-bottom: 22px; animation: fadeUp 0.7s 0.1s ease both; }
+    h1 .accent { position: relative; display: inline-block; color: var(--blue); }
+    h1 .accent::after { content: ''; position: absolute; bottom: 4px; left: 0; right: 0; height: 4px; background: linear-gradient(90deg, var(--cyan), var(--blue)); border-radius: 2px; opacity: 0.35; }
+    .hero-sub { font-size: 1.05rem; color: var(--gray); line-height: 1.75; max-width: 440px; margin-bottom: 32px; animation: fadeUp 0.7s 0.2s ease both; }
+    .hero-cta { display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 40px; animation: fadeUp 0.7s 0.3s ease both; }
+    .btn-primary { display: inline-flex; align-items: center; gap: 8px; background: var(--blue); color: white; font-size: 0.9rem; font-weight: 700; padding: 14px 28px; border-radius: 12px; border: none; cursor: pointer; text-decoration: none; box-shadow: 0 6px 20px rgba(21,111,177,0.35); transition: transform 0.2s, box-shadow 0.2s, background 0.2s; }
+    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 10px 28px rgba(21,111,177,0.45); background: var(--blue2); }
+    .btn-outline { display: inline-flex; align-items: center; gap: 8px; background: transparent; color: var(--text); font-size: 0.9rem; font-weight: 600; padding: 14px 26px; border-radius: 12px; border: 1.5px solid var(--border); cursor: pointer; text-decoration: none; transition: border-color 0.2s, color 0.2s, transform 0.2s; }
+    .btn-outline:hover { border-color: var(--blue); color: var(--blue); transform: translateY(-2px); }
+    .hero-trust { display: flex; align-items: center; gap: 12px; animation: fadeUp 0.7s 0.4s ease both; }
+    .trust-avatars { display: flex; }
+    .trust-avatars .av { width: 32px; height: 32px; border-radius: 50%; border: 2px solid white; margin-left: -8px; }
+    .trust-avatars .av:first-child { margin-left: 0; }
+    .trust-text { font-size: 12.5px; color: var(--gray); }
+    .trust-text strong { color: var(--text); }
+    .hero-stars { color: #f59e0b; font-size: 12px; margin-bottom: 2px; }
 
-    <div class="notice-left">
-        <i class="fa-solid fa-file-lines"></i>
-    </div>
+    
+    .hero-devices { position: relative; height: 540px; animation: fadeRight 1s 0.3s ease both; }
+    .web-mock { position: absolute; top: 0; right: 0; width: 430px; background: white; border-radius: 16px; border: 1px solid var(--border); box-shadow: 0 24px 64px rgba(3,17,45,0.1), 0 4px 16px rgba(3,17,45,0.05); overflow: hidden; }
+    .browser-bar { height: 38px; background: var(--light); border-bottom: 1px solid var(--border); display: flex; align-items: center; gap: 6px; padding: 0 14px; }
+    .bd { width: 11px; height: 11px; border-radius: 50%; }
+    .bd-r{background:#ff5f57;} .bd-y{background:#febc2e;} .bd-g{background:#28c840;}
+    .url-bar { flex: 1; height: 22px; margin: 0 10px; background: white; border-radius: 6px; border: 1px solid var(--border); display: flex; align-items: center; padding: 0 10px; font-size: 9px; color: var(--gray2); }
+    .url-bar i { margin-right: 4px; color: var(--green); font-size: 8px; }
+    .web-body { display: flex; height: 310px; }
+    .web-sidebar { width: 56px; background: var(--navy); display: flex; flex-direction: column; align-items: center; padding: 14px 0; gap: 14px; }
+    .ws-logo { width: 30px; height: 30px; background: linear-gradient(135deg, var(--blue), var(--purple)); border-radius: 8px; margin-bottom: 6px; display: flex; align-items: center; justify-content: center; font-family: 'Bricolage Grotesque',sans-serif; font-size: 10px; font-weight: 800; color: white; }
+    .web-sidebar i { font-size: 14px; color: rgba(255,255,255,0.3); cursor: pointer; padding: 6px; border-radius: 6px; transition: color 0.2s, background 0.2s; }
+    .web-sidebar i.on { color: var(--cyan); background: rgba(2,213,255,0.1); }
+    .web-content { flex: 1; padding: 14px; display: flex; flex-direction: column; gap: 9px; overflow: hidden; }
+    .wc-top { display: flex; justify-content: space-between; align-items: center; }
+    .wc-title { font-family: 'Bricolage Grotesque',sans-serif; font-size: 13px; font-weight: 700; color: var(--navy); }
+    .wc-date { font-size: 9px; color: var(--gray2); }
+    .wc-kpis { display: grid; grid-template-columns: repeat(3,1fr); gap: 6px; }
+    .kpi { background: var(--light); border-radius: 8px; padding: 8px 6px; text-align: center; border: 1px solid var(--border); }
+    .kpi .kv { font-family: 'Bricolage Grotesque',sans-serif; font-size: 15px; font-weight: 800; color: var(--blue); }
+    .kpi .kv.g{color:var(--green);} .kpi .kv.o{color:#f59e0b;}
+    .kpi .kl { font-size: 7.5px; color: var(--gray); margin-top: 2px; }
+    .wc-chart { background: var(--light); border-radius: 8px; border: 1px solid var(--border); flex: 1; position: relative; overflow: hidden; min-height: 70px; }
+    .chart-label { position: absolute; top: 8px; left: 10px; font-size: 8px; font-weight: 700; color: var(--gray); }
+    .chart-bars { position: absolute; bottom: 6px; left: 10px; right: 10px; display: flex; align-items: flex-end; gap: 4px; height: 72%; }
+    .bar { flex: 1; border-radius: 4px 4px 0 0; animation: barGrow 0.8s ease forwards; transform-origin: bottom; transform: scaleY(0); }
+    .b1{height:55%;background:var(--blue);animation-delay:0.6s;} .b2{height:80%;background:var(--cyan);animation-delay:0.7s;}
+    .b3{height:45%;background:var(--blue);animation-delay:0.8s;} .b4{height:90%;background:var(--purple);animation-delay:0.9s;}
+    .b5{height:65%;background:var(--blue);animation-delay:1s;} .b6{height:50%;background:var(--cyan);animation-delay:1.1s;}
+    .b7{height:75%;background:var(--purple);animation-delay:1.2s;}
+    @keyframes barGrow{to{transform:scaleY(1);}}
+    .wc-table { background: white; border-radius: 8px; border: 1px solid var(--border); overflow: hidden; }
+    .tr { display: flex; align-items: center; gap: 8px; padding: 5px 8px; border-bottom: 1px solid var(--border); font-size: 8.5px; color: var(--text2); }
+    .tr.hd { font-size: 7.5px; font-weight: 700; color: var(--gray2); background: var(--light); }
+    .tr:last-child{border-bottom:none;}
+    .av-sm { width: 20px; height: 20px; border-radius: 50%; flex-shrink: 0; }
+    .pill { padding: 2px 7px; border-radius: 100px; font-size: 7px; font-weight: 700; }
+    .pill-g{background:rgba(34,197,94,0.12);color:var(--green);}
+    .pill-y{background:rgba(245,158,11,0.12);color:#d97706;}
+    .pill-b{background:rgba(21,111,177,0.12);color:var(--blue);}
 
-    <div class="notice-center">
-        <h4>Bekleyen Bordro</h4>
-        <p>Mart 2025 Bordro Tebliği</p>
-    </div>
+    /* phone mock */
+    .phone-mock { position: absolute; bottom: 0; left: -20px; width: 158px; background: var(--navy); border-radius: 32px; padding: 8px; box-shadow: 0 30px 70px rgba(3,17,45,0.18), 0 0 0 1px rgba(255,255,255,0.08); z-index: 10; }
+    .ph-notch { width: 58px; height: 14px; background: var(--navy); border-radius: 0 0 12px 12px; position: absolute; top: 0; left: 50%; transform: translateX(-50%); z-index: 5; }
+    .ph-screen { background: var(--light); border-radius: 26px; overflow: hidden; display: flex; flex-direction: column; gap: 5px; padding-bottom: 8px; }
+    .ph-hdr { height: 40px; background: var(--light); display: flex; align-items: center; justify-content: space-between; padding: 12px 12px 0; }
+    .ph-logo-txt { font-family: 'Bricolage Grotesque',sans-serif; font-size: 13px; font-weight: 800; color: var(--blue); }
+    .ph-logo-txt span{color:var(--purple);}
+    .ph-greet { margin: 0 8px; background: var(--cyan); border-radius: 10px; padding: 9px; color: var(--navy); font-size: 8.5px; font-weight: 700; }
+    .ph-greet small { display: block; font-weight: 400; font-size: 7px; margin-top: 3px; opacity: 0.75; }
+    .ph-shift { margin: 0 8px; background: white; border-radius: 10px; padding: 7px 9px; display: flex; align-items: center; justify-content: space-between; border: 1px solid var(--border); }
+    .ph-shift b{font-size:9px;color:var(--navy);}
+    .ph-shift small{display:block;color:var(--green);font-size:7px;margin-top:1px;}
+    .sh-dot { width: 26px; height: 26px; background: var(--green); border-radius: 7px; display: flex; align-items: center; justify-content: center; color: white; font-size: 11px; box-shadow: 0 3px 8px rgba(34,197,94,0.4); }
+    .ph-acts { margin: 0 8px; display: flex; gap: 5px; }
+    .ph-act { flex: 1; background: white; border-radius: 9px; padding: 6px 3px; text-align: center; font-size: 7px; font-weight: 700; border: 1px solid var(--border); }
+    .ph-act i{display:block;font-size:12px;margin-bottom:2px;}
+    .ph-act.g{color:var(--green);} .ph-act.r{color:#ef4444;} .ph-act.b{color:var(--blue);}
+    .ph-card { margin: 0 8px; background: white; border-radius: 10px; padding: 7px 8px; display: flex; align-items: center; gap: 7px; border: 1px solid var(--border); }
+    .ph-card-icon { width: 28px; height: 28px; background: rgba(21,111,177,0.1); border-radius: 8px; display: flex; align-items: center; justify-content: center; color: var(--blue); font-size: 12px; flex-shrink: 0; }
+    .ph-card b{display:block;font-size:8px;color:var(--navy);}
+    .ph-card small{font-size:6.5px;color:var(--gray);}
+    .ph-stats { margin: 0 8px; display: flex; gap: 5px; }
+    .ph-stat { flex: 1; background: white; border-radius: 9px; padding: 6px; text-align: center; border: 1px solid var(--border); }
+    .ph-stat strong { display: block; font-family: 'Bricolage Grotesque',sans-serif; font-size: 14px; font-weight: 800; color: var(--blue); }
+    .ph-stat span{font-size:6.5px;color:var(--gray);}
+    .ph-nav { margin: 0 6px; background: white; border-radius: 10px; display: flex; justify-content: space-around; align-items: center; padding: 5px 0; border: 1px solid var(--border); }
+    .ph-ni { display: flex; flex-direction: column; align-items: center; gap: 2px; font-size: 6px; color: var(--gray); }
+    .ph-ni i{font-size:10px;}
+    .ph-ni.on{color:var(--blue);font-weight:700;}
 
-    <button class="notice-btn">
-        İncele
-    </button>
+    /* chips */
+    .chip { position: absolute; background: white; border: 1px solid var(--border); border-radius: 14px; padding: 9px 14px; display: flex; align-items: center; gap: 9px; font-size: 11px; white-space: nowrap; box-shadow: 0 8px 24px rgba(3,17,45,0.1); z-index: 15; }
+    .chip .ci{font-size:18px;}
+    .chip .cl{color:var(--gray);font-size:9px;}
+    .chip .cv{color:var(--text);font-weight:800;font-size:13px;font-family:'Bricolage Grotesque',sans-serif;}
+    .chip-1{top:80px;right:-24px;animation:float 4s ease-in-out infinite;}
+    .chip-2{bottom:160px;right:-24px;animation:float 4s ease-in-out 1.3s infinite;}
+    .chip-3{bottom:60px;left:60px;animation:float 4s ease-in-out 2.5s infinite;}
+    @keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
+    .conn-line{position:absolute;bottom:100px;left:130px;width:200px;height:70px;pointer-events:none;z-index:5;}
 
-</div>
+    /* ── LOGOS ── */
+    .logos-section { background: var(--light); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); padding: 28px 48px; }
+    .logos-inner{max-width:1180px;margin:0 auto;}
+    .logos-label{text-align:center;font-size:12px;color:var(--gray2);font-weight:600;text-transform:uppercase;letter-spacing:0.1em;margin-bottom:20px;}
+    .logos-row{display:flex;align-items:center;justify-content:center;gap:48px;flex-wrap:wrap;}
+    .logo-item{font-family:'Bricolage Grotesque',sans-serif;font-size:16px;font-weight:800;color:var(--gray2);opacity:0.6;transition:opacity 0.2s,color 0.2s;display:flex;align-items:center;gap:6px;cursor:default;}
+    .logo-item:hover{opacity:1;color:var(--blue);}
+    .logo-item i{font-size:18px;}
 
+    /* ── FEATURES ── */
+    .features-section{padding:100px 48px;max-width:1180px;margin:0 auto;}
+    .section-tag{display:inline-flex;align-items:center;gap:6px;background:rgba(21,111,177,0.07);color:var(--blue);font-size:12px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;padding:5px 12px;border-radius:100px;margin-bottom:16px;border:1px solid rgba(21,111,177,0.15);}
+    .section-title{font-family:'Bricolage Grotesque',sans-serif;font-size:clamp(1.8rem,3vw,2.6rem);font-weight:800;color:var(--navy);line-height:1.2;margin-bottom:14px;}
+    .section-sub{font-size:1rem;color:var(--gray);line-height:1.7;max-width:520px;margin-bottom:60px;}
+    .features-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;}
+    .feat-card{background:white;border-radius:18px;padding:28px;border:1px solid var(--border);transition:transform 0.25s,box-shadow 0.25s,border-color 0.25s;cursor:default;}
+    .feat-card:hover{transform:translateY(-6px);box-shadow:0 20px 48px rgba(3,17,45,0.09);border-color:rgba(21,111,177,0.2);}
+    .feat-icon{width:48px;height:48px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:20px;margin-bottom:18px;}
+    .fi-blue{background:rgba(21,111,177,0.1);color:var(--blue);}
+    .fi-cyan{background:rgba(2,213,255,0.1);color:#0891b2;}
+    .fi-green{background:rgba(34,197,94,0.1);color:var(--green);}
+    .fi-purple{background:rgba(100,31,126,0.1);color:var(--purple);}
+    .fi-orange{background:rgba(245,158,11,0.1);color:#d97706;}
+    .fi-red{background:rgba(239,68,68,0.1);color:#dc2626;}
+    .feat-title{font-family:'Bricolage Grotesque',sans-serif;font-size:16px;font-weight:700;color:var(--navy);margin-bottom:8px;}
+    .feat-desc{font-size:13.5px;color:var(--gray);line-height:1.65;}
+    .feat-card.featured{background:var(--navy);border-color:transparent;}
+    .feat-card.featured .feat-title{color:white;}
+    .feat-card.featured .feat-desc{color:rgba(255,255,255,0.6);}
 
-<div class="stats-box">
+    /* ── HOW ── */
+    .how-section{background:var(--light);border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:100px 48px;}
+    .how-inner{max-width:1180px;margin:0 auto;}
+    .how-grid{display:grid;grid-template-columns:1fr 1fr;align-items:center;gap:80px;margin-top:60px;}
+    .steps{display:flex;flex-direction:column;gap:0;}
+    .step{display:flex;gap:20px;padding:24px 0;cursor:default;border-bottom:1px solid var(--border);transition:all 0.2s;}
+    .step:last-child{border-bottom:none;}
+    .step:hover .step-num{background:var(--blue);color:white;border-color:var(--blue);}
+    .step-num{width:44px;height:44px;border-radius:12px;background:white;border:1.5px solid var(--border);display:flex;align-items:center;justify-content:center;font-family:'Bricolage Grotesque',sans-serif;font-size:16px;font-weight:800;color:var(--blue);flex-shrink:0;transition:all 0.2s;}
+    .step-title{font-family:'Bricolage Grotesque',sans-serif;font-size:16px;font-weight:700;color:var(--navy);margin-bottom:5px;}
+    .step-desc{font-size:13.5px;color:var(--gray);line-height:1.65;}
+    .dashboard-preview{background:white;border-radius:20px;border:1px solid var(--border);box-shadow:0 20px 60px rgba(3,17,45,0.09);overflow:hidden;}
+    .dp-bar{height:40px;background:var(--light);border-bottom:1px solid var(--border);display:flex;align-items:center;gap:6px;padding:0 14px;}
+    .dp-body{padding:18px;display:flex;flex-direction:column;gap:12px;}
+    .dp-row1{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;}
+    .dp-kpi{background:var(--light);border-radius:10px;padding:10px 12px;border:1px solid var(--border);}
+    .dp-kpi .dkv{font-family:'Bricolage Grotesque',sans-serif;font-size:18px;font-weight:800;color:var(--blue);margin-bottom:2px;}
+    .dp-kpi .dkl{font-size:9px;color:var(--gray);}
+    .dp-kpi .dkt{font-size:9px;color:var(--green);font-weight:600;display:flex;align-items:center;gap:2px;margin-top:2px;}
+    .dp-row2{display:grid;grid-template-columns:3fr 2fr;gap:8px;}
+    .dp-chart-box{background:var(--light);border-radius:10px;border:1px solid var(--border);padding:10px;height:110px;position:relative;overflow:hidden;}
+    .dp-chart-label{font-size:9px;font-weight:700;color:var(--gray);margin-bottom:4px;}
+    .dp-chart-bars{position:absolute;bottom:8px;left:10px;right:10px;display:flex;align-items:flex-end;gap:5px;height:65%;}
+    .dp-bi{flex:1;border-radius:3px 3px 0 0;opacity:0.8;animation:barGrow 0.8s ease forwards;transform-origin:bottom;transform:scaleY(0);}
+    .dp-bi:nth-child(1){height:60%;background:var(--blue);animation-delay:0.7s;}
+    .dp-bi:nth-child(2){height:80%;background:var(--cyan);animation-delay:0.8s;}
+    .dp-bi:nth-child(3){height:50%;background:var(--purple);animation-delay:0.9s;}
+    .dp-bi:nth-child(4){height:90%;background:var(--blue);animation-delay:1s;}
+    .dp-bi:nth-child(5){height:70%;background:var(--cyan);animation-delay:1.1s;}
+    .dp-list-box{background:var(--light);border-radius:10px;border:1px solid var(--border);overflow:hidden;}
+    .dp-li{display:flex;align-items:center;gap:8px;padding:7px 10px;border-bottom:1px solid var(--border);font-size:9px;color:var(--text2);}
+    .dp-li:last-child{border-bottom:none;}
+    .dl-av{width:22px;height:22px;border-radius:50%;flex-shrink:0;}
+    .dl-name{font-weight:600;font-size:9px;}
+    .dl-dept{color:var(--gray2);font-size:8px;}
 
-    <div class="stat-item">
-        <h3>31</h3>
-        <span>Toplam Gün</span>
-    </div>
+    /* ── MOBILE ── */
+    .mobile-section{padding:100px 48px;max-width:1180px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;}
+    .phones-cluster{position:relative;height:480px;}
+    .ph-big{position:absolute;left:50px;top:0;width:180px;background:var(--navy);border-radius:36px;padding:9px;box-shadow:0 30px 70px rgba(3,17,45,0.18);border:1px solid rgba(255,255,255,0.08);z-index:3;}
+    .ph-small{position:absolute;right:0;top:80px;width:148px;background:var(--navy);border-radius:30px;padding:7px;box-shadow:0 20px 50px rgba(3,17,45,0.12);border:1px solid rgba(255,255,255,0.06);z-index:2;}
+    .mobile-info{display:flex;flex-direction:column;gap:28px;}
+    .minfo-item{display:flex;gap:16px;}
+    .minfo-icon{width:46px;height:46px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0;}
+    .minfo-title{font-family:'Bricolage Grotesque',sans-serif;font-size:15px;font-weight:700;color:var(--navy);margin-bottom:4px;}
+    .minfo-desc{font-size:13px;color:var(--gray);line-height:1.65;}
+    .app-dl-row{display:flex;gap:12px;flex-wrap:wrap;}
+    .app-dl-btn{display:flex;align-items:center;gap:10px;background:var(--navy);color:white;padding:10px 18px;border-radius:12px;text-decoration:none;cursor:pointer;transition:transform 0.2s,box-shadow 0.2s;border:1px solid rgba(255,255,255,0.1);}
+    .app-dl-btn:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(3,17,45,0.2);}
+    .app-dl-btn i{font-size:20px;}
+    .app-dl-btn small{display:block;font-size:9px;opacity:0.6;}
+    .app-dl-btn span{display:block;font-size:13px;font-weight:700;}
 
-    <div class="stat-item">
-        <h3>1</h3>
-        <span>Çalışılan Gün</span>
-    </div>
+    /* ── TESTIMONIALS ── */
+    .testi-section{background:var(--navy);padding:100px 48px;}
+    .testi-inner{max-width:1180px;margin:0 auto;}
+    .testi-section .section-tag{background:rgba(2,213,255,0.1);border-color:rgba(2,213,255,0.2);color:var(--cyan);}
+    .testi-section .section-title{color:white;}
+    .testi-section .section-sub{color:rgba(255,255,255,0.55);margin-bottom:48px;}
+    .testi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
+    .testi-card{background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:18px;padding:26px;transition:background 0.2s,transform 0.2s;}
+    .testi-card:hover{background:rgba(255,255,255,0.08);transform:translateY(-4px);}
+    .testi-stars{color:#f59e0b;font-size:13px;margin-bottom:14px;}
+    .testi-quote{font-size:14px;color:rgba(255,255,255,0.75);line-height:1.7;margin-bottom:20px;}
+    .testi-author{display:flex;align-items:center;gap:12px;}
+    .ta-av{width:38px;height:38px;border-radius:50%;flex-shrink:0;}
+    .ta-name{font-weight:700;font-size:13px;color:white;}
+    .ta-role{font-size:11px;color:rgba(255,255,255,0.45);}
 
-</div>
+    /* ── PRICING ── */
+    .pricing-section{padding:100px 48px;max-width:1180px;margin:0 auto;text-align:center;}
+    .pricing-section .section-sub{margin:0 auto 48px;}
+    .pricing-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;}
+    .plan{border:1.5px solid var(--border);border-radius:20px;padding:32px 28px;text-align:left;transition:transform 0.25s,box-shadow 0.25s;}
+    .plan:hover{transform:translateY(-6px);box-shadow:0 20px 48px rgba(3,17,45,0.08);}
+    .plan.popular{border-color:var(--blue);background:var(--navy);position:relative;overflow:hidden;}
+    .plan.popular::before{content:'En Popüler';position:absolute;top:18px;right:-26px;background:var(--blue);color:white;font-size:10px;font-weight:700;padding:4px 40px;transform:rotate(35deg);letter-spacing:0.05em;}
+    .plan-name{font-family:'Bricolage Grotesque',sans-serif;font-size:15px;font-weight:700;color:var(--gray);text-transform:uppercase;letter-spacing:0.08em;margin-bottom:12px;}
+    .plan.popular .plan-name{color:rgba(255,255,255,0.5);}
+    .plan-price{font-family:'Bricolage Grotesque',sans-serif;font-size:3rem;font-weight:800;color:var(--navy);line-height:1;margin-bottom:4px;}
+    .plan.popular .plan-price{color:white;}
+    .plan-price sub{font-size:1rem;font-weight:500;vertical-align:bottom;margin-bottom:4px;}
+    .plan-price-note{font-size:12px;color:var(--gray2);margin-bottom:24px;}
+    .plan.popular .plan-price-note{color:rgba(255,255,255,0.4);}
+    .plan-divider{height:1px;background:var(--border);margin:20px 0;}
+    .plan.popular .plan-divider{background:rgba(255,255,255,0.1);}
+    .plan-features{list-style:none;display:flex;flex-direction:column;gap:10px;margin-bottom:28px;}
+    .plan-features li{display:flex;align-items:center;gap:9px;font-size:13.5px;color:var(--text2);}
+    .plan.popular .plan-features li{color:rgba(255,255,255,0.75);}
+    .plan-features li i{color:var(--green);font-size:12px;flex-shrink:0;}
+    .btn-plan{display:block;width:100%;padding:12px;border-radius:10px;text-align:center;font-weight:700;font-size:14px;cursor:pointer;text-decoration:none;transition:transform 0.2s,box-shadow 0.2s;}
+    .btn-plan-ghost{background:var(--light);color:var(--text);border:1.5px solid var(--border);}
+    .btn-plan-ghost:hover{border-color:var(--blue);color:var(--blue);}
+    .btn-plan-primary{background:var(--blue);color:white;box-shadow:0 6px 18px rgba(21,111,177,0.4);}
+    .btn-plan-primary:hover{transform:translateY(-2px);box-shadow:0 10px 28px rgba(21,111,177,0.5);}
 
+    /* ── CTA BANNER ── */
+    .cta-banner{margin:0 48px 80px;border-radius:24px;background:linear-gradient(135deg,var(--blue) 0%,#0d5fa0 50%,var(--purple) 100%);padding:72px 64px;display:flex;align-items:center;justify-content:space-between;gap:40px;position:relative;overflow:hidden;}
+    .cta-banner::before{content:'';position:absolute;top:-80px;right:-80px;width:300px;height:300px;background:rgba(255,255,255,0.06);border-radius:50%;}
+    .cta-banner::after{content:'';position:absolute;bottom:-100px;left:200px;width:250px;height:250px;background:rgba(255,255,255,0.04);border-radius:50%;}
+    .cta-left{position:relative;z-index:2;}
+    .cta-left h2{font-family:'Bricolage Grotesque',sans-serif;font-size:2rem;font-weight:800;color:white;margin-bottom:10px;line-height:1.2;}
+    .cta-left p{color:rgba(255,255,255,0.7);font-size:1rem;max-width:440px;line-height:1.65;}
+    .cta-right{position:relative;z-index:2;display:flex;flex-direction:column;gap:12px;align-items:flex-end;flex-shrink:0;}
+    .btn-cta-white{display:inline-flex;align-items:center;gap:8px;background:white;color:var(--blue);font-size:0.9rem;font-weight:700;padding:14px 28px;border-radius:12px;cursor:pointer;text-decoration:none;box-shadow:0 6px 20px rgba(0,0,0,0.2);transition:transform 0.2s,box-shadow 0.2s;white-space:nowrap;}
+    .btn-cta-white:hover{transform:translateY(-2px);box-shadow:0 10px 30px rgba(0,0,0,0.3);}
+    .cta-note{font-size:11px;color:rgba(255,255,255,0.55);}
 
+    /* ── FOOTER ── */
+  
 
+    /* ── STATS BAND ── */
+    .stats-band{background:white;border-top:1px solid var(--border);border-bottom:1px solid var(--border);max-width:100%;}
+    .stats-band-inner{max-width:1180px;margin:0 auto;display:flex;}
+    .stat-col{flex:1;padding:36px 24px;text-align:center;border-right:1px solid var(--border);}
+    .stat-col:last-child{border-right:none;}
+    .stat-col .big{font-family:'Bricolage Grotesque',sans-serif;font-size:2.4rem;font-weight:800;background:linear-gradient(90deg,var(--blue),var(--cyan));-webkit-background-clip:text;-webkit-text-fill-color:transparent;}
+    .stat-col p{font-size:13px;color:var(--gray);margin-top:4px;}
 
-          <div class="app-Footer">
+.software-panel {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  align-items: center;
+  border: 2px solid red;
+  padding: 80px 60px;
+  border-radius: 24px;
+  overflow: hidden;
+}
 
-    <div class="nav-item active">
-        <i class="fa-solid fa-house"></i>
-        <span>Ana Sayfa</span>
-    </div>
+/* Sağ arka plan blok */
+.software-panel::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 45%;
+  height: 100%;
+  z-index: 0;
+}
 
-    <div class="nav-item">
-        <i class="fa-solid fa-bolt"></i>
-        <span>İşlemler</span>
-    </div>
+/* Sol içerik */
+.panel-left {
+  position: relative;
+  z-index: 2;
+}
 
-    <div class="nav-item">
-       <i class="fa-brands fa-modx"></i>
-        <span>Dashboard</span>
-    </div>
+.panel-left h2 {
+  font-size: 42px;
+  font-weight: 700;
+  margin-bottom: 20px;
+}
 
-    <div class="nav-item">
-        <i class="fa-solid fa-clock"></i>
-        <span>Mesai</span>
-    </div>
+.panel-left p {
+  color: #555;
+  margin-bottom: 30px;
+  line-height: 1.6;
+}
 
-    <div class="nav-item">
-        <i class="fa-solid fa-user"></i>
-        <span>Hesap</span>
-    </div>
+.badge {
+  display: inline-block;
+  background: #ffe7c2;
+  color: #ff8800;
+  padding: 8px 14px;
+  border-radius: 30px;
+  font-size: 14px;
+  margin-bottom: 20px;
+}
 
-</div>
+/* Buton */
+.cta-btn {
+  display: inline-block;
+  background: #ff8800;
+  color: #fff;
+  padding: 14px 26px;
+  border-radius: 12px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: 0.3s ease;
+}
+
+.cta-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 30px rgba(255,136,0,0.3);
+}
+
+/* Sağ panel */
+.panel-right {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  justify-content: center;
+}
+
+.panel-right img {
+  max-width: 420px;
+  width: 100%;
+  border-radius: 20px;
+  box-shadow: 0 40px 80px rgba(0,0,0,0.08);
+  transition: 0.4s ease;
+}
+
+.tab-content.is-active .panel-right img {
+  transform: translateY(-10px);
+}
+
+    /* ── ANIMATIONS ── */
+    @keyframes fadeUp{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:translateY(0)}}
+    @keyframes fadeRight{from{opacity:0;transform:translateX(40px)}to{opacity:1;transform:translateX(0)}}
+    .reveal{opacity:0;transform:translateY(30px);transition:opacity 0.7s ease,transform 0.7s ease;}
+    .reveal.visible{opacity:1;transform:translateY(0);}
+    .reveal-l{opacity:0;transform:translateX(-30px);transition:opacity 0.7s ease,transform 0.7s ease;}
+    .reveal-l.visible{opacity:1;transform:translateX(0);}
+    .reveal-r{opacity:0;transform:translateX(30px);transition:opacity 0.7s ease,transform 0.7s ease;}
+    .reveal-r.visible{opacity:1;transform:translateX(0);}
+    .d1{transition-delay:0.1s;}.d2{transition-delay:0.2s;}.d3{transition-delay:0.3s;}.d4{transition-delay:0.4s;}.d5{transition-delay:0.5s;}
+
+    /* ── RESPONSIVE ── */
+    @media(max-width:1024px){
+      nav{padding:0 24px;} .nav-links{display:none;}
+      .hero-inner,.how-grid,.mobile-section{grid-template-columns:1fr;gap:48px;}
+      .hero-inner{padding:0 24px;}
+      .hero-devices{height:420px;}
+      .web-mock{width:360px;}
+      .features-grid{grid-template-columns:1fr 1fr;}
+      .testi-grid,.pricing-grid{grid-template-columns:1fr;}
+      .footer-top{grid-template-columns:1fr 1fr;}
+      .cta-banner{flex-direction:column;margin:0 24px 48px;padding:48px 32px;}
+      .cta-right{align-items:flex-start;}
+      .features-section,.pricing-section,.how-section,.mobile-section,.testi-section,.logos-section{padding:60px 24px;}
+      footer{padding:48px 24px 24px;}
+      .stats-band-inner{flex-wrap:wrap;}
+      .stat-col{flex:1 1 45%;border-right:none;border-bottom:1px solid var(--border);}
+    }
+    @media(max-width:640px){
+      .hero{padding-top:100px;padding-bottom:60px;}
+      .features-grid{grid-template-columns:1fr;}
+      .footer-top{grid-template-columns:1fr;}
+      .chip-1,.chip-2{display:none;}
+    }
+  </style>
+
+<div id="Header"></div>
+
+<!-- ═══ HERO ═══ -->
+<section class="hero" id="home">
+  <div class="hero-inner">
+    <div class="hero-copy">
+      <div class="hero-badge"><i class="fa-solid fa-bolt" style="font-size:10px;"></i> Yeni Nesil İK Yönetimi</div>
+      <h1>Ekibinizi <span class="accent">tek platformda</span> yönetin.</h1>
+      <p class="hero-sub">Bordro, vardiya, izin ve performans yönetimini — hem masaüstünden hem de cebinizden — kesintisiz, hızlı ve güvenli biçimde gerçekleştirin.</p>
+      <div class="hero-cta">
+        <a href="#" class="btn-primary"><i class="fa-solid fa-rocket" style="font-size:12px;"></i> Demo Talep Et</a>
+        <a href="#" class="btn-outline"><i class="fa-solid fa-play" style="font-size:10px;"></i> Tanıtım Videosu</a>
+      </div>
+      <div class="hero-trust">
+        <div class="trust-avatars">
+          <div class="av" style="background:linear-gradient(135deg,#156FB1,#02D5FF);"></div>
+          <div class="av" style="background:linear-gradient(135deg,#641F7E,#9333ea);"></div>
+          <div class="av" style="background:linear-gradient(135deg,#f59e0b,#fb923c);"></div>
+          <div class="av" style="background:linear-gradient(135deg,#22c55e,#16a34a);"></div>
         </div>
+        <div>
+          <div class="hero-stars">★★★★★</div>
+          <div class="trust-text"><strong>500+ şirket</strong> IKNET kullanıyor</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="hero-devices">
+      <!-- WEB MOCK -->
+      <div class="web-mock">
+        <div class="browser-bar">
+          <div class="bd bd-r"></div><div class="bd bd-y"></div><div class="bd bd-g"></div>
+          <div class="url-bar"><i class="fa-solid fa-lock"></i>app.iknet.com.tr</div>
+        </div>
+        <div class="web-body">
+          <div class="web-sidebar">
+            <div class="ws-logo">IK</div>
+            <i class="fa-solid fa-house on"></i>
+            <i class="fa-solid fa-users"></i>
+            <i class="fa-solid fa-clock"></i>
+            <i class="fa-solid fa-money-bill-wave"></i>
+            <i class="fa-solid fa-chart-line"></i>
+            <i class="fa-solid fa-calendar-check"></i>
+            <i class="fa-solid fa-gear" style="margin-top:auto;"></i>
+          </div>
+          <div class="web-content">
+            <div class="wc-top"><div class="wc-title">İK Dashboard</div><div class="wc-date">Mart 2025</div></div>
+            <div class="wc-kpis">
+              <div class="kpi"><div class="kv" id="Target4">248</div><div class="kl">Toplam Personel</div></div>
+              <div class="kpi"><div class="kv g "  id="Target5">94</div><div class="kl">Devam Oranı</div></div>
+              <div class="kpi"><div class="kv o" id="Target3">7</div><div class="kl">Bekleyen İzin</div></div>
+            </div>
+            <div class="wc-chart">
+              <div class="chart-label">Aylık Devam Grafiği</div>
+              <div class="chart-bars">
+                <div class="bar b1"></div><div class="bar b2"></div><div class="bar b3"></div>
+                <div class="bar b4"></div><div class="bar b5"></div><div class="bar b6"></div><div class="bar b7"></div>
+              </div>
+            </div>
+            <div class="wc-table">
+              <div class="tr hd"><div style="width:20px;"></div><div style="flex:1;">Ad Soyad</div><div>Departman</div><div style="margin-left:8px;">Durum</div></div>
+              <div class="tr"><div class="av-sm" style="background:linear-gradient(135deg,#156FB1,#02D5FF);"></div><div style="flex:1;">Mehmet Yıldız</div><div>Yazılım</div><div style="margin-left:8px;"><span class="pill pill-g">Aktif</span></div></div>
+              <div class="tr"><div class="av-sm" style="background:linear-gradient(135deg,#641F7E,#a855f7);"></div><div style="flex:1;">Ayşe Kara</div><div>Muhasebe</div><div style="margin-left:8px;"><span class="pill pill-y">İzinde</span></div></div>
+              <div class="tr"><div class="av-sm" style="background:linear-gradient(135deg,#f59e0b,#fb923c);"></div><div style="flex:1;">Ali Çelik</div><div>Pazarlama</div><div style="margin-left:8px;"><span class="pill pill-b">Mesaili</span></div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- PHONE MOCK -->
+      <div class="phone-mock">
+        <div class="ph-notch"></div>
+        <div class="ph-screen">
+          <div class="ph-hdr"><div class="ph-logo-txt">IK<span>NET</span></div><i class="fa-solid fa-bell" style="font-size:11px;color:var(--navy);"></i></div>
+          <div class="ph-greet">İyi akşamlar Mehmet Bey<small>Bugün nasıl hissediyorsunuz? 😊</small></div>
+          <div class="ph-shift"><div><b>Mesai</b><small>Mesai Alanındasınız</small></div><div class="sh-dot"><i class="fa-solid fa-door-closed"></i></div></div>
+          <div class="ph-acts"><div class="ph-act g"><i class="fa-solid fa-right-to-bracket"></i>Giriş</div><div class="ph-act r"><i class="fa-solid fa-right-from-bracket"></i>Çıkış</div><div class="ph-act b"><i class="fa-solid fa-clock"></i>Vardiya</div></div>
+          <div class="ph-card"><div class="ph-card-icon"><i class="fa-solid fa-file-lines"></i></div><div><b>Bekleyen Bordro</b><small>Mart 2025 Tebliği</small></div></div>
+          <div class="ph-stats"><div class="ph-stat"><strong id="Target6"></strong><span>Toplam Gün</span></div><div class="ph-stat"><strong>18</strong><span>Çalışılan</span></div></div>
+          <div class="ph-nav">
+            <div class="ph-ni on"><i class="fa-solid fa-house"></i>Ana</div>
+            <div class="ph-ni"><i class="fa-solid fa-bolt"></i>İşlem</div>
+            <div class="ph-ni"><i class="fa-brands fa-modx"></i>Dash</div>
+            <div class="ph-ni"><i class="fa-solid fa-clock"></i>Mesai</div>
+            <div class="ph-ni"><i class="fa-solid fa-user"></i>Hesap</div>
+          </div>
+        </div>
+      </div>
+      <svg class="conn-line" viewBox="0 0 200 70" fill="none">
+        <path d="M10 60 Q100 10 190 35" stroke="url(#cg)" stroke-width="1.5" stroke-dasharray="5 5" opacity="0.4"/>
+        <defs><linearGradient id="cg" x1="0" y1="0" x2="1" y2="0"><stop offset="0%" stop-color="#02D5FF"/><stop offset="100%" stop-color="#641F7E"/></linearGradient></defs>
+      </svg>
+      <div class="chip chip-1"><span class="ci" style="color:#22c55e;">⚡</span><div><div class="cl">Anlık Bildirim</div><div class="cv">Vardiya onaylandı</div></div></div>
+      <div class="chip chip-2"><span class="ci">📊</span><div><div class="cl">Verimlilik</div><div class="cv" id="Target2">+12.4%</div></div></div>
+      <div class="chip chip-3"><span class="ci" style="color:var(--blue);">🔒</span><div><div class="cl">Güvenli</div><div class="cv">KVKK Uyumlu</div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ STATS BAND ═══ -->
+<div class="stats-band">
+  <div class="stats-band-inner">
+    <div class="stat-col reveal d1"><div class="big" id="Target1">+</div><p>Aktif Şirket</p></div>
+    <div class="stat-col reveal d2"><div class="big">120K</div><p>Kullanıcı</p></div>
+    <div class="stat-col reveal d3"><div class="big">%99.9</div><p>Uptime Garantisi</p></div>
+    <div class="stat-col reveal d4"><div class="big">7/24</div><p>Teknik Destek</p></div>
+  </div>
+</div>
+
+
+
+<!-- ═══ FEATURES ═══ -->
+<section class="features-section" id="features">
+  <div class="reveal">
+    <div class="section-tag"><i class="fa-solid fa-bolt" style="font-size:10px;"></i> Özellikler</div>
+    <h2 class="section-title">İK yönetiminde ihtiyaç<br/>duyduğunuz her şey</h2>
+    <p class="section-sub">IKNET, insan kaynakları süreçlerinizi uçtan uca dijitalleştiren kapsamlı bir platform sunar.</p>
+  </div>
+  <div class="features-grid">
+    <div class="feat-card reveal d1"><div class="feat-icon fi-blue"><i class="fa-solid fa-clock"></i></div><div class="feat-title">Mesai & Puantaj Takibi</div><div class="feat-desc">Giriş/çıkış saatlerini gerçek zamanlı kayıt altına alın. Mobil, tablet ve web üzerinden anlık takip yapın.</div></div>
+    <div class="feat-card reveal d2"><div class="feat-icon fi-green"><i class="fa-solid fa-money-bill-wave"></i></div><div class="feat-title">Otomatik Bordro</div><div class="feat-desc">SGK bildirimleri, vergi hesaplamaları ve ücret tahakkuklarını otomatik oluşturun. Hata riskini sıfıra indirin.</div></div>
+    <div class="feat-card featured reveal d3"><div class="feat-icon" style="background:rgba(2,213,255,0.12);color:var(--cyan);width:48px;height:48px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:20px;margin-bottom:18px;"><i class="fa-solid fa-mobile-screen"></i></div><div class="feat-title">Mobil Uygulama</div><div class="feat-desc" style="color:rgba(255,255,255,0.6);">iPhone ve Android cihazlardan tam yetkiyle yönetin. Bildirimler, onaylar ve raporlar parmağınızın ucunda.</div></div>
+    <div class="feat-card reveal d2"><div class="feat-icon fi-purple"><i class="fa-solid fa-calendar-days"></i></div><div class="feat-title">İzin Yönetimi</div><div class="feat-desc">Yıllık, mazeret, hastalık izinlerini dijital onay akışıyla yönetin. Takvim görünümüyle planlama yapın.</div></div>
+    <div class="feat-card reveal d3"><div class="feat-icon fi-orange"><i class="fa-solid fa-chart-line"></i></div><div class="feat-title">Performans Analitiği</div><div class="feat-desc">Çalışan performansını ölçün, gelişim hedefleri belirleyin ve detaylı raporlarla kararlarınızı güçlendirin.</div></div>
+    <div class="feat-card reveal d4"><div class="feat-icon fi-cyan"><i class="fa-solid fa-shield-halved"></i></div><div class="feat-title">KVKK & Güvenlik</div><div class="feat-desc">Tüm veriler Türkiye sunucularında, şifrelenmiş olarak saklanır. KVKK uyumluluğu tam güvence altında.</div></div>
+  </div>
+</section>
+
+<!-- ═══ HOW IT WORKS ═══ -->
+<section class="how-section" id="how">
+    <!-- TAB BUTTONS -->
+<div class="custom-tabs">
+  <button class="tab-btn is-active" data-tab="personel">Personel</button>
+  <button class="tab-btn" data-tab="bordro">Bordro</button>
+  <button class="tab-btn" data-tab="performans">Performans</button>
+  <button class="tab-btn" data-tab="aday">Aday Takip</button>
+  <button class="tab-btn" data-tab="vardiya">Vardiya</button>
+  <button class="tab-btn" data-tab="analitik">İK Analitiği</button>
+  <button class="tab-btn" data-tab="ucret">Ücret</button>
+</div>
+
+<div class="tab-content-wrapper">
+  <div class="tab-content is-active"
+       data-content="personel"
+       data-bg="#f8f6f1"
+       data-accent="#eae4d8"
+       data-border="#eae4d8">
+    <div class="software-panel">
+
+      <div class="panel-left">
+        <span class="badge">Hepsi Tek Uygulamada</span>
+        <h2>Tüm çalışan bilgileri tek uygulamada</h2>
+        <p>
+          Çalışan bilgilerini güvenle saklayın, ihtiyaç duyduğunuzda anında
+          erişin ve verileri kontrol altında tutun.
+        </p>
+        <a href="#" class="cta-btn">Hemen İnceleyin</a>
+      </div>
+
+      <div class="panel-right">
+        <img src="mockup.png" alt="Uygulama Görseli">
+      </div>
+
     </div>
   </div>
 
+<div class="tab-content" 
+     data-content="bordro"
+     data-bg="#ff26f1"
+     data-accent="#372500"
+     data-border="#eae4d8">
+  <div class="software-panel">
+
+    <div class="panel-left">
+      <span class="badge">Hepsi Tek Uygulamada</span>
+      <h2>Tüm çalışan bilgile uygulamada</h2>
+      <p>
+        Çalışan bilgilerini güvenle saklayın...
+      </p>
+      <a href="#" class="cta-btn">Hemen İnceleyin →</a>
+    </div>
+
+    <div class="panel-right">
+      <img src="mockup.png" alt="">
+    </div>
+
+  </div>
 </div>
-</main>
 
 
-        <div id="Footer"></div>
-        <div id="scroll-guide">
-  <span id="guide-text"></span>
-</body>
+</div>
 
-</html>
+<!-- ═══ MOBILE APP ═══ -->
+<section id="mobile">
+  <div class="mobile-section">
+    <div class="phones-cluster reveal-l">
+      <!-- Big phone -->
+      <div class="ph-big">
+        <div class="ph-notch" style="width:64px;height:15px;"></div>
+        <div class="ph-screen">
+          <div class="ph-hdr" style="padding:14px 12px 0;"><div class="ph-logo-txt" style="font-size:14px;">IK<span>NET</span></div><i class="fa-solid fa-bell" style="font-size:12px;color:var(--navy);"></i></div>
+          <div class="ph-greet" style="margin:0 9px;font-size:9px;">İyi sabahlar Zeynep Hanım<small>Bugün 3 onay bekliyor 📋</small></div>
+          <div class="ph-shift" style="margin:0 9px;"><div><b style="font-size:9.5px;">Vardiya</b><small style="color:var(--blue);font-size:7.5px;">Sabah Vardiyası</small></div><div class="sh-dot" style="background:var(--blue);box-shadow:0 3px 8px rgba(21,111,177,0.4);"><i class="fa-solid fa-sun" style="font-size:10px;"></i></div></div>
+          <div class="ph-acts" style="margin:0 9px;">
+            <div class="ph-act g"><i class="fa-solid fa-right-to-bracket"></i>Giriş</div>
+            <div class="ph-act r"><i class="fa-solid fa-right-from-bracket"></i>Çıkış</div>
+            <div class="ph-act b"><i class="fa-solid fa-clock"></i>Mesai</div>
+          </div>
+          <div class="ph-card" style="margin:0 9px;"><div class="ph-card-icon" style="background:rgba(245,158,11,0.1);color:#d97706;"><i class="fa-solid fa-hourglass-half"></i></div><div><b>3 İzin Talebi</b><small>Onay bekliyor</small></div></div>
+          <div class="ph-card" style="margin:0 9px;"><div class="ph-card-icon"><i class="fa-solid fa-chart-bar"></i></div><div><b>Performans Raporu</b><small>Şubat 2025 hazır</small></div></div>
+          <div class="ph-stats" style="margin:0 9px;"><div class="ph-stat"><strong>12</strong><span>Personel</span></div><div class="ph-stat"><strong>4</strong><span>İzinde</span></div></div>
+          <div class="ph-nav" style="margin:0 7px;">
+            <div class="ph-ni"><i class="fa-solid fa-house"></i>Ana</div>
+            <div class="ph-ni on"><i class="fa-solid fa-bolt"></i>İşlem</div>
+            <div class="ph-ni"><i class="fa-brands fa-modx"></i>Dash</div>
+            <div class="ph-ni"><i class="fa-solid fa-clock"></i>Mesai</div>
+            <div class="ph-ni"><i class="fa-solid fa-user"></i>Hesap</div>
+          </div>
+        </div>
+      </div>
+      <!-- Small phone -->
+      <div class="ph-small">
+        <div class="ph-notch" style="width:52px;height:12px;"></div>
+        <div class="ph-screen">
+          <div class="ph-hdr" style="padding:10px 9px 0;"><div class="ph-logo-txt" style="font-size:11px;">IK<span>NET</span></div><i class="fa-solid fa-bell" style="font-size:10px;color:var(--navy);"></i></div>
+          <div class="ph-greet" style="margin:0 6px;font-size:7.5px;padding:7px;">Bildirimler<small>3 yeni mesaj</small></div>
+          <div style="margin:0 6px;display:flex;flex-direction:column;gap:4px;">
+            <div class="ph-card" style="margin:0;padding:6px;"><div class="ph-card-icon" style="width:22px;height:22px;font-size:9px;background:rgba(34,197,94,0.1);color:var(--green);"><i class="fa-solid fa-check"></i></div><div><b style="font-size:7px;">İzin Onaylandı</b><small style="font-size:6px;">Ali Çelik</small></div></div>
+            <div class="ph-card" style="margin:0;padding:6px;"><div class="ph-card-icon" style="width:22px;height:22px;font-size:9px;background:rgba(245,158,11,0.1);color:#d97706;"><i class="fa-solid fa-clock"></i></div><div><b style="font-size:7px;">Mesai Aşıldı</b><small style="font-size:6px;">Ayşe Kara</small></div></div>
+            <div class="ph-card" style="margin:0;padding:6px;"><div class="ph-card-icon" style="width:22px;height:22px;font-size:9px;"><i class="fa-solid fa-file"></i></div><div><b style="font-size:7px;">Bordro Hazır</b><small style="font-size:6px;">Mart 2025</small></div></div>
+          </div>
+          <div class="ph-nav" style="margin:0 5px;">
+            <div class="ph-ni" style="font-size:5.5px;"><i class="fa-solid fa-house" style="font-size:9px;"></i>Ana</div>
+            <div class="ph-ni" style="font-size:5.5px;"><i class="fa-solid fa-bolt" style="font-size:9px;"></i>İşlem</div>
+            <div class="ph-ni on" style="font-size:5.5px;"><i class="fa-solid fa-bell" style="font-size:9px;"></i>Bildirim</div>
+            <div class="ph-ni" style="font-size:5.5px;"><i class="fa-solid fa-user" style="font-size:9px;"></i>Hesap</div>
+          </div>
+        </div>
+      </div>
+      <div class="chip" style="bottom:20px;right:-10px;animation:float 3.5s ease-in-out infinite;"><span style="font-size:16px;">📱</span><div><div class="cl">4.9 Yıldız</div><div class="cv">App Store</div></div></div>
+    </div>
 
-<script src="MenuLoader.js"></script>
+    <div class="mobile-info reveal-r">
+      <div class="section-tag"><i class="fa-solid fa-mobile-screen" style="font-size:10px;"></i> Mobil Uygulama</div>
+      <h2 class="section-title">Her şey<br/>cebinizde</h2>
+      <p class="section-sub" style="margin-bottom:0;">iPhone ve Android uygulamalarımızla insan kaynakları yönetimini istediğiniz yerden gerçekleştirin.</p>
+      <div class="minfo-item"><div class="minfo-icon fi-blue"><i class="fa-solid fa-location-dot"></i></div><div><div class="minfo-title">Konum Bazlı Giriş/Çıkış</div><div class="minfo-desc">GPS doğrulaması ile sadece işyeri alanında mesai başlatılabilir. Sahte girişlerin önüne geçin.</div></div></div>
+      <div class="minfo-item"><div class="minfo-icon fi-green"><i class="fa-solid fa-bell"></i></div><div><div class="minfo-title">Anlık Push Bildirimleri</div><div class="minfo-desc">İzin onayları, bordro bildirimleri ve vardiya değişiklikleri anında personele iletilir.</div></div></div>
+      <div class="minfo-item"><div class="minfo-icon fi-purple"><i class="fa-solid fa-fingerprint"></i></div><div><div class="minfo-title">Biyometrik Güvenlik</div><div class="minfo-desc">Parmak izi ve yüz tanıma ile güvenli giriş. Hesap güvenliğini en üst düzeyde tutun.</div></div></div>
+      <div class="app-dl-row">
+        <a href="#" class="app-dl-btn"><i class="fa-brands fa-apple"></i><div><small>App Store'dan indir</small><span>iPhone & iPad</span></div></a>
+        <a href="#" class="app-dl-btn"><i class="fa-brands fa-google-play"></i><div><small>Google Play'den indir</small><span>Android</span></div></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ TESTIMONIALS ═══ -->
+<section class="testi-section" id="testi">
+  <div class="testi-inner">
+    <div class="reveal" style="text-align:center;">
+      <div class="section-tag"><i class="fa-solid fa-quote-left" style="font-size:10px;"></i> Müşteri Yorumları</div>
+      <h2 class="section-title">500+ şirket IKNET'e güveniyor</h2>
+      <p class="section-sub">İnsan kaynakları ekipleri IKNET ile nasıl dönüşüm yaşadı?</p>
+    </div>
+    <div class="testi-grid">
+      <div class="testi-card reveal d1"><div class="testi-stars">★★★★★</div><p class="testi-quote">Bordro süreçlerimiz 3 günden yarım güne indi. Muhasebe ekibimiz artık stratejik işlere odaklanabiliyor.</p><div class="testi-author"><div class="ta-av" style="background:linear-gradient(135deg,#156FB1,#02D5FF);"></div><div><div class="ta-name">Ahmet Demir</div><div class="ta-role">İK Müdürü, TechCorp A.Ş.</div></div></div></div>
+      <div class="testi-card reveal d2"><div class="testi-stars">★★★★★</div><p class="testi-quote">250 kişilik ekibimizin vardiya planlamasını artık 10 dakikada yapıyoruz. Mobil uygulama çalışanlarımızın çok sevdiği bir özellik oldu.</p><div class="testi-author"><div class="ta-av" style="background:linear-gradient(135deg,#641F7E,#a855f7);"></div><div><div class="ta-name">Selin Yılmaz</div><div class="ta-role">Operasyon Direktörü, MetalGroup</div></div></div></div>
+      <div class="testi-card reveal d3"><div class="testi-stars">★★★★★</div><p class="testi-quote">KVKK uyumluluğu ve veri güvenliği konusunda çok rahatladık. Kurulum desteği mükemmeldi, 2 günde live olduk.</p><div class="testi-author"><div class="ta-av" style="background:linear-gradient(135deg,#f59e0b,#fb923c);"></div><div><div class="ta-name">Kemal Arslan</div><div class="ta-role">Genel Müdür, MedLife Sağlık</div></div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ PRICING ═══ -->
+<section class="pricing-section" id="pricing">
+  <div class="reveal">
+    <div class="section-tag" style="margin:0 auto 16px;"><i class="fa-solid fa-tag" style="font-size:10px;"></i> Fiyatlandırma</div>
+    <h2 class="section-title">Şirketinize uygun paket</h2>
+    <p class="section-sub">Her ölçekteki işletme için esnek fiyatlandırma. 14 gün ücretsiz deneyin.</p>
+  </div>
+  <div class="pricing-grid">
+    <div class="plan reveal d1">
+      <div class="plan-name">Başlangıç</div>
+      <div class="plan-price"><sub>₺</sub>799</div>
+      <div class="plan-price-note">/ ay · 25 personele kadar</div>
+      <div class="plan-divider"></div>
+      <ul class="plan-features">
+        <li><i class="fa-solid fa-check"></i> Giriş/çıkış takibi</li>
+        <li><i class="fa-solid fa-check"></i> Temel bordro hesaplama</li>
+        <li><i class="fa-solid fa-check"></i> Mobil uygulama (personel)</li>
+        <li><i class="fa-solid fa-check"></i> İzin yönetimi</li>
+        <li><i class="fa-solid fa-check"></i> E-posta desteği</li>
+      </ul>
+      <a href="#" class="btn-plan btn-plan-ghost">Ücretsiz Dene</a>
+    </div>
+    <div class="plan popular reveal d2">
+      <div class="plan-name">Profesyonel</div>
+      <div class="plan-price"><sub style="color:rgba(255,255,255,0.7);">₺</sub>1.999</div>
+      <div class="plan-price-note">/ ay · 100 personele kadar</div>
+      <div class="plan-divider"></div>
+      <ul class="plan-features">
+        <li><i class="fa-solid fa-check"></i> Tüm Başlangıç özellikleri</li>
+        <li><i class="fa-solid fa-check"></i> GPS konum doğrulama</li>
+        <li><i class="fa-solid fa-check"></i> Gelişmiş raporlama</li>
+        <li><i class="fa-solid fa-check"></i> Performans yönetimi</li>
+        <li><i class="fa-solid fa-check"></i> Vardiya planlaması</li>
+        <li><i class="fa-solid fa-check"></i> Öncelikli destek</li>
+      </ul>
+      <a href="#" class="btn-plan btn-plan-primary">Şimdi Başla</a>
+    </div>
+    <div class="plan reveal d3">
+      <div class="plan-name">Kurumsal</div>
+      <div class="plan-price">Özel</div>
+      <div class="plan-price-note">Sınırsız personel · Özel fiyat</div>
+      <div class="plan-divider"></div>
+      <ul class="plan-features">
+        <li><i class="fa-solid fa-check"></i> Tüm Pro özellikleri</li>
+        <li><i class="fa-solid fa-check"></i> Çoklu şube yönetimi</li>
+        <li><i class="fa-solid fa-check"></i> API entegrasyonu</li>
+        <li><i class="fa-solid fa-check"></i> Özel entegrasyonlar</li>
+        <li><i class="fa-solid fa-check"></i> Dedicated account manager</li>
+        <li><i class="fa-solid fa-check"></i> SLA garantisi</li>
+      </ul>
+      <a href="#" class="btn-plan btn-plan-ghost">Teklif Al</a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ CTA BANNER ═══ -->
+<div class="cta-banner reveal">
+  <div class="cta-left">
+    <h2>İK yönetiminizi bugün<br/>dönüştürün</h2>
+    <p>14 gün boyunca tüm özellikleri ücretsiz deneyin. Kredi kartı gerekmez, kurulum dakikalar içinde tamamlanır.</p>
+  </div>
+  <div class="cta-right">
+    <a href="#" class="btn-cta-white"><i class="fa-solid fa-rocket"></i> Ücretsiz Başla</a>
+    <span class="cta-note">14 gün ücretsiz · İptal kolaylığı</span>
+  </div>
+</div>
+
+<!-- ═══ FOOTER ═══ -->
+<div id="Footer"></div>
 
 <script>
+  // Scroll reveal
+  const els = document.querySelectorAll('.reveal, .reveal-l, .reveal-r');
+  const io = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+  }, { threshold: 0.1 });
+  els.forEach(el => io.observe(el));
 
-
-const guide = document.getElementById("scroll-guide");
-const text = document.getElementById("guide-text");
-
-let current = -1;
-
-
-function onScroll(){
-
-  let found = -1;
-
-  steps.forEach((step,i)=>{
-
-    const el = document.querySelector(step.element);
-
-    if(!el) return;
-
-    const r = el.getBoundingClientRect();
-
-    if(r.top < window.innerHeight*0.6 &&
-       r.bottom > window.innerHeight*0.3){
-        found = i;
-    }
-
+  // Navbar shadow on scroll
+  const nav = document.getElementById('main-nav');
+  window.addEventListener('scroll', () => {
+    nav.style.boxShadow = window.scrollY > 20 ? '0 4px 24px rgba(3,17,45,0.07)' : '';
   });
 
-  if(found !== current){
-
-    current = found;
-
-    document
-      .querySelectorAll(".tour-active")
-      .forEach(e=>e.classList.remove("tour-active"));
-
-    if(found !== -1){
-
-      const el = document.querySelector(steps[found].element);
-
-      el.classList.add("tour-active");
-
-      text.innerText = steps[found].text;
-
-      guide.classList.add("show");
-
-    }else{
-
-      guide.classList.remove("show");
-
+function countUp(element, target, duration = 1000) {
+  let start = 0;
+  const increment = target / (duration / 16); // Her adımda ne kadar artacağını hesapla
+  const step = () => {
+    start += increment;
+    if (start < target) {
+      element.textContent = Math.floor(start); // Sayacı güncelle
+      requestAnimationFrame(step); // Bir sonraki animasyon adımını iste
+    } else {
+      element.textContent = target; // Son hedefe ulaştığında son değeri göster
     }
-  }
-
+  };
+  step();
 }
 
+function initializeCounters() {
+  // Sayacın çalışacağı hedefler ve süreler
+  const counters = [
+    { selector: "#Target1", target: 500, duration: 1000 },
+    { selector: "#Target2", target: 12.4, duration: 1000 },
+    { selector: "#Target3", target: 7, duration: 1500 },
+    { selector: "#Target4", target: 248, duration: 1500 },
+    { selector: "#Target5", target: 94, duration: 1500 },
+        { selector: "#Target6", target: 31, duration: 1500 },
+    // Diğer sayac hedeflerini buraya ekleyebilirsiniz
+  ];
 
-/* app-screen içinde scroll var */
-const screen = document.querySelector(".app-screen");
+  // Her bir sayaç için countUp fonksiyonunu çalıştır
+  counters.forEach(({ selector, target, duration }) => {
+    const element = document.querySelector(selector);
+    if (element) {
+      setTimeout(() => {
+        countUp(element, target, duration);
+      }, 500); // Sayacı 500ms sonra başlat
+    }
+  });
+}
 
-screen.addEventListener("scroll",onScroll);
+initializeCounters();
 
-onScroll();
 
+const tabs = document.querySelectorAll(".tab-btn");
+const contents = document.querySelectorAll(".tab-content");
+const panel = content.querySelector(".software-panel");
+
+tabs.forEach(btn => {
+  btn.addEventListener("click", () => {
+
+    tabs.forEach(b => b.classList.remove("is-active"));
+    btn.classList.add("is-active");
+
+    const target = btn.dataset.tab;
+
+    contents.forEach(content => {
+
+      content.classList.remove("is-active");
+
+      if(content.dataset.content === target){
+
+        content.classList.add("is-active");
+
+     
+
+        panel.style.setProperty("--bg-color", content.dataset.bg);
+        panel.style.setProperty("--accent-color", content.dataset.accent);
+        panel.style.setProperty("--border-color", content.dataset.border);
+      }
+
+    });
+
+  });
 });
+</script><script src="MenuLoader.js"></script>
 
-</script>
+</body>
+</html>
