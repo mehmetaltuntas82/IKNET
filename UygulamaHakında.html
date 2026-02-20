@@ -99,6 +99,7 @@
   max-width: 1100px;
   margin: 0 auto;
   min-height: 400px;
+  border: 2px solid da  ;
 }
 
 .tab-content {
@@ -110,6 +111,15 @@
   pointer-events: none;
 }
 
+.software-panel {
+  border: 2px solid var(--border-color, #e0dacb);
+  background: var(--bg-color, #f8f6f1);
+}
+
+.software-panel::after {
+  background: var(--accent-color, #eae4d8);
+    transition: background 0.4s ease;
+}
 .tab-content.is-active {
   opacity: 1;
   transform: translateY(0);
@@ -393,6 +403,93 @@
     .stat-col .big{font-family:'Bricolage Grotesque',sans-serif;font-size:2.4rem;font-weight:800;background:linear-gradient(90deg,var(--blue),var(--cyan));-webkit-background-clip:text;-webkit-text-fill-color:transparent;}
     .stat-col p{font-size:13px;color:var(--gray);margin-top:4px;}
 
+.software-panel {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  align-items: center;
+  border: 2px solid red;
+  padding: 80px 60px;
+  border-radius: 24px;
+  overflow: hidden;
+}
+
+/* Sağ arka plan blok */
+.software-panel::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 45%;
+  height: 100%;
+  z-index: 0;
+}
+
+/* Sol içerik */
+.panel-left {
+  position: relative;
+  z-index: 2;
+}
+
+.panel-left h2 {
+  font-size: 42px;
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+
+.panel-left p {
+  color: #555;
+  margin-bottom: 30px;
+  line-height: 1.6;
+}
+
+.badge {
+  display: inline-block;
+  background: #ffe7c2;
+  color: #ff8800;
+  padding: 8px 14px;
+  border-radius: 30px;
+  font-size: 14px;
+  margin-bottom: 20px;
+}
+
+/* Buton */
+.cta-btn {
+  display: inline-block;
+  background: #ff8800;
+  color: #fff;
+  padding: 14px 26px;
+  border-radius: 12px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: 0.3s ease;
+}
+
+.cta-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 30px rgba(255,136,0,0.3);
+}
+
+/* Sağ panel */
+.panel-right {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  justify-content: center;
+}
+
+.panel-right img {
+  max-width: 420px;
+  width: 100%;
+  border-radius: 20px;
+  box-shadow: 0 40px 80px rgba(0,0,0,0.08);
+  transition: 0.4s ease;
+}
+
+.tab-content.is-active .panel-right img {
+  transform: translateY(-10px);
+}
+
     /* ── ANIMATIONS ── */
     @keyframes fadeUp{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:translateY(0)}}
     @keyframes fadeRight{from{opacity:0;transform:translateX(40px)}to{opacity:1;transform:translateX(0)}}
@@ -537,20 +634,7 @@
   </div>
 </div>
 
-<!-- ═══ LOGOS ═══ -->
-<div class="logos-section">
-  <div class="logos-inner">
-    <p class="logos-label">Güvenilen markalar</p>
-    <div class="logos-row">
-      <div class="logo-item"><i class="fa-solid fa-building"></i> TechCorp</div>
-      <div class="logo-item"><i class="fa-solid fa-industry"></i> MetalGroup</div>
-      <div class="logo-item"><i class="fa-solid fa-hospital"></i> MedLife</div>
-      <div class="logo-item"><i class="fa-solid fa-store"></i> RetailPro</div>
-      <div class="logo-item"><i class="fa-solid fa-graduation-cap"></i> EduNet</div>
-      <div class="logo-item"><i class="fa-solid fa-truck"></i> LogisTur</div>
-    </div>
-  </div>
-</div>
+
 
 <!-- ═══ FEATURES ═══ -->
 <section class="features-section" id="features">
@@ -582,26 +666,56 @@
   <button class="tab-btn" data-tab="ucret">Ücret</button>
 </div>
 
-<!-- CONTENT AREA -->
 <div class="tab-content-wrapper">
+  <div class="tab-content is-active"
+       data-content="personel"
+       data-bg="#f8f6f1"
+       data-accent="#eae4d8"
+       data-border="#eae4d8">
+    <div class="software-panel">
 
-  <div class="tab-content is-active" data-content="personel">
-    <div class="div-block-641 personel"><div class="div-block-638"><div class="div-block-639"><div class="div-block-640 personel"><img src="https://cdn.prod.website-files.com/6113889e45c6e62ebf4ca212/68e5164f165226c403bc051e_yildiz-personel.svg" loading="lazy" width="51" alt="" class="image-1732 personel"><div class="text-block-291 personel">Hepsi Tek Uygulamada</div></div><div><div class="text-block-292">Tüm çalışan bilgileri tek uygulamada</div></div><div class="div-block-645"><div class="div-block-644"><img src="https://cdn.prod.website-files.com/6113889e45c6e62ebf4ca212/68e518a400b17c2f471e8e3b_personel-alt-icon-v9.svg" loading="lazy" width="34" alt="" class="image-1733 personel"><div class="text-block-293">Çalışan bilgilerini güvenle saklayın, ihtiyaç duyduğunuzda anında erişin ve verileri kontrol altında tutun.</div></div><div class="div-block-644"><img src="https://cdn.prod.website-files.com/6113889e45c6e62ebf4ca212/68e518a4586debaf54c17d14_personel-alt-icon-v8.svg" loading="lazy" alt="" class="image-1734 personel"><div class="text-block-293">İzin, puantaj, mesai ve PDKS gibi tüm verileri tek bir uygulama üzerinden yönetin, verimliliğinizi artırın.</div></div></div><a href="/personel-ozluk-yonetim-programi" class="buttonm5-yeni-v3 personel w-inline-block"><div class="text-block-296">Hemen İnceleyin</div><img src="https://cdn.prod.website-files.com/6113889e45c6e62ebf4ca212/68e52f20c92578be92b83eda_1-sag-ok.svg" loading="lazy" alt="" class="image-1761"></a></div><div class="div-block-642 personel"><div class="div-block-643 personel"><img src="https://cdn.prod.website-files.com/6113889e45c6e62ebf4ca212/68e6ea6843352638f2350dbd_ecem-yali-111.avif" loading="lazy" width="340" sizes="(max-width: 479px) 100vw, 340px" alt="İş Geliştirme Direktörü Ecem Yalı'nın profil fotoğrafı, e-posta adresi ve yönetici ile çalışma takvimi alanları." srcset="https://cdn.prod.website-files.com/6113889e45c6e62ebf4ca212/68e6ea6843352638f2350dbd_ecem-yali-111-p-500.png 500w, https://cdn.prod.website-files.com/6113889e45c6e62ebf4ca212/68e6ea6843352638f2350dbd_ecem-yali-111.avif 1325w" class="image-1762"></div></div></div></div>
+      <div class="panel-left">
+        <span class="badge">Hepsi Tek Uygulamada</span>
+        <h2>Tüm çalışan bilgileri tek uygulamada</h2>
+        <p>
+          Çalışan bilgilerini güvenle saklayın, ihtiyaç duyduğunuzda anında
+          erişin ve verileri kontrol altında tutun.
+        </p>
+        <a href="#" class="cta-btn">Hemen İnceleyin</a>
+      </div>
+
+      <div class="panel-right">
+        <img src="mockup.png" alt="Uygulama Görseli">
+      </div>
+
+    </div>
   </div>
 
-  <div class="tab-content" data-content="bordro">
-    <h2>İnsan hatasına yer yok</h2>
-    <p>Bordro modülü içeriği burada.</p>
-  </div>
+<div class="tab-content" 
+     data-content="bordro"
+     data-bg="#ff26f1"
+     data-accent="#372500"
+     data-border="#eae4d8">
+  <div class="software-panel">
 
-  <div class="tab-content" data-content="performans">
-    <h2>Şeffaf ve ölçülebilir sonuçlar</h2>
-    <p>Performans modülü içeriği burada.</p>
-  </div>
+    <div class="panel-left">
+      <span class="badge">Hepsi Tek Uygulamada</span>
+      <h2>Tüm çalışan bilgile uygulamada</h2>
+      <p>
+        Çalışan bilgilerini güvenle saklayın...
+      </p>
+      <a href="#" class="cta-btn">Hemen İnceleyin →</a>
+    </div>
 
-  <!-- diğerleri aynı mantık -->
+    <div class="panel-right">
+      <img src="mockup.png" alt="">
+    </div>
+
+  </div>
 </div>
-</section>
+
+
+</div>
 
 <!-- ═══ MOBILE APP ═══ -->
 <section id="mobile">
@@ -811,21 +925,35 @@ initializeCounters();
 
 const tabs = document.querySelectorAll(".tab-btn");
 const contents = document.querySelectorAll(".tab-content");
+const panel = content.querySelector(".software-panel");
 
-tabs.forEach(tab => {
-  tab.addEventListener("click", () => {
+tabs.forEach(btn => {
+  btn.addEventListener("click", () => {
 
-    const target = tab.getAttribute("data-tab");
-    tabs.forEach(t => t.classList.remove("is-active"));
-    contents.forEach(c => c.classList.remove("is-active"));
+    tabs.forEach(b => b.classList.remove("is-active"));
+    btn.classList.add("is-active");
 
-    // yenisini aktif yap
-    tab.classList.add("is-active");
-    document.querySelector(`[data-content="${target}"]`)
-            .classList.add("is-active");
+    const target = btn.dataset.tab;
+
+    contents.forEach(content => {
+
+      content.classList.remove("is-active");
+
+      if(content.dataset.content === target){
+
+        content.classList.add("is-active");
+
+     
+
+        panel.style.setProperty("--bg-color", content.dataset.bg);
+        panel.style.setProperty("--accent-color", content.dataset.accent);
+        panel.style.setProperty("--border-color", content.dataset.border);
+      }
+
+    });
+
   });
 });
-
 </script><script src="MenuLoader.js"></script>
 
 </body>
