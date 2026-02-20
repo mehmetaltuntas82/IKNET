@@ -384,60 +384,129 @@
                             verimliliğinizi %40'a kadar artırın.</p>
 
                     </div>
-                    <div class="grid grid-cols-1 lg:grid-cols-3 gap-12 items-center">
-                        <div class="flex flex-col gap-10 order-2 lg:order-1 reveal-left delay-2">
-                            <div class="flex gap-4 items-start text-right">
-                                <div class="flex-1">
-                                    <h3 class="text-xl font-bold text-slate-heading mb-2">Giriş-Çıkış Takibi</h3>
-                                    <p class="text-slate-body">Personel devam kontrol sistemlerini cebinize taşıyın,
-                                        lokasyon bazlı takip yapın.</p>
-                                </div>
-                                <div class="bg-primary/10 p-3 rounded-lg text-primary shrink-0">
-                                    <span class="material-symbols-outlined">location_on</span>
-                                </div>
-                            </div>
-                            <div class="flex gap-4 items-start text-right">
-                                <div class="flex-1">
-                                    <h3 class="text-xl font-bold text-slate-heading mb-2">Bordro Yönetimi</h3>
-                                    <p class="text-slate-body">Maaş ve bordro süreçlerini tek tıkla hatasız yönetin,
-                                        dijital imza ile onaylatın.</p>
-                                </div>
-                                <div class="bg-primary/10 p-3 rounded-lg text-primary shrink-0">
-                                    <span class="material-symbols-outlined">payments</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="order-1 lg:order-2 flex justify-center reveal delay-3">
-                            <img alt="Different views of IKNET mobile screens"
-                                loading="lazy"
-                                decoding="async"
-                                class="w-[900px] h-[500px] max-w-[1400px] lg:scale-110 drop-shadow-2xl transition"
-                                data-alt="Mobile screens displaying employee check-in and task management interfaces"
-                                src="TemplateImage/anaekran.png" />
-                        </div>
-                        <div class="flex flex-col gap-10 order-3 reveal-right delay-2">
-                            <div class="flex gap-4 items-start">
-                                <div class="bg-primary/10 p-3 rounded-lg text-primary shrink-0">
-                                    <span class="material-symbols-outlined">calendar_today</span>
-                                </div>
-                                <div>
-                                    <h3 class="text-xl font-bold text-slate-heading mb-2">Yıllık İzinler</h3>
-                                    <p class="text-slate-body">İzin taleplerini ve onay süreçlerini saniyeler içinde
-                                        hızlandırın.</p>
-                                </div>
-                            </div>
-                            <div class="flex gap-4 items-start">
-                                <div class="bg-primary/10 p-3 rounded-lg text-primary shrink-0">
-                                    <span class="material-symbols-outlined">insights</span>
-                                </div>
-                                <div>
-                                    <h3 class="text-xl font-bold text-slate-heading mb-2">Şirket Veri Analizi</h3>
-                                    <p class="text-slate-body">Veriye dayalı kararlar için gelişmiş raporlama ve analiz
-                                        panelleri.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+    
+    <div class="lg:col-span-4 flex flex-col gap-4 order-2 lg:order-1">
+        <h4 class="text-blue-600 font-bold text-sm mb-2 px-4 text-end uppercase tracking-wider">Çalışan Ekranları</h4>
+        
+        <div onmouseover="changeImage('TemplateImage/giris_cikis.png')" 
+             class="group flex items-center gap-4 p-4 rounded-xl cursor-pointer transition-all duration-300 hover:bg-blue-50/50 border border-transparent hover:border-blue-100">
+            <div class="flex-1 text-right">
+                <h3 class="font-bold text-slate-800 group-hover:text-blue-600 transition-colors">Giriş-Çıkış İşlemleri</h3>
+                <p class="text-xs text-slate-500">QR ve konum ile hızlı kayıt</p>
+            </div>
+            <div class="bg-blue-100/50 p-3 rounded-lg text-blue-600 group-hover:scale-110 transition-transform">
+                <span class="material-symbols-outlined">location_on</span>
+            </div>
+        </div>
+
+        <div onmouseover="changeImage('TemplateImage/bordroteblig2.png')" 
+             class="group flex items-center gap-4 p-4 rounded-xl cursor-pointer transition-all duration-300 hover:bg-blue-50/50 border border-transparent hover:border-blue-100">
+            <div class="flex-1 text-right">
+                <h3 class="font-bold text-slate-800 group-hover:text-blue-600 transition-colors">Bordro Yönetimi</h3>
+                <p class="text-xs text-slate-500">Dijital pusula ve onay</p>
+            </div>
+            <div class="bg-blue-100/50 p-3 rounded-lg text-blue-600 group-hover:scale-110 transition-transform">
+                <span class="material-symbols-outlined">payments</span>
+            </div>
+        </div>
+
+        <div onmouseover="changeImage('TemplateImage/talep.png')" 
+             class="group flex items-center gap-4 p-4 rounded-xl cursor-pointer transition-all duration-300 hover:bg-blue-50/50 border border-transparent hover:border-blue-100">
+            <div class="flex-1 text-right">
+                <h3 class="font-bold text-slate-800 group-hover:text-blue-600 transition-colors">Talep Oluşturma</h3>
+                <p class="text-xs text-slate-500">İzin ve masraf talebi</p>
+            </div>
+            <div class="bg-blue-100/50 p-3 rounded-lg text-blue-600 group-hover:scale-110 transition-transform">
+                <span class="material-symbols-outlined">add_circle</span>
+            </div>
+        </div>
+
+        <div onmouseover="changeImage('TemplateImage/vardiya.png')" 
+             class="group flex items-center gap-4 p-4 rounded-xl cursor-pointer transition-all duration-300 hover:bg-blue-50/50 border border-transparent hover:border-blue-100">
+            <div class="flex-1 text-right">
+                <h3 class="font-bold text-slate-800 group-hover:text-blue-600 transition-colors">Vardiya Takvimi</h3>
+                <p class="text-xs text-slate-500">Haftalık çalışma planı</p>
+            </div>
+            <div class="bg-blue-100/50 p-3 rounded-lg text-blue-600 group-hover:scale-110 transition-transform">
+                <span class="material-symbols-outlined">calendar_month</span>
+            </div>
+        </div>
+    </div>
+
+<div class="lg:col-span-4 flex justify-center order-1 lg:order-2 ">
+    <div class="relative w-full " style="margin-left: -550px;">
+        <div class="absolute inset-0 bg-slate-200 blur-3xl rounded-full opacity-50 scale-75"></div>
+
+        <img id="mainPhoneImage"
+             src="TemplateImage/anaekran.png" 
+             alt="App"
+             class="relative z-10 w-[900px] h-[500px] max-w-[1400px] lg:scale-110 drop-shadow-2xl transition duration-300 reveal delay-1"/>
+
+    </div>
+</div>
+
+    <div class="lg:col-span-4 flex flex-col gap-4 order-3">
+        <h4 class="text-purple-600 font-bold text-sm mb-2 px-4 uppercase tracking-wider">Yönetici Paneli</h4>
+
+        <div onmouseover="changeImage('TemplateImage/izinler.png')" 
+             class="group flex items-center gap-4 p-4 rounded-xl cursor-pointer transition-all duration-300 hover:bg-purple-50/50 border border-transparent hover:border-purple-100">
+            <div class="bg-purple-100/50 p-3 rounded-lg text-purple-600 group-hover:scale-110 transition-transform">
+                <span class="material-symbols-outlined">fact_check</span>
+            </div>
+            <div class="flex-1">
+                <h3 class="font-bold text-slate-800 group-hover:text-purple-600 transition-colors">Talep Onaylama</h3>
+                <p class="text-xs text-slate-500">Hızlı onay mekanizması</p>
+            </div>
+        </div>
+
+        <div onmouseover="changeImage('TemplateImage/ozet.png')" 
+             class="group flex items-center gap-4 p-4 rounded-xl cursor-pointer transition-all duration-300 hover:bg-purple-50/50 border border-transparent hover:border-purple-100">
+            <div class="bg-purple-100/50 p-3 rounded-lg text-purple-600 group-hover:scale-110 transition-transform">
+                <span class="material-symbols-outlined">monitoring</span>
+            </div>
+            <div class="flex-1">
+                <h3 class="font-bold text-slate-800 group-hover:text-purple-600 transition-colors">Özet</h3>
+                <p class="text-xs text-slate-500">Anlık durum raporu</p>
+            </div>
+        </div>
+
+        <div onmouseover="changeImage('TemplateImage/kadro.png')" 
+             class="group flex items-center gap-4 p-4 rounded-xl cursor-pointer transition-all duration-300 hover:bg-purple-50/50 border border-transparent hover:border-purple-100">
+            <div class="bg-purple-100/50 p-3 rounded-lg text-purple-600 group-hover:scale-110 transition-transform">
+                <span class="material-symbols-outlined">groups</span>
+            </div>
+            <div class="flex-1">
+                <h3 class="font-bold text-slate-800 group-hover:text-purple-600 transition-colors">Ekip Yönetimi</h3>
+                <p class="text-xs text-slate-500">Personel detay ve takip</p>
+            </div>
+        </div>
+
+        <div onmouseover="changeImage('TemplateImage/zaman.png')" 
+             class="group flex items-center gap-4 p-4 rounded-xl cursor-pointer transition-all duration-300 hover:bg-purple-50/50 border border-transparent hover:border-purple-100">
+            <div class="bg-purple-100/50 p-3 rounded-lg text-purple-600 group-hover:scale-110 transition-transform">
+                <span class="material-symbols-outlined">timer</span>
+            </div>
+            <div class="flex-1">
+                <h3 class="font-bold text-slate-800 group-hover:text-purple-600 transition-colors">Zaman Kullanımı</h3>
+                <p class="text-xs text-slate-500">Mesai ve mola kontrolü</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    function changeImage(src) {
+        const img = document.getElementById('mainPhoneImage');
+        // Sade geçiş efekti
+        img.style.opacity = '0.4';
+        
+        setTimeout(() => {
+            img.src = src;
+            img.style.opacity = '1';
+        }, 100);
+    }
+</script>
                 </div>
             </section>
 
