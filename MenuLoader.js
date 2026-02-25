@@ -4,6 +4,7 @@ document.addEventListener("DOMContentLoaded", () => {
   loadMenu("whatsapp", "wpbtn.html");
     loadMenu("Header", "Header.html", () => {
     initHeaderShrink();
+    setActiveNav();
   });
 
   // MobileApp yüklenince animasyonu başlat
@@ -77,6 +78,32 @@ function initPhonesScroll() {
 
 }
 
+
+function setActiveNav() {
+
+    let currentPage = window.location.pathname.split("/").pop();
+
+    // URL encode sorununu çöz
+    currentPage = decodeURIComponent(currentPage).toLowerCase();
+
+    document.querySelectorAll("nav a.nav-link").forEach(link => {
+
+        const linkPage = link
+            .getAttribute("href")
+            ?.split("/")
+            .pop()
+            ?.toLowerCase();
+
+        link.classList.remove("active-link");
+
+        if (linkPage === currentPage) {
+            link.classList.add("active-link");
+        }
+
+    });
+}
+
+document.addEventListener("DOMContentLoaded", setActiveNav);
 
 
 function initHeaderShrink() {
