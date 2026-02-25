@@ -874,19 +874,7 @@
 <div id="Footer"></div>
 
 <script>
-  // Scroll reveal
-  const els = document.querySelectorAll('.reveal, .reveal-l, .reveal-r');
-  const io = new IntersectionObserver(entries => {
-    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
-  }, { threshold: 0.1 });
-  els.forEach(el => io.observe(el));
-
-  // Navbar shadow on scroll
-  const nav = document.getElementById('main-nav');
-  window.addEventListener('scroll', () => {
-    nav.style.boxShadow = window.scrollY > 20 ? '0 4px 24px rgba(3,17,45,0.07)' : '';
-  });
-
+  
 function countUp(element, target, duration = 1000) {
   let start = 0;
   const increment = target / (duration / 16); // Her adımda ne kadar artacağını hesapla
