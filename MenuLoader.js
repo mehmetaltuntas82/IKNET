@@ -2,6 +2,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
   loadMenu("Footer", "Footer.html");
   loadMenu("whatsapp", "wpbtn.html");
+  loadMenu("Help", "Help.html");
+
     loadMenu("Header", "Header.html", () => {
     initHeaderShrink();
     setActiveNav();

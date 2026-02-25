@@ -98,8 +98,8 @@
 
     <header id="Header"></header>
 
-    <section class="pt-48 pb-24 px-6 relative overflow-hidden">
-        <div class="absolute top-0 right-0 -z-10 w-1/2 h-full bg-blue-50/50 rounded-l-[200px] hidden lg:block"></div>
+    <section class=" pb-24 px-6 relative overflow-hidden">
+        <div class="absolute top-0 right-0 -z-10 w-1/2 h-full bg-blue-50/50 rounded-l-[200px] hidden lg:block shadow-xl shadow-blue-50/50"></div>
         <div class="max-w-7xl mx-auto grid lg:grid-cols-2 gap-16 items-center">
             <div class="animate-fade-up">
                 <div
@@ -126,34 +126,104 @@
                         <div class="flex -space-x-3">
                             <img src="https://i.pravatar.cc/100?u=a"
                                 class="w-12 h-12 rounded-full border-4 border-white shadow-sm">
-                            <img src="https://i.pravatar.cc/100?u=g"
+                            <img src="https://i.pravatar.cc/100?u=m"
                                 class="w-12 h-12 rounded-full border-4 border-white shadow-sm">
-                            <img src="https://i.pravatar.cc/100?u=f"
+                            <img src="https://i.pravatar.cc/100?u=g"
                                 class="w-12 h-12 rounded-full border-4 border-white shadow-sm">
                         </div>
                         <p class="text-xs font-bold text-slate-body">12,000+ Aktif Kullanıcı</p>
                     </div>
                 </div>
             </div>
-            <div class="relative animate-fade-up delay-200">
-                <div class="floating">
-                    <img src="TemplateImage/dashboard.png"
-                        class="rounded-[40px] shadow-2xl border-[12px] border-white relative z-10">
-                    <div
-                        class="absolute -bottom-10 -left-10 bg-white p-6 rounded-3xl shadow-xl z-20 hidden md:block border border-slate-100">
-                        <div class="flex items-center gap-4">
-                            <div
-                                class="w-12 h-12 bg-green-100 text-green-600 rounded-full flex items-center justify-center">
-                                <span class="material-symbols-outlined">check_circle</span>
-                            </div>
-                            <div>
-                                <p class="text-xs text-slate-body font-bold uppercase">Performans Artışı</p>
-                                <p class="text-xl font-black text-slate-heading">+45.8%</p>
-                            </div>
-                        </div>
-                    </div>
+<div class="relative animate-fade-up delay-200 min-h-[500px] w-full ml-52 mt-96">
+    <div class="floating mt-20">
+        
+        <div class="absolute bottom-20 -left-16 bg-white p-7 rounded-[2rem] shadow-2xl z-20 hidden md:block border border-slate-100">
+            <div class="flex items-center gap-5">
+                <div class="w-14 h-14 bg-green-100 text-green-600 rounded-2xl flex items-center justify-center shadow-sm">
+                    <i class="fa-regular fa-circle-check text-3xl"></i>
+                </div>
+                <div>
+                    <p class="text-xs text-slate-body font-bold uppercase tracking-wider">Performans</p>
+                    <p class="text-3xl font-black text-slate-heading">+45.8%</p>
                 </div>
             </div>
+        </div>
+
+        <div class="absolute -right-10 bg-white p-7 rounded-[2rem] shadow-2xl z-20 hidden md:block border border-slate-100">
+            <div class="flex items-center gap-5">
+                <div class="w-14 h-14 bg-blue-100 text-blue-600 rounded-2xl flex items-center justify-center shadow-sm">
+                    <i class="fa-regular fa-user text-3xl"></i>
+                </div>
+                <div>
+                    <p class="text-xs text-slate-body font-bold uppercase tracking-wider">Aktif Üye</p>
+                    <p class="text-3xl font-black text-slate-heading">2,480</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="absolute top-56 left-0 bg-white p-7 rounded-[2rem] shadow-2xl z-20 hidden md:block border border-slate-100">
+            <div class="flex items-center gap-5">
+                <div class="w-14 h-14 bg-orange-100 text-orange-600 rounded-2xl flex items-center justify-center shadow-sm">
+                    <i class="fa-solid fa-bolt text-3xl"></i>
+                </div>
+                <div>
+                    <p class="text-xs text-slate-body font-bold uppercase tracking-wider">Yükleme Hızı</p>
+                    <p class="text-3xl font-black text-slate-heading">0.8s</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="absolute bottom-40 right-10 bg-white p-7 rounded-[2rem] shadow-2xl z-20 hidden md:block border border-slate-100">
+            <div class="flex items-center gap-5">
+                <div class="w-14 h-14 bg-emerald-100 text-emerald-600 rounded-2xl flex items-center justify-center shadow-sm">
+                    <i class="fa-solid fa-dollar-sign text-3xl"></i>
+                </div>
+                <div>
+                    <p class="text-xs text-slate-body font-bold uppercase tracking-wider">Aylık Kazanç</p>
+                    <p class="text-3xl font-black text-slate-heading">$12.5k</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="absolute top-1/2 -left-36 -translate-y-1/2 bg-white p-7 rounded-[2rem] shadow-2xl z-20 hidden md:block border border-slate-100">
+            <div class="flex items-center gap-5">
+                <div class="w-14 h-14 bg-indigo-100 text-indigo-600 rounded-2xl flex items-center justify-center shadow-sm">
+                    <i class="fa-solid fa-shield-halved text-3xl"></i>
+                </div>
+                <div>
+                    <p class="text-xs text-slate-body font-bold uppercase tracking-wider">Güvenlik Skoru</p>
+                    <p class="text-3xl font-black text-slate-heading">%100</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="absolute -bottom-10 right-1/3 bg-white p-7 rounded-[2rem] shadow-2xl z-20 hidden md:block border border-slate-100">
+            <div class="flex items-center gap-5">
+                <div class="w-14 h-14 bg-rose-100 text-rose-600 rounded-2xl flex items-center justify-center shadow-sm">
+                    <i class="fa-solid fa-cart-shopping text-3xl"></i>
+                </div>
+                <div>
+                    <p class="text-xs text-slate-body font-bold uppercase tracking-wider">Yeni Sipariş</p>
+                    <p class="text-3xl font-black text-slate-heading">+124</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="absolute top-20 left-1/4 bg-white p-7 rounded-[2rem] shadow-2xl z-20 hidden md:block border border-slate-100">
+            <div class="flex items-center gap-5">
+                <div class="w-14 h-14 bg-amber-100 text-amber-600 rounded-2xl flex items-center justify-center shadow-sm">
+                    <i class="fa-solid fa-chart-line text-3xl"></i>
+                </div>
+                <div>
+                    <p class="text-xs text-slate-body font-bold uppercase tracking-wider">Verimlilik</p>
+                    <p class="text-3xl font-black text-slate-heading">x2.4</p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
         </div>
     </section>
 
@@ -311,7 +381,7 @@
             </div>
         </div>
     </section>
-
+    <div id="whatsapp"></div>
     <footer id="Footer"></footer>
 
 </body>
