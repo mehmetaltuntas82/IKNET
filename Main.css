@@ -309,3 +309,35 @@ header.shrink {
     from { opacity: 0; transform: translateY(10px); }
     to { opacity: 1; transform: translateY(0); }
 }
+
+
+nav a {
+  position: relative;
+}
+
+/* Alt çizgi temel yapı */
+nav a::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  height: 2px;
+  width: 0;
+  background-color: #120aff;
+  transition: width 0.3s ease;
+}
+
+/* Hover olunca çizgi */
+nav a:hover::after {
+  width: 100%;
+}
+
+/* Aktif sayfa */
+nav a.active-link::after {
+  width: 100%;
+}
+
+/* Nav içinde herhangi bir hover varsa aktifinki gizlensin */
+nav:hover a.active-link::after {
+  width: 0;
+}
