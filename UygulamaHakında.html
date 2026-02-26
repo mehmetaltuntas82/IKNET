@@ -11,7 +11,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,700;12..96,800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet"/>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"/>
   <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
- <script id="tailwind-config">
+  <script id="tailwind-config">
         tailwind.config = {
             darkMode: "class",
             theme: {
@@ -176,7 +176,6 @@
     .trust-text strong { color: var(--text); }
     .hero-stars { color: #f59e0b; font-size: 11px; margin-bottom: 2px; letter-spacing: 1px; }
 
-    /* ── HERO DEVICES ── */
     .hero-devices { position: relative; height: 560px; animation: fadeRight 1s 0.3s ease both; }
 
     .web-mock {
@@ -892,6 +891,28 @@
 .tabs-section[data-active="vardiya"]    .tab-progress-bar { background:#0891b2; }
 .tabs-section[data-active="analitik"]   .tab-progress-bar { background:#dc2626; }
 .tabs-section[data-active="ucret"]      .tab-progress-bar { background:#059669; }
+
+   
+
+        #scroll-progress {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 5px;
+            width: 100%;
+            z-index: 9999;
+            background: transparent;
+        }
+
+        #scroll-progress>div {
+            height: 100%;
+            width: 0%;
+            background: linear-gradient(90deg, #1c74e9, #a147d9, #d81ce9);
+            background-size: 200% 200%;
+            animation: gradientShift 2.5s linear infinite;
+            box-shadow: 0 8px 24px rgba(28, 116, 233, .25);
+            border-radius: 999px;
+        }
 </style>
 
 
@@ -900,100 +921,83 @@
 <body>
 
 <div id="Header"></div>
-<section class="hero" id="home">
-  <div class="hero-inner">
-    <div class="hero-copy">
-      <div class="hero-badge"><i class="fa-solid fa-bolt" style="font-size:10px;"></i> Yeni Nesil İK Yönetimi</div>
-      <h1>Ekibinizi <span class="accent">tek platformda</span> yönetin.</h1>
-      <p class="hero-sub">Bordro, vardiya, izin ve performans yönetimini — hem masaüstünden hem de cebinizden — kesintisiz, hızlı ve güvenli biçimde gerçekleştirin.</p>
-      <div class="hero-cta">
-        <a href="#" class="btn-primary"><i class="fa-solid fa-rocket" style="font-size:12px;"></i> Demo Talep Et</a>
-        <a href="#" class="btn-outline"><i class="fa-solid fa-play" style="font-size:10px;"></i> Tanıtım Videosu</a>
-      </div>
-      <div class="hero-trust">
-        <div class="trust-avatars">
-          <div class="av" style="background:linear-gradient(135deg,#156FB1,#02D5FF);"></div>
-          <div class="av" style="background:linear-gradient(135deg,#641F7E,#9333ea);"></div>
-          <div class="av" style="background:linear-gradient(135deg,#f59e0b,#fb923c);"></div>
-          <div class="av" style="background:linear-gradient(135deg,#22c55e,#16a34a);"></div>
+     <div id="scroll-progress" aria-hidden="true">
+            <div></div>
         </div>
-        <div>
-          <div class="hero-stars">★★★★★</div>
-          <div class="trust-text"><strong>500+ şirket</strong> IKNET kullanıyor</div>
-        </div>
-      </div>
-    </div>
+ <section class="relative mx-auto max-w-[1920px] px-4 lg:px-10 py-12 lg:py-20 overflow-hidden">
+                <div class="absolute inset-0 -z-10 bg-grid opacity-70 "></div>
+                <div
+                    class="absolute -z-10 -top-24 -right-24 w-[420px] h-[420px] rounded-full bg-primary/15 blur-3xl floaty">
+                </div>
+                <div class="absolute -z-10 -bottom-24 -left-24 w-[420px] h-[420px] rounded-full bg-cyan-400/10 blur-3xl floaty"
+                    style="animation-delay: -2s;"></div>
 
-    <div class="hero-devices">
-      <!-- WEB MOCK -->
-      <div class="web-mock">
-        <div class="browser-bar">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center px-44 mt-20">
+                    <div class="flex flex-col gap-8 opacity-0 animate-fade-up delay-200">
+                        <div class="flex flex-col gap-4">
+                            <h1 class="text-slate-heading text-4xl lg:text-6xl font-black leading-tight tracking-tight">
+                                Uçtan Uca Operasyonel <span class="text-primary">İK</span> Platformu
+                            </h1>
+                            <p class="text-slate-body text-lg lg:text-xl font-normal ">
+                                İnsan odaklı Dijital Dönüşüm Ve Hukuki Güvence Lideri
+                            </p>
+
+                        </div><span id="typing-text" class="text-primary font-bold opacity-0 animate-fade-up delay-800"
+                            style="font-size: 26px;">
+                        </span>
+                        <div class="flex flex-wrap gap-4">
+                            <button
+                                class="flex min-w-[180px] cursor-pointer items-center justify-center rounded-lg h-14 px-6 bg-primary text-white text-lg font-bold shadow-xl shadow-primary/30 hover:translate-y-[-2px] transition-all">Uygulamayı
+                                keşfedin</button>
+                            <a href="#pricing"
+                                class="flex min-w-[180px] cursor-pointer items-center justify-center rounded-lg h-14 px-6 bg-white/80 text-slate-heading text-lg font-bold border border-slate-200 shadow-sm hover:bg-white hover:translate-y-[-2px] transition-all">
+                                Planları görün
+                            </a>
+
+                        </div>
+
+
+                    </div>
+
+
+                    <div class="opacity-0 animate-fade-right delay-600 shimmer rounded-3xl">
+                        
+      <div class="dashboard-preview reveal-r">
+        <div class="dp-bar">
           <div class="bd bd-r"></div><div class="bd bd-y"></div><div class="bd bd-g"></div>
-          <div class="url-bar"><i class="fa-solid fa-lock"></i>app.iknet.com.tr</div>
+          <div style="flex:1;height:18px;background:white;border-radius:5px;border:1px solid var(--border);margin:0 8px;display:flex;align-items:center;padding:0 8px;font-size:8px;color:var(--gray2);">app.iknet.com.tr/dashboard</div>
         </div>
-        <div class="web-body">
-          <div class="web-sidebar">
-            <div class="ws-logo">IK</div>
-            <i class="fa-solid fa-house on"></i>
-            <i class="fa-solid fa-users"></i>
-            <i class="fa-solid fa-clock"></i>
-            <i class="fa-solid fa-money-bill-wave"></i>
-            <i class="fa-solid fa-chart-line"></i>
-            <i class="fa-solid fa-calendar-check"></i>
-            <i class="fa-solid fa-gear" style="margin-top:auto;"></i>
+        <div class="dp-body">
+          <div class="dp-row1">
+            <div class="dp-kpi"><div class="dkv" id="Target7">248</div><div class="dkl">Personel</div><div class="dkt"><i class="fa-solid fa-arrow-up" style="font-size:7px;"></i> +12%</div></div>
+            <div class="dp-kpi"><div class="dkv" id="Target8" style="color:var(--green);">94%</div><div class="dkl">Devam</div><div class="dkt"><i class="fa-solid fa-arrow-up" style="font-size:7px;"></i> +2%</div></div>
+            <div class="dp-kpi"><div class="dkv" id="Target9" style="color:#f59e0b;">7</div><div class="dkl">Bekleyen</div></div>
+            <div class="dp-kpi"><div class="dkv" id="Target10" style="color:var(--purple);">3</div><div class="dkl">Yeni İşe Alım</div></div>
           </div>
-          <div class="web-content">
-            <div class="wc-top"><div class="wc-title">İK Dashboard</div><div class="wc-date">Mart 2025</div></div>
-            <div class="wc-kpis">
-              <div class="kpi"><div class="kv" id="Target4">248</div><div class="kl">Toplam Personel</div></div>
-              <div class="kpi"><div class="kv g "  id="Target5">94</div><div class="kl">Devam Oranı</div></div>
-              <div class="kpi"><div class="kv o" id="Target3">7</div><div class="kl">Bekleyen İzin</div></div>
-            </div>
-            <div class="wc-chart">
-              <div class="chart-label">Aylık Devam Grafiği</div>
-              <div class="chart-bars">
-                <div class="bar b1"></div><div class="bar b2"></div><div class="bar b3"></div>
-                <div class="bar b4"></div><div class="bar b5"></div><div class="bar b6"></div><div class="bar b7"></div>
+          <div class="dp-row2">
+            <div class="dp-chart-box">
+              <div class="dp-chart-label">Haftalık Devam</div>
+              <div class="dp-chart-bars">
+                <div class="dp-bi"></div><div class="dp-bi"></div><div class="dp-bi"></div>
+                <div class="dp-bi"></div><div class="dp-bi"></div>
               </div>
             </div>
-            <div class="wc-table">
-              <div class="tr hd"><div style="width:20px;"></div><div style="flex:1;">Ad Soyad</div><div>Departman</div><div style="margin-left:8px;">Durum</div></div>
-              <div class="tr"><div class="av-sm" style="background:linear-gradient(135deg,#156FB1,#02D5FF);"></div><div style="flex:1;">Mehmet Altuntaş</div><div>Yazılım</div><div style="margin-left:8px;"><span class="pill pill-g">Aktif</span></div></div>
-              <div class="tr"><div class="av-sm" style="background:linear-gradient(135deg,#641F7E,#a855f7);"></div><div style="flex:1;">Berat Çoban</div><div>Muhasebe</div><div style="margin-left:8px;"><span class="pill pill-y">İzinde</span></div></div>
-              <div class="tr"><div class="av-sm" style="background:linear-gradient(135deg,#f59e0b,#fb923c);"></div><div style="flex:1;">Ramazan Bey</div><div>Pazarlama</div><div style="margin-left:8px;"><span class="pill pill-b">Mesaili</span></div></div>
+            <div class="dp-list-box">
+              <div class="dp-li" style="background:var(--light);font-weight:700;font-size:8px;color:var(--gray2);">Son İşlemler</div>
+              <div class="dp-li"><div class="dl-av" style="background:linear-gradient(135deg,#156FB1,#02D5FF);"></div><div><div class="dl-name">Mehmet Y.</div><div class="dl-dept">İzin Onaylandı</div></div><span class="pill pill-g" style="margin-left:auto;">✓</span></div>
+              <div class="dp-li"><div class="dl-av" style="background:linear-gradient(135deg,#641F7E,#a855f7);"></div><div><div class="dl-name">Ayşe K.</div><div class="dl-dept">Bordro Hazır</div></div><span class="pill pill-b" style="margin-left:auto;">↓</span></div>
+              <div class="dp-li"><div class="dl-av" style="background:linear-gradient(135deg,#f59e0b,#fb923c);"></div><div><div class="dl-name">Ali Ç.</div><div class="dl-dept">Mesai Başladı</div></div><span class="pill pill-y" style="margin-left:auto;">⏳</span></div>
             </div>
           </div>
         </div>
       </div>
-      <!-- PHONE MOCK -->
-      <div class="phone-mock">
-        <div class="ph-notch"></div>
-        <div class="ph-screen">
-          <div class="ph-hdr"><div class="ph-logo-txt">IK<span>NET</span></div><i class="fa-solid fa-bell" style="font-size:11px;color:var(--navy);"></i></div>
-          <div class="ph-greet">İyi akşamlar Mehmet Bey<small>Bugün nasıl hissediyorsunuz? 😊</small></div>
-          <div class="ph-shift"><div><b>Mesai</b><small>Mesai Alanındasınız</small></div><div class="sh-dot"><i class="fa-solid fa-door-closed"></i></div></div>
-          <div class="ph-acts"><div class="ph-act g"><i class="fa-solid fa-right-to-bracket"></i>Giriş</div><div class="ph-act r"><i class="fa-solid fa-right-from-bracket"></i>Çıkış</div><div class="ph-act b"><i class="fa-solid fa-clock"></i>Vardiya</div></div>
-          <div class="ph-card"><div class="ph-card-icon"><i class="fa-solid fa-file-lines"></i></div><div><b>Bekleyen Bordro</b><small>Mart 2025 Tebliği</small></div></div>
-          <div class="ph-stats"><div class="ph-stat"><strong id="Target6"></strong><span>Toplam Gün</span></div><div class="ph-stat"><strong>18</strong><span>Çalışılan</span></div></div>
-          <div class="ph-nav">
-            <div class="ph-ni on"><i class="fa-solid fa-house"></i>Ana</div>
-            <div class="ph-ni"><i class="fa-solid fa-bolt"></i>İşlem</div>
-            <div class="ph-ni"><i class="fa-brands fa-modx"></i>Dash</div>
-            <div class="ph-ni"><i class="fa-solid fa-clock"></i>Mesai</div>
-            <div class="ph-ni"><i class="fa-solid fa-user"></i>Hesap</div>
-          </div>
-        </div>
-      </div>
-      <svg class="conn-line" viewBox="0 0 200 70" fill="none">
-        <path d="M10 60 Q100 10 190 35" stroke="url(#cg)" stroke-width="1.5" stroke-dasharray="5 5" opacity="0.4"/>
-        <defs><linearGradient id="cg" x1="0" y1="0" x2="1" y2="0"><stop offset="0%" stop-color="#02D5FF"/><stop offset="100%" stop-color="#641F7E"/></linearGradient></defs>
-      </svg>
-      <div class="chip chip-1"><span class="ci" style="color:#22c55e;">⚡</span><div><div class="cl">Anlık Bildirim</div><div class="cv">Vardiya onaylandı</div></div></div>
-      <div class="chip chip-2"><span class="ci">📊</span><div><div class="cl">Verimlilik</div><div class="cv" id="Target2">+12.4%</div></div></div>
-      <div class="chip chip-3"><span class="ci" style="color:var(--blue);">🔒</span><div><div class="cl">Güvenli</div><div class="cv">KVKK Uyumlu</div></div></div>
-    </div>
-  </div>
-</section>
+                    </div>
+                    <div class="relative">
+                        <div class="absolute -inset-4 bg-primary/10 rounded-full blur-3xl opacity-50"></div>
+
+                    </div>
+                </div>
+            </section>
 <!-- ═══ STATS BAND ═══ -->
 <div class="stats-band">
   <div class="stats-band-inner">
@@ -1488,8 +1492,8 @@
 
 <!-- ═══ iOS PHONE DEMO ═══ -->
 <div class="ios-section">
-  <div class="section-tag" style="display:inline-flex;"><i class="fa-solid fa-mobile-screen-button" style="font-size:10px;"></i> Canlı Demo</div>
-  <h2 class="section-title" style="margin-top:14px;">Uygulamayı canlı deneyin</h2>
+  <div class="section-tag" style="display:inline-flex;"><i class="fa-solid fa-mobile-screen-button" style="font-size:10px;"></i> Mobil Bildirim paneli</div>
+  <h2 class="section-title" style="margin-top:14px;">Ve Daha fazla Bildirim ayarı</h2>
   <p>Gerçek IKNET mobil deneyimini aşağıdan keşfedin.</p>
   <div class="ios-frame">
     <iframe src="iOSTelefon.html" style="width:420px;height:780px;border:none;" scrolling="no"></iframe>
@@ -1541,7 +1545,11 @@
 <div id="Footer"></div>
 
 <script>
-  // ── COUNTER ──────────────────────────────────────────────────────────────
+       document.addEventListener("DOMContentLoaded", () => {
+         setupScrollUI();});
+
+
+
   function countUp(element, target, duration = 1200) {
     let start = 0;
     const increment = target / (duration / 16);
@@ -1557,6 +1565,48 @@
     step();
   }
 
+   // Typing efekti (hero)
+            const texts = [
+                "Vardiya, izin ve bordro tek tıkla hazır..",
+                "Hızlıca",
+                "Güvenle",
+                "Dijital Olarak",
+                "Tek Panelden"
+            ];
+
+            const speed = 23;
+            const deleteSpeed = 15;
+            const waitTime = 1000;
+
+            let textIndex = 0;
+            let charIndex = 0;
+            let isDeleting = false;
+
+            const typingEl = document.getElementById("typing-text");
+            if (typingEl) {
+                typingEl.classList.add("typing-cursor");
+                const typeEffect = () => {
+                    const current = texts[textIndex];
+                    if (!isDeleting) {
+                        typingEl.textContent = current.substring(0, charIndex + 1);
+                        charIndex++;
+                        if (charIndex === current.length) {
+                            setTimeout(() => (isDeleting = true), waitTime);
+                        }
+                    } else {
+                        typingEl.textContent = current.substring(0, charIndex - 1);
+                        charIndex--;
+                        if (charIndex === 0) {
+                            isDeleting = false;
+                            textIndex = (textIndex + 1) % texts.length;
+                        }
+                    }
+                    setTimeout(typeEffect, isDeleting ? deleteSpeed : speed);
+                };
+                typeEffect();
+            }
+
+            
   // ── SCROLL REVEAL ─────────────────────────────────────────────────────────
   const revealObserver = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
@@ -1574,7 +1624,10 @@
     { selector: '#Target3', target: 7 },
     { selector: '#Target4', target: 248 },
     { selector: '#Target5', target: 94 },
-    { selector: '#Target6', target: 31 },
+    { selector: '#Target7', target: 248 },
+    { selector: '#Target8', target: 94 },
+    { selector: '#Target9', target: 7 },
+    { selector: '#Target10', target: 31 },
   ];
 
   const counterObserver = new IntersectionObserver((entries) => {
@@ -1605,7 +1658,7 @@
   // ── TABS ─────────────────────────────────────────────────────────────────
 
 (function() {
-  const DURATION = 5000;
+  const DURATION = 3500;
   const ORDER = ['personel','bordro','performans','aday','vardiya','analitik','ucret'];
   const section = document.querySelector('.tabs-section');
   let idx = 0, timer = null;
@@ -1686,6 +1739,27 @@
 
   startAuto();
 })();
+
+    const setupScrollUI = () => {
+                const bar = document.querySelector("#scroll-progress > div");
+                const onScroll = () => {
+                    const scrollTop = window.scrollY || document.documentElement.scrollTop;
+                    const docHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+                    const p = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+                    if (bar) bar.style.width = `${Math.min(100, Math.max(0, p))}%`;
+                    if (topBtn) topBtn.classList.toggle("show", scrollTop > 600);
+                };
+
+                window.addEventListener("scroll", onScroll, { passive: true });
+                onScroll();
+
+                if (topBtn) {
+                    topBtn.addEventListener("click", () => {
+                        window.scrollTo({ top: 0, behavior: "smooth" });
+                    });
+                }
+            };
+
 </script>
 
 <script src="MenuLoader.js"></script>
