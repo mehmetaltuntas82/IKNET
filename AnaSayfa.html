@@ -794,10 +794,10 @@
                         <div class="flex flex-col sm:flex-row items-center md:justify-start gap-4 pt-4">
                             
                              <div>
-                                <a href="#contact"
+                                <a href="Featurespages.html"
                                     class="inline-flex items-center gap-2 bg-primary text-white font-bold text-lg hover:gap-4 transition-all border border-primary-900 rounded-xl  px-4 py-2">
                                     <span>Özelikleri Keşfedin</span>
-                                    <span class="material-symbols-outlined">arrow_forward</span>
+                                    <i class="fa-solid fa-arrow-right-long"></i>
                                 </a>
                             </div>
                             
@@ -1543,7 +1543,7 @@
                     </div>
                 </div>
             </section>
-
+            <div id="Help"></div>
             <div id="MobileAppPage"></div>
             <div id="whatsapp"></div>
 
@@ -1759,7 +1759,6 @@
                 setupRevealPhones();
                 setupTestimonials();
 
-                // MenuLoader gibi dinamik eklemeler için kısa süre sonra tekrar dene
                 setTimeout(() => {
                     setupRevealObserver();
                     setupCountups();
@@ -1781,11 +1780,10 @@
                 let rafId = null;
                 let lastX = 0;
 
-                // Akışkanlık (Momentum) döngüsü
                 const momentum = () => {
                     if (!isDown) {
                         slider.scrollLeft -= velocity;
-                        velocity *= 0.95; // Sürtünme katsayısı (0.95 çok akıcıdır)
+                        velocity *= 0.95;
 
                         if (Math.abs(velocity) > 0.5) {
                             rafId = requestAnimationFrame(momentum);
@@ -1795,7 +1793,7 @@
 
                 slider.addEventListener('mousedown', (e) => {
                     isDown = true;
-                    slider.style.scrollBehavior = 'auto'; // Kaydırırken smooth-scroll'u kapat (çakışma olmaması için)
+                    slider.style.scrollBehavior = 'auto'; 
                     startX = e.pageX - slider.offsetLeft;
                     scrollLeft = slider.scrollLeft;
                     lastX = e.pageX;
@@ -1820,9 +1818,8 @@
                     e.preventDefault();
 
                     const x = e.pageX - slider.offsetLeft;
-                    const walk = (x - startX) * 1.5; // Hassasiyet çarpanı
+                    const walk = (x - startX) * 1.5; 
 
-                    // Hızı hesapla (fırlatma etkisi için)
                     velocity = e.pageX - lastX;
                     lastX = e.pageX;
 
