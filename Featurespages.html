@@ -13,7 +13,6 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
     <link rel="stylesheet" href="Main.css">
     <link rel="stylesheet" href="AppCss.css">
-    <script src="MenuLoader.js"></script>
     <script src="TemplateStatus.js"></script>
 
     <style>
@@ -96,8 +95,10 @@
 
 <body class="bg-white">
 
-    <header id="Header"></header>
-
+    <div id="Header"></div>
+ <div id="scroll-progress" aria-hidden="true">
+            <div></div>
+        </div>
     <section class=" pb-24 px-6 relative overflow-hidden">
         <div class="absolute top-0 right-0 -z-10 w-1/2 h-full bg-blue-50/50 rounded-l-[200px] hidden lg:block shadow-xl shadow-blue-50/50"></div>
         <div class="max-w-7xl mx-auto grid lg:grid-cols-2 gap-1 items-center">
@@ -373,7 +374,14 @@
     </section>
     <div id="whatsapp"></div>
     <footer id="Footer"></footer>
-
+        <button id="backToTop"
+            class="rounded-full bg-slate-900 text-white w-12 h-12 flex items-center justify-center shadow-2xl shadow-black/20 hover:bg-slate-800 transition"
+            aria-label="Yukarı çık">
+            <i class="fa-solid fa-arrow-up text-xl"></i>
+        </button>
 </body>
-
+<script src="MenuLoader.js"></script>
+<script>  document.addEventListener("DOMContentLoaded", () => {
+    setupScrollUI();
+  });</script>
 </html>
