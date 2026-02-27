@@ -224,12 +224,12 @@ header.shrink {
     height: 70px;
     text-decoration: none;
     border-radius: 50%;
-    animation: pulse 1.5s ease-out infinite;
+    animation: wp-pulse 1.5s ease-out infinite;
     z-index: 1001;
 }
 
-@keyframes pulse {
-    0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.5); }
+@keyframes wp-pulse {  
+    0%  { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.5); }
     80% { box-shadow: 0 0 0 14px rgba(37, 211, 102, 0); }
 }
 
