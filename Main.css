@@ -258,7 +258,6 @@ header.shrink {
 
 /* WHATSAPP BUTON VE PENCERE STİLLERİ */
 .btn-whatsapp-pulse {
-<<<<<<< HEAD
     background: #25d366;
     color: white;
     position: fixed;
@@ -278,35 +277,7 @@ header.shrink {
 
 @keyframes wp-pulse {  
     0%  { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.5); }
-    80% { box-shadow: 0 0 0 14px rgba(37, 211, 102, 0); }
-=======
-  background: #25d366;
-  color: white;
-  position: fixed;
-  bottom: 90px;
-  right: 20px;
-  font-size: 40px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 70px;
-  height: 70px;
-  text-decoration: none;
-  border-radius: 50%;
-  animation: pulse 1.5s ease-out infinite;
-  z-index: 1001;
-}
-
-@keyframes pulse {
-  0% {
-    box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.5);
-  }
-
-  80% {
-    box-shadow: 0 0 0 14px rgba(37, 211, 102, 0);
-  }
->>>>>>> be091939d7990dad61749a6b9bb7591e689576d4
-}
+    80% { box-shadow: 0 0 0 14px rgba(37, 211, 102, 0); }}
 
 .wp-chat-container {
   display: none;
