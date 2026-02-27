@@ -57,10 +57,6 @@
     html { scroll-behavior: smooth; }
     body { font-family: 'Plus Jakarta Sans', sans-serif; background: var(--white); color: var(--text); overflow-x: hidden; }
 
-    /* ── SCROLLBAR ── */
-    ::-webkit-scrollbar { width: 6px; }
-    ::-webkit-scrollbar-track { background: var(--light); }
-    ::-webkit-scrollbar-thumb { background: var(--blue); border-radius: 3px; }
 
     /* ── HERO ── */
     .hero {
@@ -894,29 +890,9 @@
 
    
 
-        #scroll-progress {
-            position: fixed;
-            top: 0;
-            left: 0;
-            height: 5px;
-            width: 100%;
-            z-index: 9999;
-            background: transparent;
-        }
 
-        #scroll-progress>div {
-            height: 100%;
-            width: 0%;
-            background: linear-gradient(90deg, #1c74e9, #a147d9, #d81ce9);
-            background-size: 200% 200%;
-            animation: gradientShift 2.5s linear infinite;
-            box-shadow: 0 8px 24px rgba(28, 116, 233, .25);
-            border-radius: 999px;
-        }
 </style>
 
-
-  </style>
 </head>
 <body>
 
@@ -1542,9 +1518,30 @@
 <div id="MobileAppPage"></div>
 
 
+<<<<<<< HEAD
 <div id="whatsapp" ></div>
-<div id="Footer"></div>
+=======
 
+<!-- ═══ CTA BANNER ═══ -->
+<div class="cta-banner reveal">
+  <div class="cta-left">
+    <h2>İK yönetiminizi bugün<br/>dönüştürün</h2>
+    <p>14 gün boyunca tüm özellikleri ücretsiz deneyin. Kredi kartı gerekmez, kurulum dakikalar içinde tamamlanır.</p>
+  </div>
+  <div class="cta-right">
+    <a href="#" class="btn-cta-white"><i class="fa-solid fa-rocket"></i> Ücretsiz Başla</a>
+    <span class="cta-note">14 gün ücretsiz · İptal kolaylığı</span>
+  </div>
+</div>
+    <div id="whatsapp"></div>
+
+>>>>>>> be091939d7990dad61749a6b9bb7591e689576d4
+<div id="Footer"></div>
+        <button id="backToTop"
+            class="rounded-full bg-slate-900 text-white w-12 h-12 flex items-center justify-center shadow-2xl shadow-black/20 hover:bg-slate-800 transition"
+            aria-label="Yukarı çık">
+            <i class="fa-solid fa-arrow-up text-xl"></i>
+        </button>
 <script>
        document.addEventListener("DOMContentLoaded", () => {
          setupScrollUI();});
@@ -1741,6 +1738,7 @@
   startAuto();
 })();
 
+<<<<<<< HEAD
     const setupScrollUI = () => {
                 const bar = document.querySelector("#scroll-progress > div");
                 const onScroll = () => {
@@ -1754,6 +1752,9 @@
                 window.addEventListener("scroll", onScroll, { passive: true });
                 onScroll();
             };
+=======
+    
+>>>>>>> be091939d7990dad61749a6b9bb7591e689576d4
 
 </script>
 

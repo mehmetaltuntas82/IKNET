@@ -1,4 +1,5 @@
-html, body {
+html,
+body {
   width: 100%;
   max-width: 100%;
   overflow-x: hidden !important;
@@ -13,9 +14,17 @@ html, body {
 }
 
 @keyframes blink {
-  0% { opacity: 1; }
-  50% { opacity: 0; }
-  100% { opacity: 1; }
+  0% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
 }
 
 @keyframes fadeUp {
@@ -23,6 +32,7 @@ html, body {
     opacity: 0;
     transform: translateY(40px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
@@ -30,10 +40,11 @@ html, body {
 }
 
 @keyframes fadeDown {
-     from {
+  from {
     opacity: 0;
     transform: translateY(-40px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
@@ -45,6 +56,7 @@ html, body {
     opacity: 0;
     transform: translateX(40px);
   }
+
   to {
     opacity: 1;
     transform: translateX(0);
@@ -57,6 +69,7 @@ html, body {
     opacity: 0;
     transform: translateX(-40px);
   }
+
   to {
     opacity: 1;
     transform: translateX(0);
@@ -79,11 +92,25 @@ html, body {
   animation: fadeRight 1.2s ease forwards;
 }
 
-.delay-100 { animation-delay: .1s; }
-.delay-200 { animation-delay: .2s; }
-.delay-400 { animation-delay: .4s; }
-.delay-600 { animation-delay: .6s; }
-.delay-800 { animation-delay: .8s; }
+.delay-100 {
+  animation-delay: .1s;
+}
+
+.delay-200 {
+  animation-delay: .2s;
+}
+
+.delay-400 {
+  animation-delay: .4s;
+}
+
+.delay-600 {
+  animation-delay: .6s;
+}
+
+.delay-800 {
+  animation-delay: .8s;
+}
 
 
 .reveal {
@@ -123,11 +150,25 @@ html, body {
 }
 
 
-.delay-1 { transition-delay: .1s; }
-.delay-2 { transition-delay: .2s; }
-.delay-3 { transition-delay: .3s; }
-.delay-4 { transition-delay: .4s; }
-.delay-5 { transition-delay: .5s; }
+.delay-1 {
+  transition-delay: .1s;
+}
+
+.delay-2 {
+  transition-delay: .2s;
+}
+
+.delay-3 {
+  transition-delay: .3s;
+}
+
+.delay-4 {
+  transition-delay: .4s;
+}
+
+.delay-5 {
+  transition-delay: .5s;
+}
 
 /* Ortak */
 .phones-section {
@@ -135,7 +176,7 @@ html, body {
   height: 450px;
   width: 460px;
   margin: auto;
-   overflow: hidden;
+  overflow: hidden;
 }
 
 /* Ortak */
@@ -152,17 +193,23 @@ html, body {
   --s: 1.9;
 
   transform:
-    translate(-50%, -50%)
-    scale(var(--s))
-    translateX(var(--x))
-    rotate(var(--r));
+    translate(-50%, -50%) scale(var(--s)) translateX(var(--x)) rotate(var(--r));
 
   transition: transform 0.15s ease-out;
 }
+
 /* Üst üste */
-.phone-1 { z-index: 3; }
-.phone-2 { z-index: 2; }
-.phone-3 { z-index: 1; }
+.phone-1 {
+  z-index: 3;
+}
+
+.phone-2 {
+  z-index: 2;
+}
+
+.phone-3 {
+  z-index: 1;
+}
 
 /* Normal hali */
 header .h-20 {
@@ -211,6 +258,7 @@ header.shrink {
 
 /* WHATSAPP BUTON VE PENCERE STİLLERİ */
 .btn-whatsapp-pulse {
+<<<<<<< HEAD
     background: #25d366;
     color: white;
     position: fixed;
@@ -231,83 +279,182 @@ header.shrink {
 @keyframes wp-pulse {  
     0%  { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.5); }
     80% { box-shadow: 0 0 0 14px rgba(37, 211, 102, 0); }
+=======
+  background: #25d366;
+  color: white;
+  position: fixed;
+  bottom: 90px;
+  right: 20px;
+  font-size: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 70px;
+  height: 70px;
+  text-decoration: none;
+  border-radius: 50%;
+  animation: pulse 1.5s ease-out infinite;
+  z-index: 1001;
+}
+
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.5);
+  }
+
+  80% {
+    box-shadow: 0 0 0 14px rgba(37, 211, 102, 0);
+  }
+>>>>>>> be091939d7990dad61749a6b9bb7591e689576d4
 }
 
 .wp-chat-container {
-    display: none;
-    position: fixed;
-    bottom: 170px;
-    right: 50px;
-    width: 350px;
-    border-radius: 15px;
-    box-shadow: 0 5px 25px rgba(0,0,0,0.2);
-    overflow: hidden;
-    font-family: 'Segoe UI', sans-serif;
-    z-index: 1000;
+  display: none;
+  position: fixed;
+  bottom: 170px;
+  right: 50px;
+  width: 350px;
+  border-radius: 15px;
+  box-shadow: 0 5px 25px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+  font-family: 'Segoe UI', sans-serif;
+  z-index: 1000;
 }
 
 .wp-header {
-    background-color: #075E54;
-    color: white;
-    padding: 15px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+  background-color: #075E54;
+  color: white;
+  padding: 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
-.wp-avatar { position: relative; } /* Eksikti, eklendi */
-.wp-avatar img { width: 45px; height: 45px; border-radius: 50%; background: #fff; padding: 1px; }
+.wp-avatar {
+  position: relative;
+}
 
-.online-dot { 
-    position: absolute; bottom: 2px; right: 2px; 
-    width: 12px; height: 12px; background: #4AD964; 
-    border: 1px solid #075E54; border-radius: 50%; 
+/* Eksikti, eklendi */
+.wp-avatar img {
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  background: #fff;
+  padding: 1px;
+}
+
+.online-dot {
+  position: absolute;
+  bottom: 2px;
+  right: 2px;
+  width: 12px;
+  height: 12px;
+  background: #4AD964;
+  border: 1px solid #075E54;
+  border-radius: 50%;
 }
 
 .wp-body {
-    background: #e5ddd5 url('https://user-images.githubusercontent.com/15075759/28719144-86dc0f70-73b1-11e7-911d-60d70fcded21.png');
-    padding: 20px;
-    height: 250px;
-    overflow-y: auto;
+  background: #e5ddd5 url('https://user-images.githubusercontent.com/15075759/28719144-86dc0f70-73b1-11e7-911d-60d70fcded21.png');
+  padding: 20px;
+  height: 250px;
+  overflow-y: auto;
 }
 
 .wp-bubble {
-    background: white;
-    padding: 10px 15px;
-    border-radius: 0 15px 15px 15px;
-    max-width: 85%;
-    position: relative;
-    box-shadow: 0 1px 1px rgba(0,0,0,0.1);
-    margin-bottom: 10px;
+  background: white;
+  padding: 10px 15px;
+  border-radius: 0 15px 15px 15px;
+  max-width: 85%;
+  position: relative;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+  margin-bottom: 10px;
 }
 
-.wp-footer { background: #f0f0f0; padding: 10px; display: flex; gap: 10px; align-items: center; }
-.wp-footer input { flex: 1; border: none; padding: 10px 15px; border-radius: 20px; outline: none; }
-.wp-footer button { background: none; border: none; color: #075E54; font-size: 20px; cursor: pointer; }
-.wp-close { background:none; border:none; color:white; font-size:20px; cursor:pointer; opacity:0.8; }
+.wp-footer {
+  background: #f0f0f0;
+  padding: 10px;
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.wp-footer input {
+  flex: 1;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 20px;
+  outline: none;
+}
+
+.wp-footer button {
+  background: none;
+  border: none;
+  color: #075E54;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.wp-close {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 20px;
+  cursor: pointer;
+  opacity: 0.8;
+}
 
 /* Yazıyor Animasyonu (Üç Nokta) */
-.typing-dots { display: flex; gap: 4px; padding: 5px 0; }
-.typing-dots span {
-    width: 8px; height: 8px; background: #999; border-radius: 50%;
-    animation: typingBounce 1.4s infinite ease-in-out both;
+.typing-dots {
+  display: flex;
+  gap: 4px;
+  padding: 5px 0;
 }
-.typing-dots span:nth-child(1) { animation-delay: -0.32s; }
-.typing-dots span:nth-child(2) { animation-delay: -0.16s; }
+
+.typing-dots span {
+  width: 8px;
+  height: 8px;
+  background: #999;
+  border-radius: 50%;
+  animation: typingBounce 1.4s infinite ease-in-out both;
+}
+
+.typing-dots span:nth-child(1) {
+  animation-delay: -0.32s;
+}
+
+.typing-dots span:nth-child(2) {
+  animation-delay: -0.16s;
+}
 
 @keyframes typingBounce {
-    0%, 80%, 100% { transform: scale(0); }
-    40% { transform: scale(1.0); }
+
+  0%,
+  80%,
+  100% {
+    transform: scale(0);
+  }
+
+  40% {
+    transform: scale(1.0);
+  }
 }
 
 /* Yavaşça Belirme Efekti */
 .fade-in-up {
-    animation: fadeInUp 0.5s ease-in forwards;
+  animation: fadeInUp 0.5s ease-in forwards;
 }
 
 @keyframes fadeInUp {
-    from { opacity: 0; transform: translateY(10px); }
-    to { opacity: 1; transform: translateY(0); }
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 
@@ -340,4 +487,43 @@ nav a.active-link::after {
 /* Nav içinde herhangi bir hover varsa aktifinki gizlensin */
 nav:hover a.active-link::after {
   width: 0;
+}
+
+/* backToTop */
+
+#backToTop {
+  position: fixed;
+  right: 18px;
+  bottom: 18px;
+  z-index: 9999;
+  opacity: 0;
+  transform: translateY(10px);
+  pointer-events: none;
+  transition: opacity .25s ease, transform .25s ease;
+}
+
+#backToTop.show {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+#scroll-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 5px;
+  width: 100%;
+  z-index: 9999;
+  background: transparent;
+}
+
+#scroll-progress>div {
+  height: 100%;
+  width: 0%;
+  background: linear-gradient(90deg, #1c74e9, #a147d9, #d81ce9);
+  background-size: 200% 200%;
+  animation: gradientShift 2.5s linear infinite;
+  box-shadow: 0 8px 24px rgba(28, 116, 233, .25);
+  border-radius: 999px;
 }

@@ -22,7 +22,10 @@
 
     <link rel="stylesheet" href="Main.css">
     <link rel="stylesheet" href="AppCss.css">
+<<<<<<< HEAD
 
+=======
+>>>>>>> be091939d7990dad61749a6b9bb7591e689576d4
     <script id="tailwind-config">
         tailwind.config = {
             darkMode: "class",
@@ -128,25 +131,7 @@
             }
         }
 
-        #scroll-progress {
-            position: fixed;
-            top: 0;
-            left: 0;
-            height: 5px;
-            width: 100%;
-            z-index: 9999;
-            background: transparent;
-        }
 
-        #scroll-progress>div {
-            height: 100%;
-            width: 0%;
-            background: linear-gradient(90deg, #1c74e9, #a147d9, #d81ce9);
-            background-size: 200% 200%;
-            animation: gradientShift 2.5s linear infinite;
-            box-shadow: 0 8px 24px rgba(28, 116, 233, .25);
-            border-radius: 999px;
-        }
 
         @keyframes gradientShift {
             0% {
@@ -158,22 +143,7 @@
             }
         }
 
-        #backToTop {
-            position: fixed;
-            right: 18px;
-            bottom: 18px;
-            z-index: 9999;
-            opacity: 0;
-            transform: translateY(10px);
-            pointer-events: none;
-            transition: opacity .25s ease, transform .25s ease;
-        }
 
-        #backToTop.show {
-            opacity: 1;
-            transform: translateY(0);
-            pointer-events: auto;
-        }
 
         /* reveal varyantları (observer ile active alıyor) */
         .reveal-zoom {
@@ -1568,11 +1538,11 @@
 
         </main>
         <div id="Footer"></div>
-
+      
         <button id="backToTop"
             class="rounded-full bg-slate-900 text-white w-12 h-12 flex items-center justify-center shadow-2xl shadow-black/20 hover:bg-slate-800 transition"
             aria-label="Yukarı çık">
-            <span class="material-symbols-outlined">arrow_upward</span>
+            <i class="fa-solid fa-arrow-up text-xl"></i>
         </button>
 
         <script src="MenuLoader.js"></script>
@@ -1690,6 +1660,7 @@
                 });
             };
 
+<<<<<<< HEAD
  
 
 
@@ -1707,6 +1678,10 @@
                 onScroll();
             };
 
+=======
+            // Scroll progress + back to top
+ 
+>>>>>>> be091939d7990dad61749a6b9bb7591e689576d4
             // MobileAppPage içindeki reveal-phone gibi geç gelen içerikler için güvenli init
             const setupRevealPhones = () => {
                 const revealPhones = () => {
@@ -1825,6 +1800,8 @@
             document.addEventListener("DOMContentLoaded", () => {
                 setupFluidDragScroll();
             });
+
+        
         </script>
     </div>
 </body>

@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="tr">
+<html class="scroll-smooth" lang="tr">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -39,12 +39,16 @@
   <style>
     body {
       font-family: 'Inter', sans-serif;
+      scroll-behavior: smooth;
     }
   </style>
 </head>
 <body class="bg-background-light dark:bg-background-dark text-slate-heading">
     <div class="relative flex min-h-screen flex-col overflow-visible">
   <div id="Header"></div>
+  <div id="scroll-progress" aria-hidden="true">
+            <div></div>
+        </div>
 <section class="py-20  from-[#0b1220] to-black text-center relative overflow-hidden ">
 
         <!-- Glow efekt -->
@@ -106,8 +110,16 @@
     <div id="whatsapp"></div>
 
   <div id="Footer"></div>
-
+        <button id="backToTop"
+            class="rounded-full bg-slate-900 text-white w-12 h-12 flex items-center justify-center shadow-2xl shadow-black/20 hover:bg-slate-800 transition"
+            aria-label="Yukarı çık">
+            <i class="fa-solid fa-arrow-up text-xl"></i>
+        </button>
 <script>
+  document.addEventListener("DOMContentLoaded", () => {
+    setupScrollUI();
+  });
+  
   const items = document.querySelectorAll(".faq-item");
 
   items.forEach(item => {
@@ -147,9 +159,10 @@ document.querySelectorAll(".faq-item").forEach(item => {
   item.classList.add("opacity-0","translate-y-6","transition-all","duration-700");
   observer.observe(item);
 });
+
 </script>
 
 
 </body>
-<script src="MenuLoader.js"></script>
 </html>
+<script src="MenuLoader.js"></script>
