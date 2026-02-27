@@ -140,36 +140,38 @@ function getChatTime() {
 
 // 2. Pencereyi Aç/Kapat ve Animasyonu Başlat
 function toggleWPChat() {
-    var box = document.getElementById('wp-chat-box');
-    var typing = document.getElementById('typing-indicator'); // Animasyon balonu
-    var message = document.getElementById('real-message');   // Gerçek mesaj balonu
-    var timeElement = document.getElementById('wp-current-time'); 
+        var box = document.getElementById('wp-chat-box') || document.querySelector('.wp-chat-container');
+    var typing = document.getElementById('typing-indicator');
+    var message = document.getElementById('real-message');
+    var timeElement = document.getElementById('wp-current-time');
 
-    // Eğer kutu kapalıysa aç
-    if (box.style.display === 'none' || box.style.display === '') {
-        box.style.display = 'block';
         
-        // Saati anlık güncelle
-        if (timeElement) {
-            timeElement.innerText = getChatTime();
-        }
+        if (!box || !typing || !message) {
+        console.log('Eksik element:', { box, typing, message }); 
 
-        // ÖNCE animasyonu göster, mesajı gizle
-        typing.style.display = 'block';
-        message.style.display = 'none';
+        return;
+    }
 
-        // 1.5 saniye sonra yer değiştir
-        setTimeout(function() {
-            typing.style.display = 'none';
-            message.style.display = 'block';
-            // Mesaja odaklanmak için input'u bul
+    var isOpen = box.classList.contains('wp-open');
+
+    if (!isOpen) {
+        box.classList.add('wp-open');
+
+        if (timeElement) timeElement.innerText = getChatTime();
+
+        // Reset — her açılışta animasyonu baştan başlat
+        typing.classList.remove('wp-hidden');
+        message.classList.add('wp-hidden');
+
+        setTimeout(function () {
+            typing.classList.add('wp-hidden');
+            message.classList.remove('wp-hidden');
             const inputField = document.getElementById('wp-msg-input');
-            if(inputField) inputField.focus();
+            if (inputField) inputField.focus();
         }, 1500);
 
     } else {
-        // Eğer kutu açıksa kapat
-        box.style.display = 'none';
+        box.classList.remove('wp-open');
     }
 }
 
