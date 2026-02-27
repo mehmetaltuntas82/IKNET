@@ -9,13 +9,13 @@
 
   <!-- Tailwind -->
   <script src="https://cdn.tailwindcss.com"></script>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <!-- Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" />
 
   <!-- Font -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&display=swap" rel="stylesheet" />
-  
+
   <script>
     tailwind.config = {
       darkMode: "class",
@@ -46,111 +46,118 @@
 
     <!-- ================= NAVBAR ================= -->
     <div id="Header"></div>
-        <div id="scroll-progress" aria-hidden="true">
-            <div></div>
-        </div>
+    <div id="scroll-progress" aria-hidden="true">
+      <div></div>
+    </div>
 
     <main class="flex-1">
 
       <!-- ================= HERO ================= -->
-      <section class="py-20  from-[#0b1220] to-black text-center relative overflow-hidden ">
+      <!-- ÜST BAŞLIK ALANI -->
+      <section class="mt-44 bg-[#f8f9fa]">
+        <div class="max-w-7xl mx-auto px-6">
+          <h1 class="text-5xl font-extrabold text-dark">
+            İletişime Geçin
+          </h1>
 
-        <!-- Glow efekt -->
-        <div class="absolute top-0 left-1/4 w-96 h-96 bg-blue-600/20 blur-[140px] rounded-full"></div>
-        <div class="absolute bottom-0 right-1/4 w-96 h-96 bg-purple-600/20 blur-[140px] rounded-full"></div>
-
-        <h1 class="text-5xl mt-5 font-extrabold text-dark">İletişime Geçin</h1>
-        <p class="mt-6 text-xl text-gray-400 max-w-3xl mx-auto">
-          IKNET hakkında bilgi almak, demo talep etmek veya destek almak için bizimle iletişime geçebilirsiniz.
-        </p>
+          <p class="mt-6 text-gray-500 max-w-2xl">
+            IKNET hakkında bilgi almak veya destek almak için bizimle iletişime geçebilirsiniz.
+          </p>
+        </div>
       </section>
-      <section class="lg:max-w-7xl max-w-sm mx-auto px-6 py-10 grid grid-cols-1 lg:grid-cols-2 ">
+
+
+      <!-- İÇERİK ALANI -->
+      <section class="max-w-7xl mx-auto px-6 py-9 grid grid-cols-1 lg:grid-cols-2 gap-16">
 
         <!-- SOL TARAF -->
-        <div class="lg:p-10 py-2  lg:mt-14 " style="margin-left: -60px;">
+        <div class="space-y-6">
 
-
-          <div class="grid gap-3 ms-3">
-            
-     
-        <div class="bg-white rounded-[30px] lg:p-8 p-2 w-80 lg:w-auto flex items-center gap-6 shadow">
-              <div class="w-16 h-16 flex items-center justify-center rounded-full border">
-            <i class="fa-solid fa-location-dot text-xl"></i>
-          </div>
-          <div>
-            <p class="lg:text-lg text-xs font-semibold"> Fevziçakmak Mah. Medcezir Cd. No:39/B, 42050</p>
-            <p class="text-gray-500 text-sm">Karatay/Konya</p>
-          </div>
-        </div>
-            
-
-            <div class="bg-white rounded-[30px] lg:p-8 p-2 lg:w-auto w-80 flex items-center gap-6 shadow">
-              <div class="w-16 h-16 flex items-center justify-center rounded-full border">
-                <i class="fa-solid fa-phone text-xl"></i>
-              </div>
-              <div>
-                <p class="text-lg font-semibold">+90 212 000 00 00</p>
-                <p class="text-gray-500 text-sm">Telefon</p>
-              </div>
+          <div class="bg-white rounded-[30px] p-6 lg:p-8 w-full flex items-center gap-6 shadow">
+            <div class="w-16 h-16 flex items-center justify-center rounded-full border">
+              <i class="fa-solid fa-location-dot text-xl"></i>
             </div>
+            <div>
+              <a class="lg:text-lg text-sm font-semibold hover:underline" href="https://www.google.com/maps/place/Devayazilim/@37.9342356,32.5452624,17z/data=!3m1!4b1!4m5!3m4!1s0x14d091004f70ca47:0xebe498c1f01b71ce!8m2!3d37.9342356!4d32.545">
+                Fevziçakmak Mah. Medcezir Cd. No:39/B, 42050
+              </a>
+              <p class="text-gray-500 text-sm">
+                Karatay/Konya
+              </p>
+            </div>
+          </div>
 
-        <div class="bg-white rounded-[30px] lg:p-8 p-2 lg:w-auto w-80 flex items-center gap-6 shadow">
-          <div class="w-16 h-16 flex items-center justify-center rounded-full border">
-            <i class="fa-solid fa-envelope text-xl"></i>
+          <!-- TELEFON -->
+          <div class="bg-white rounded-[30px] p-6 lg:p-8 w-full flex items-center gap-6 shadow">
+            <div class="w-16 h-16 flex items-center justify-center rounded-full border">
+              <i class="fa-solid fa-phone text-xl"></i>
+            </div>
+            <div>
+              <a href="tel:+903322620200"  class="lg:text-lg text-sm font-semibold hover:underline">
+                (0332) 262 02 00
+              </a>
+              <p class="text-gray-500 text-sm">
+                Telefon
+              </p>
+            </div>
           </div>
-          <div>
-            <p class="lg:text-lg text-sm  font-semibold"> iletisim@devayazilim.com.tr</p>
-            <p class="text-gray-500 text-sm">E-posta</p>
+
+          <!-- E-POSTA -->
+          <div class="bg-white rounded-[30px] p-6 lg:p-8 w-full flex items-center gap-6 shadow">
+            <div class="w-16 h-16 flex items-center justify-center rounded-full border">
+              <i class="fa-solid fa-envelope text-xl"></i>
+            </div>
+            <div>
+              <a href="mailto:iletisim@devayazilim.com.tr" class="lg:text-lg text-sm font-semibold hover:underline">
+                iletisim@devayazilim.com.tr
+              </a>
+              <p class="text-gray-500 text-sm">
+                E-posta
+              </p>
+            </div>
           </div>
+
         </div>
-          </div>
-        </div>
+
 
         <!-- FORM TARAF -->
-        <div class="p-10 rounded-[18px] bg-white/70 backdrop-blur-xl border border-gray-200">
+        <div class="p-8 lg:p-10 rounded-[24px] bg-white shadow-lg border border-gray-200">
 
           <h2 class="text-3xl font-bold mb-10 text-center">
-           Size Nasıl Yardımcı Olabiliriz?
+            Size Nasıl Yardımcı Olabiliriz?
           </h2>
 
           <form method="POST" class="flex flex-col gap-6">
 
-          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <input type="text" name="name" placeholder="Ad Soyad"
-              required
-              class="rounded-full px-6 py-4 bg-gray-100 border border-transparent focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition duration-300">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <input type="text" name="name" placeholder="Ad Soyad" required
+                class="rounded-full px-6 py-4 bg-gray-100 border border-transparent focus:outline-none focus:ring-2 focus:ring-blue-500 transition duration-300">
 
-            <input type="text" name="phone" placeholder="Telefon"
-              required
-              class="rounded-full px-6 py-4 bg-gray-100 border border-transparent focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition duration-300">
-              
-          </div>
+              <input type="text" name="phone" placeholder="Telefon" required
+                class="rounded-full px-6 py-4 bg-gray-100 border border-transparent focus:outline-none focus:ring-2 focus:ring-blue-500 transition duration-300">
+            </div>
 
-          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <input type="email" name="email" placeholder="E-posta"
-              required
-              class="rounded-full px-6 py-4 bg-gray-100 border border-transparent focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition duration-300">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <input type="email" name="email" placeholder="E-posta" required
+                class="rounded-full px-6 py-4 bg-gray-100 border border-transparent focus:outline-none focus:ring-2 focus:ring-blue-500 transition duration-300">
 
-            <input type="text" name="subject" placeholder="Konu"
-              required
-              class="rounded-full px-6 py-4 bg-gray-100 border border-transparent focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition duration-300">
-          </div>
+              <input type="text" name="subject" placeholder="Konu" required
+                class="rounded-full px-6 py-4 bg-gray-100 border border-transparent focus:outline-none focus:ring-2 focus:ring-blue-500 transition duration-300">
+            </div>
 
-          <textarea name="message" rows="6" placeholder="Mesajınız"
-            required
-            class="rounded-3xl px-6 py-4 bg-gray-100 border border-transparent focus:outline-none focus:ring-2 focus:ring-blue-500 transition duration-300"></textarea>
+            <textarea name="message" rows="6" placeholder="Mesajınız" required
+              class="rounded-3xl px-6 py-4 bg-gray-100 border border-transparent focus:outline-none focus:ring-2 focus:ring-blue-500 transition duration-300"></textarea>
 
-          <button type="submit"
-            class="border bg-blue-500 text-white py-4 rounded-full text-lg font-semibold transition-all hover:scale-[0.98] ">
-            Gönder
-          </button>
+            <button type="submit"
+              class="bg-blue-500 text-white py-4 rounded-full text-lg font-semibold transition-all hover:scale-[0.98]">
+              Gönder
+            </button>
 
-        </form>
+          </form>
 
         </div>
 
       </section>
-
       <!-- HARITA -->
       <div class="pb-20 px-6">
         <div class="lg:max-w-7xl max-w-sm mx-auto p-10 rounded-[18px] bg-white  border border-gray-200">
@@ -169,21 +176,21 @@
 
   </div>
   </main>
-    <div id="whatsapp"></div>
+  <div id="whatsapp"></div>
 
   <div id="Footer"></div>
 
   </div>
-       <button id="backToTop"
-            class="rounded-full bg-slate-900 text-white w-12 h-12 flex items-center justify-center shadow-2xl shadow-black/20 hover:bg-slate-800 transition"
-            aria-label="Yukarı çık">
-            <i class="fa-solid fa-arrow-up text-xl"></i>
-        </button>
+  <button id="backToTop"
+    class="rounded-full bg-slate-900 text-white w-12 h-12 flex items-center justify-center shadow-2xl shadow-black/20 hover:bg-slate-800 transition"
+    aria-label="Yukarı çık">
+    <i class="fa-solid fa-arrow-up text-xl"></i>
+  </button>
   <!-- MENU LOADER -->
   <script src="MenuLoader.js"></script>
- <script>  document.addEventListener("DOMContentLoaded", () => {
-    setupScrollUI();
-  });
+  <script>  document.addEventListener("DOMContentLoaded", () => {
+      setupScrollUI();
+    });
   </script>
 </body>
 
