@@ -196,24 +196,4 @@ function handleEnter(e) {
 
 
 // Scroll progress + back to top
-           const setupScrollUI = () => {
-                const bar = document.querySelector("#scroll-progress > div");
-                const topBtn = document.getElementById("backToTop");
-
-                const onScroll = () => {
-                    const scrollTop = window.scrollY || document.documentElement.scrollTop;
-                    const docHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-                    const p = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
-                    if (bar) bar.style.width = `${Math.min(100, Math.max(0, p))}%`;
-                    if (topBtn) topBtn.classList.toggle("show", scrollTop > 600);
-                };
-
-                window.addEventListener("scroll", onScroll, { passive: true });
-                onScroll();
-
-                if (topBtn) {
-                    topBtn.addEventListener("click", () => {
-                        window.scrollTo({ top: 0, behavior: "smooth" });
-                    });
-                }
-            };
+      
