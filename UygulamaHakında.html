@@ -1520,19 +1520,7 @@
 
 
 <div id="whatsapp" ></div>
-=======
 
-<!-- ═══ CTA BANNER ═══ -->
-<div class="cta-banner reveal">
-  <div class="cta-left">
-    <h2>İK yönetiminizi bugün<br/>dönüştürün</h2>
-    <p>14 gün boyunca tüm özellikleri ücretsiz deneyin. Kredi kartı gerekmez, kurulum dakikalar içinde tamamlanır.</p>
-  </div>
-  <div class="cta-right">
-    <a href="#" class="btn-cta-white"><i class="fa-solid fa-rocket"></i> Ücretsiz Başla</a>
-    <span class="cta-note">14 gün ücretsiz · İptal kolaylığı</span>
-  </div>
-</div>
     
 
 <div id="Footer"></div>
@@ -1542,8 +1530,6 @@
             <i class="fa-solid fa-arrow-up text-xl"></i>
         </button>
 <script>
-       document.addEventListener("DOMContentLoaded", () => {
-         setupScrollUI();});
 
 
 
@@ -1736,22 +1722,6 @@
 
   startAuto();
 })();
-
-
-    const setupScrollUI = () => {
-                const bar = document.querySelector("#scroll-progress > div");
-                const onScroll = () => {
-                    const scrollTop = window.scrollY || document.documentElement.scrollTop;
-                    const docHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-                    const p = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
-                    if (bar) bar.style.width = `${Math.min(100, Math.max(0, p))}%`;
-                  
-                };
-
-                window.addEventListener("scroll", onScroll, { passive: true });
-                onScroll();
-            };
-
 
 </script>
 
